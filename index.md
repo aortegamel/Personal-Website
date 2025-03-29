@@ -3,11 +3,16 @@ layout: home
 title: Welcome to My Portfolio
 ---
 
-# Hello, I'm Angleito
+# Hello, I'm Angel Ortega-Melton
 
 I'm a developer passionate about creating innovative solutions. This portfolio showcases my projects and articles on various technical topics.
 
 ## Latest Projects
+
+<div class="disclaimer-notice">
+  <p><strong>Note:</strong> All code examples shown are simplified placeholders. 
+  For access to the real projects or more information, please <a href="mailto:arainey555@gmail.com">contact me</a>.</p>
+</div>
 
 <div id="projects-grid" class="project-grid">
   <!-- Projects will be loaded here dynamically -->

@@ -12,7 +12,14 @@ async function loadProjects() {
       return;
     }
     
-    projectsGrid.innerHTML = '';
+    // Add disclaimer notice at the top
+    const disclaimer = document.createElement('div');
+    disclaimer.className = 'disclaimer-notice';
+    disclaimer.innerHTML = `
+      <p><strong>Note:</strong> All code examples shown are simplified placeholders. 
+      For access to the real projects or more information, please <a href="mailto:arainey555@gmail.com">contact me</a>.</p>
+    `;
+    projectsGrid.appendChild(disclaimer);
     
     projects.forEach(project => {
       const card = document.createElement('div');
@@ -32,7 +39,7 @@ async function loadProjects() {
         <div class="project-links">
           ${project.github ? `<a href="${project.github}" target="_blank" class="github-link">View Code</a>` : ''}
           ${project.demo ? `<a href="${project.demo}" target="_blank" class="demo-link">Live Demo</a>` : ''}
-          ${!project.github && project.private_full_version ? `<a href="mailto:${project.contact}" class="contact-link">Contact for Details</a>` : ''}
+          ${project.private_full_version ? `<a href="mailto:${project.contact || 'arainey555@gmail.com'}" class="contact-link">Contact for Full Version</a>` : ''}
         </div>
       `;
       projectsGrid.appendChild(card);
