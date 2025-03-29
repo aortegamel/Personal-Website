@@ -11,10 +11,13 @@ New aspiring programmer leveraging AI tools to accelerate learning and project b
 ## Technical Skills
 
 - **Programming Languages:** Python, JavaScript, TypeScript, Sui Move
-- **Web Development:** HTML, CSS, React.js
+- **Web Development:** HTML, CSS, React.js, Node.js
 - **Version Control:** Git, GitHub
-- **Blockchain:** Smart Contract Development, DeFi Protocols, Trading Bots
-- **AI Tools:** Prompt Engineering, AI-Assisted Development, LLM Integration
+- **Blockchain & DeFi:** Sui Blockchain, Smart Contract Development, DEX Integration, Flash Loans, Trading Bots, Cross-platform DeFi Solutions
+- **AI & ML:** Claude Integration, LangChain, LLM Model Training, Benchmarking & Optimization, MLOps, Prompt Engineering
+- **Cloud & DevOps:** Docker, Microservices Architecture, Containerization, CI/CD
+- **Data & APIs:** API Integration (Bluefin, 7k Protocol), Real-time Data Processing, Technical Analysis
+- **System Design:** Resilient Systems, Error Handling, Security Best Practices
 
 ## Projects
 

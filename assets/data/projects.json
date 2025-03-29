@@ -1,28 +1,47 @@
 [
   {
-    "name": "AI-Powered Dashboard",
-    "description": "Real-time analytics interface with interactive visualizations and data filtering capabilities",
-    "tech_stack": ["React", "TypeScript", "GraphQL"],
-    "github": "https://github.com/Angleito/ai-dashboard",
-    "demo": "https://angleito.github.io/ai-dashboard",
+    "name": "BluefinAI Agent Trader",
+    "description": "Sophisticated, containerized crypto trading system using AI (Claude) for chart analysis and automated trading on Bluefin.",
+    "tech_stack": ["Python", "Docker", "Microservices", "Claude AI", "TradingView", "Bluefin API", "Sui"],
+    "github": "",
+    "private_full_version": true,
+    "contact": "arainey555@gmail.com",
     "features": [
-      "Real-time data visualization",
-      "JWT authentication",
-      "CI/CD pipeline",
-      "Responsive design"
+      "AI Chart Analysis (Claude)",
+      "Microservices Architecture",
+      "Bluefin Exchange API Integration",
+      "TradingView Webhook Integration",
+      "Advanced Risk Management",
+      "Multi-Timeframe Analysis"
     ]
   },
   {
-    "name": "Task Management App",
-    "description": "Mobile-first task management application with offline capabilities",
-    "tech_stack": ["React Native", "Redux", "Firebase"],
-    "github": "https://github.com/Angleito/task-manager",
-    "demo": "https://angleito.github.io/task-manager-demo",
+    "name": "bot",
+    "description": "Automated trading bot for Sui leveraging DEX aggregation and potentially flash loans for DeFi opportunities.",
+    "tech_stack": ["TypeScript", "Sui", "Node.js", "@mysten/sui.js", "@7kprotocol/sdk-ts"],
+    "github": "https://github.com/Angleito/SuiFlashBotTemplate",
+    "private_full_version": true,
     "features": [
-      "Offline data synchronization",
-      "Push notifications",
-      "Dark/light theme",
-      "Cross-platform compatibility"
+      "Sui Blockchain Interaction",
+      "DEX Aggregation (7k Protocol)",
+      "Optimal Swap Execution Engine",
+      "Secure Key Management",
+      "Resilient Sui Client Connection"
+    ]
+  },
+  {
+    "name": "QwenSuiCoder",
+    "description": "LLM Benchmarking & Training Framework specialized for Sui blockchain development",
+    "tech_stack": ["Python", "PyTorch", "DeepSpeed", "Qwen", "MLOps", "Sui"],
+    "github": "",
+    "private_full_version": true,
+    "contact": "arainey555@gmail.com",
+    "features": [
+      "Hardware-aware model selection",
+      "Automated benchmarking (0.5B to 14B parameters)",
+      "DeepSpeed-optimized training",
+      "ZeRO optimization",
+      "Specialized for Sui blockchain development"
     ]
   }
 ] 
