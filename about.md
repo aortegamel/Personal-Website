@@ -6,23 +6,23 @@ permalink: /about/
 
 # About Me
 
-I'm a software developer with a passion for creating elegant solutions to complex problems. My journey in technology began with a curiosity about how things work, which evolved into a career building innovative applications.
+New aspiring programmer leveraging AI tools to accelerate learning and project building. Experience with Python, JavaScript, and web development fundamentals. Strong background in customer service and operational logistics with proven ability to adapt to different environments and learn new skills quickly. Seeking opportunities to combine my technical learning journey and customer-focused background in a software development role.
 
-## Skills
+## Technical Skills
 
-- **Programming Languages**: JavaScript, Python, TypeScript
-- **Frontend**: React, Vue.js, HTML5, CSS3
-- **Backend**: Node.js, Express, Django
-- **DevOps**: CI/CD, Docker, GitHub Actions
-- **Database**: MongoDB, PostgreSQL
+- **Programming Languages:** Python, JavaScript, TypeScript, Sui Move
+- **Web Development:** HTML, CSS, React.js
+- **Version Control:** Git, GitHub
+- **Blockchain:** Smart Contract Development, DeFi Protocols, Trading Bots
+- **AI Tools:** Prompt Engineering, AI-Assisted Development, LLM Integration
 
-## Experience
+## Projects
 
-I've worked on various projects ranging from web applications to data analysis tools. My focus is on creating scalable and maintainable code that solves real-world problems.
+- **AI-Assisted Trading Bot (Bluefin Exchange):** Developed an autonomous trading agent using AI tools to enhance machine learning algorithms for market trend analysis and trade execution on the Bluefin Exchange. Implemented risk management strategies and backtesting capabilities while leveraging AI to optimize performance across various market conditions.
 
-## Education
+- **AI-Enhanced  Bot (Sui Network):** Created a  arbitrage bot for the Sui blockchain, utilizing AI assistance to identify price discrepancies across decentralized exchanges and execute profitable trades within a single transaction. Used Sui Move programming language with AI guidance to ensure secure and efficient smart contract execution.
 
-- Bachelor's Degree in Computer Science
+- **Personal Portfolio Website:** Professional website showcasing my development skills and blockchain projects using React.js built with AI-assisted development techniques.
 
 ## Contact
 
