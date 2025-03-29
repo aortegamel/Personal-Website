@@ -18,6 +18,8 @@ New aspiring programmer leveraging AI tools to accelerate learning and project b
 
 ## Projects
 
+- **QwenSuiCoder - LLM Benchmarking & Training Framework:** Developed an end-to-end solution for benchmarking, optimizing, and fine-tuning Qwen 2.5 models specialized for Sui blockchain development. Built with hardware-aware model selection that automatically determines optimal model size, quantization level, and context length based on available resources. Features include automated benchmarking across various model sizes (0.5B to 14B parameters), smart parameter selection, and DeepSpeed-optimized training with ZeRO optimization. The system demonstrates proficiency in MLOps, Python, and model optimization techniques while providing a specialized AI assistant for Sui blockchain development.
+
 - **AI-Assisted Trading Bot (Bluefin Exchange):** Developed an autonomous trading agent using AI tools to enhance machine learning algorithms for market trend analysis and trade execution on the Bluefin Exchange. Implemented risk management strategies and backtesting capabilities while leveraging AI to optimize performance across various market conditions.
 
 - **[AI-Enhanced  Bot (Sui Network)](https://github.com/Angleito/SuiFlashBotTemplate):** Created a  arbitrage bot for the Sui blockchain, utilizing AI assistance to identify price discrepancies across decentralized exchanges and execute profitable trades within a single transaction. Used Sui Move programming language with AI guidance to ensure secure and efficient smart contract execution. The GitHub repository contains a simplified demo version - contact me for information about the full implementation with advanced features.
