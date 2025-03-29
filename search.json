@@ -2,9 +2,9 @@
   
     {
       "title"    : "SUI: BITCOIN&#39;S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA",
-      "category" : "blockchain, crypto",
+      "category" : "crypto, development",
       "tags"     : "",
-      "url"      : "/blockchain/crypto/2025/03/29/.html",
+      "url"      : "/crypto/development/2025/03/29/.html",
       "date"     : "March 29, 2025",
       "excerpt"  : "SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA
 "
@@ -27,6 +27,29 @@ New aspiring programmer leveraging AI tools to accelerate learning and project b
   
    
      {
+       "title"    : "AI Articles",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "/categories/ai/",
+       "date"     : "",
+       "excerpt"  : "AI Articles
+
+Artificial intelligence, machine learning, and their applications.
+
+
+  
+    
+  
+
+
+No articles in this category yet. Check back soon!
+
+"
+     } ,
+   
+  
+   
+     {
        "title"    : "Articles",
        "category" : "page",
        "tags"     : "",
@@ -40,6 +63,87 @@ This is where I write my opinion pieces as well as personal stories and journey.
   
    
      {
+       "title"    : "Categories",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "/categories/",
+       "date"     : "",
+       "excerpt"  : "Article Categories
+
+Browse articles by category:
+
+
+  
+    Economics
+    Articles about economic theories, market analysis, and financial insights.
+  
+  
+  
+ ..."
+     } ,
+   
+  
+   
+     {
+       "title"    : "Crypto Articles",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "/categories/crypto/",
+       "date"     : "",
+       "excerpt"  : "Crypto Articles
+
+Blockchain technology, cryptocurrency analysis, and DeFi innovations.
+
+
+  
+    
+      
+        SUI: BITCOIN&#39;S  - WHY THIS BLOC..."
+     } ,
+   
+  
+   
+     {
+       "title"    : "Development Articles",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "/categories/development/",
+       "date"     : "",
+       "excerpt"  : "Development Articles
+
+Programming, software development, and technical projects.
+
+
+  
+    
+      
+        SUI: BITCOIN&#39;S  - WHY THIS BLOCKCHAIN..."
+     } ,
+   
+  
+   
+     {
+       "title"    : "Economics Articles",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "/categories/economics/",
+       "date"     : "",
+       "excerpt"  : "Economics Articles
+
+Articles about economic theories, market analysis, and financial insights.
+
+
+  
+    
+  
+
+
+No articles in this category yet. Check back so..."
+     } ,
+   
+  
+   
+     {
        "title"    : "Welcome to My Portfolio",
        "category" : "page",
        "tags"     : "",
@@ -48,6 +152,29 @@ This is where I write my opinion pieces as well as personal stories and journey.
        "excerpt"  : "Hello, I’m Angleito
 
 I’m a developer passionate about creating innovative solutions. This portfolio showcases my projects and articles on various technical t..."
+     } ,
+   
+  
+   
+     {
+       "title"    : "Personal Articles",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "/categories/personal/",
+       "date"     : "",
+       "excerpt"  : "Personal Articles
+
+Personal stories, experiences, and reflections on my journey.
+
+
+  
+    
+  
+
+
+No articles in this category yet. Check back soon!
+
+"
      } ,
    
   
