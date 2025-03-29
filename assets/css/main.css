@@ -220,4 +220,23 @@ footer {
   margin-top: 0.5rem;
   color: var(--secondary-text);
   font-size: 0.9rem;
+}
+
+/* Disclaimer Notice */
+.disclaimer-notice {
+  grid-column: 1 / -1;
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--primary-color);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.disclaimer-notice p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.disclaimer-notice a {
+  font-weight: 500;
 } 
