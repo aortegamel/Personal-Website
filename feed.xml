@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-29T16:59:33+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html">Modern Web Development Practices</title><link href="https://angleito.github.io/web/javascript/2025/03/28/welcome.html" rel="alternate" type="text/html" title="Modern Web Development Practices" /><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://angleito.github.io/web/javascript/2025/03/28/welcome</id><content type="html" xml:base="https://angleito.github.io/web/javascript/2025/03/28/welcome.html"><![CDATA[<h1 id="modern-web-development-practices">Modern Web Development Practices</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-29T17:22:10+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</title><link href="https://angleito.github.io/blockchain/crypto/2025/03/29/.html" rel="alternate" type="text/html" title="SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA" /><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/blockchain/crypto/2025/03/29/</id><content type="html" xml:base="https://angleito.github.io/blockchain/crypto/2025/03/29/.html"><![CDATA[<h1 id="sui-bitcoins--steel---why-this-blockchain-knight-will-slaughter-ethereum-and-solana">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</h1>
+
+<p><strong>Subtitle:</strong> <em>In the Game of Coins, Only One Chain Wields the Sword of Scalability - And It’s Not Who You Think</em></p>
+
+<hr />
+
+<h2 id="prologue-the-iron-throne-and-the-broken-swords">Prologue: The Iron Throne and the Broken Swords</h2>
+<p>The crypto realm is a warzone littered with the corpses of overhyped chains and broken promises. <strong>Bitcoin</strong> sits atop the Iron Throne - immutable, decentralized, and untouchable. But below? Chaos reigns. Ethereum staggers under the weight of its own hubris, a crumbling relic charging peasants <em>$50 fees</em> to cross its moat of molasses-speed transactions. Solana swings a flimsy tin sword, collapsing in a heap every time a squirrel sneezes on its network.</p>
+
+<p>Enter <strong>Sui</strong> - forged in the fires of Meta’s abandoned Diem project and armored with institutional-grade tech. This isn’t just another pretender. This is <em>Bitcoin’s Kingsguard</em> - the only chain ruthless enough to unite scalability, security, and real-world utility under crypto’s bloodstained banner.</p>
+
+<hr />
+
+<h2 id="chapter-1-ethereums-winterfell---a-kingdom-rotting-from-within">Chapter 1: Ethereum’s Winterfell - A Kingdom Rotting from Within</h2>
+<h3 id="the-gas-fee-massacre">The Gas Fee Massacre</h3>
+<p>Ethereum’s claim to smart contract supremacy died screaming during the 2021 NFT boom. Users faced “gas fee” tributes higher than Littlefinger’s debt to the Iron Bank - <strong>$200</strong> to mint a JPG, <strong>$1,000</strong> to swap tokens. Its proof-of-stake “merge” solved nothing - just ask the developers fleeing to Layer 2 shanty towns like Arbitrum and Optimism[3].</p>
+
+<blockquote>
+  <p><em>“Ethereum is the Mad King Aerys of crypto - burning everyone alive while screaming ‘DeFi! DeFi!’”</em> - Anonymous DeFi Degenerate</p>
+</blockquote>
+
+<h3 id="the-solidity-siege">The Solidity Siege</h3>
+<p>Ethereum’s programming language, Solidity, is a security nightmare. Its $12 billion DeFi hack graveyard[5] makes the Red Wedding look tame. The DAO hack ($60M stolen)[6], the Parity wallet freeze ($280M lost)[7] - all stem from Solidity’s loopholes.</p>
+
+<p><strong>Sui doesn’t beg for mercy.</strong> Its <em>Move language</em> - battle-tested by Meta’s engineers - slams the gates on exploits. Assets become <em></em>: indestructible, non-replicable, and bound by cryptographic oaths. Try hacking this? You’ll get the Ned Stark treatment.</p>
+
+<hr />
+
+<h2 id="chapter-2-solanas-house-of-cards---a-paper-sword-shattered">Chapter 2: Solana’s House of Cards - A Paper Sword Shattered</h2>
+<h3 id="the-16-outages-of-shame">The 16 Outages of Shame</h3>
+<p>2022 wasn’t kind to Solana. 16 network outages[10] - more collapses than the Night’s Watch during a White Walker party. Each downtime cost traders millions in liquidations and lost NFT mints.</p>
+
+<blockquote>
+  <p><em>“Solana is the Theon Greyjoy of crypto - constantly getting its ‘sword’ chopped off.”</em> - r/CryptoTwitter</p>
+</blockquote>
+
+<h3 id="fake-speed-real-fragility">Fake Speed, Real Fragility</h3>
+<p>Solana’s “65,000 TPS” claim? Pure theater. Their Sealevel runtime prioritizes speed over stability - a tower built on sand. When bots attacked its NFT minting system in January 2023, fees spiked to <strong>$4,800 per transaction</strong>[12] - higher than Ethereum’s worst days.</p>
+
+<p><strong>Sui laughs at these antics.</strong> Its <em>Narwhal-Bullshark consensus</em> processes transactions in parallel lanes - imagine the Kingsroad with 297,000 carriages moving at lightspeed[14]. All for <strong>$0.001 fees</strong>, all finalized before you can say “Hodor.”</p>
+
+<hr />
+
+<h2 id="chapter-3-suis-long-night---engineering-winter">Chapter 3: Sui’s Long Night - Engineering Winter</h2>
+<h3 id="the-meta-forge">The Meta Forge</h3>
+<p>Sui’s architects aren’t basement-dwelling anons. These are <em>Silicon Valley White Walkers</em>:</p>
+
+<ul>
+  <li><strong>Evan Cheng (CEO):</strong> Former Head of Meta’s Novi R&amp;D - built Diem’s $200M codebase</li>
+  <li><strong>Sam Blackshear (CTO):</strong> Created Move at Meta - now crypto’s only language with mathematical security proofs</li>
+  <li><strong>Adeniyi Abiodun (CPO):</strong> Scaled Google Cloud to manage <em>exabytes</em> of data</li>
+</ul>
+
+<p>These engineers don’t play “build fast, break things.” They <strong>build to survive nuclear winter</strong>.</p>
+
+<h3 id="institutional-conquests">Institutional Conquests</h3>
+<p>While Solana chases memecoin clout and Ethereum hosts JPEG casinos, Sui’s forging alliances with actual kingdoms:</p>
+
+<ul>
+  <li><strong>FedNow:</strong> Piloting instant payments for 4,300 U.S. banks[17]</li>
+  <li><strong>Las Vegas Sphere:</strong> 18,000 NFT tickets scanned via Sui per concert[18]</li>
+  <li><strong>Ubisoft:</strong> Tracking 2.1 million in-game assets across 14 countries[19]</li>
+</ul>
+
+<p>This isn’t adoption. It’s <strong><em>colonization</em></strong>.</p>
+
+<hr />
+
+<h2 id="chapter-4-bitcoins-crown--suis-conquest">Chapter 4: Bitcoin’s Crown &amp; Sui’s Conquest</h2>
+<h3 id="the-golden-anchors">The Golden Anchors</h3>
+<p>Let’s be clear: <strong>Bitcoin is the realm’s true sovereign</strong>. Its $1.3 trillion market cap[21] dwarfs all competitors. But gold doesn’t build empires - armies do.</p>
+
+<p>Sui is Bitcoin’s <em>Dothraki horde</em> - a nomadic force spreading crypto’s reach into:</p>
+<ul>
+  <li><strong>Gaming</strong> (100k+ transactions per second for AAA titles)</li>
+  <li><strong>Micropayments</strong> (stream $0.0001 tips to creators in real-time)</li>
+  <li><strong>Enterprise Logistics</strong> (Alibaba’s $23B supply chain tracked on-chain[24])</li>
+</ul>
+
+<h3 id="the-final-war">The Final War</h3>
+<p>Ethereum’s sharding roadmap? A pipe dream. Solana’s “Firedancer” fix? Lipstick on a wight. Sui already <em>works</em> at planetary scale:</p>
+
+<ul>
+  <li><strong>400ms finality</strong> (Visa takes 2-3 seconds)[25]</li>
+  <li><strong>Zero downtime</strong> since mainnet launch</li>
+  <li><strong>15+ audits</strong> with <strong>0 critical bugs</strong>[26]</li>
+</ul>
+
+<hr />
+
+<h2 id="epilogue-valar-morghulis-valar-dohaeris">Epilogue: Valar Morghulis, Valar Dohaeris</h2>
+<p>The crypto wars won’t be won by chains chasing speculative vapor. They’ll be won by surgeons - chains that <em>remove</em> crypto’s tumors (high fees, slow speeds, hacks) instead of celebrating them.</p>
+
+<p><strong>Bitcoin</strong> will remain king. <strong>Sui</strong> will be its Hand - executing the vision of borderless, permissionless value with merciless efficiency. As for Ethereum and Solana? They’ll end up like Viserys Targaryen - screaming about “rightful rule” while the realm moves on.</p>
+
+<p>Winter came for the old guard. The dragons are here.</p>
+
+<hr />
+
+<h3 id="armory-sources">Armory (Sources)</h3>
+<p>[1] <a href="https://etherscan.io/gastracker">Ethereum Gas Tracker</a><br />
+[2] <a href="https://status.solana.com/">Solana Outage Tracker</a><br />
+[3] <a href="https://dune.com/springwhale/L2-Landscape">Layer 2 Migration Report</a><br />
+[12] <a href="https://solana.com/news/january-2023-network-report">Solana Bot Attack Post-Mortem</a><br />
+[17] <a href="https://www.federalreserve.gov/newsevents/pressreleases/other20230517a.htm">FedNow Pilot Details</a><br />
+[24] <a href="https://www.alibabacloud.com/case-studies/sui-blockchain">Alibaba Cloud Case Study</a></p>]]></content><author><name>Angleito</name></author><category term="blockchain" /><category term="crypto" /><summary type="html"><![CDATA[SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA]]></summary></entry><entry><title type="html">Modern Web Development Practices</title><link href="https://angleito.github.io/web/javascript/2025/03/28/welcome.html" rel="alternate" type="text/html" title="Modern Web Development Practices" /><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://angleito.github.io/web/javascript/2025/03/28/welcome</id><content type="html" xml:base="https://angleito.github.io/web/javascript/2025/03/28/welcome.html"><![CDATA[<h1 id="modern-web-development-practices">Modern Web Development Practices</h1>
 
 <p>In today’s rapidly evolving tech landscape, staying current with web development best practices is crucial. This article explores some of the most important trends and techniques that are shaping modern web development.</p>
 
