@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-29T18:33:44+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</title><link href="https://angleito.github.io/crypto/development/2025/03/29/.html" rel="alternate" type="text/html" title="SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA" /><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/crypto/development/2025/03/29/</id><content type="html" xml:base="https://angleito.github.io/crypto/development/2025/03/29/.html"><![CDATA[<h1 id="sui-bitcoins--steel---why-this-blockchain-knight-will-slaughter-ethereum-and-solana">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-29T18:37:04+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</title><link href="https://angleito.github.io/crypto/development/2025/03/29/.html" rel="alternate" type="text/html" title="SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA" /><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/crypto/development/2025/03/29/</id><content type="html" xml:base="https://angleito.github.io/crypto/development/2025/03/29/.html"><![CDATA[<h1 id="sui-bitcoins--steel---why-this-blockchain-knight-will-slaughter-ethereum-and-solana">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</h1>
 
 <p><strong>Subtitle:</strong> <em>In the Game of Coins, Only One Chain Wields the Sword of Scalability - And It’s Not Who You Think</em></p>
 
@@ -37,6 +37,8 @@
 <h3 id="fake-speed-real-fragility">Fake Speed, Real Fragility</h3>
 <p>Solana’s “65,000 TPS” claim? Pure theater. Their Sealevel runtime prioritizes speed over stability - a tower built on sand. When bots attacked its NFT minting system in January 2023, fees spiked to <strong>$4,800 per transaction</strong>[12] - higher than Ethereum’s worst days.</p>
 
+<p>While Solana’s Firedancer upgrade[8] promises to mitigate these outages and supposedly process up to 1 million TPS, it remains more theoretical than practical – lipstick on a wight.</p>
+
 <p><strong>Sui laughs at these antics.</strong> Its <em>Narwhal-Bullshark consensus</em> processes transactions in parallel lanes - imagine the Kingsroad with 297,000 carriages moving at lightspeed[14]. All for <strong>$0.001 fees</strong>, all finalized before you can say “Hodor.”</p>
 
 <hr />
@@ -53,6 +55,15 @@
 
 <p>These engineers don’t play “build fast, break things.” They <strong>build to survive nuclear winter</strong>.</p>
 
+<h3 id="the-object-based-revolution">The Object-Based Revolution</h3>
+<p>While both Sui and Solana offer parallel processing, Sui’s approach is fundamentally superior[9]. Solana uses an account-based model with localized fee markets, but Sui’s object-based model transforms how assets exist on-chain:</p>
+
+<ol>
+  <li><strong>Simplified Asset Transfer Logic</strong>: Each object has a unique ID in global storage, making asset tracking intuitive where Solana’s approach is cumbersome</li>
+  <li><strong>Complex Ownership Structures</strong>: NFTs on Sui can hold utility tokens within them - impossible on Solana’s architecture</li>
+  <li><strong>Mysticeti Upgrade</strong>: Recently rolled out on mainnet, reducing latency to ~0.4 seconds - perfect for micropayments and high-frequency trading[11]</li>
+</ol>
+
 <h3 id="institutional-conquests">Institutional Conquests</h3>
 <p>While Solana chases memecoin clout and Ethereum hosts JPEG casinos, Sui’s forging alliances with actual kingdoms:</p>
 
@@ -66,24 +77,39 @@
 
 <hr />
 
-<h2 id="chapter-4-bitcoins-crown--suis-conquest">Chapter 4: Bitcoin’s Crown &amp; Sui’s Conquest</h2>
+<h2 id="chapter-4-the-dragons-rise---suis-meteoric-ascent">Chapter 4: The Dragon’s Rise - Sui’s Meteoric Ascent</h2>
+<h3 id="the-numbers-dont-lie">The Numbers Don’t Lie</h3>
+<p>Sui’s ecosystem has expanded faster than wildfire through the Seven Kingdoms:</p>
+
+<ul>
+  <li><strong>DeFi Total Value Locked</strong>: Surpassed the $1 billion milestone in record time[20]</li>
+  <li><strong>Daily Transactions</strong>: Flipped Solana’s in early October 2024[21]</li>
+  <li><strong>Price Performance</strong>: Surged 123% in a single month while SOL struggled with a mere 12% gain[23]</li>
+</ul>
+
+<h3 id="the-secret-weapon-zklogin">The Secret Weapon: zkLogin</h3>
+<p>While Solana scrambles to improve, Sui already implemented zkLogin in September 2023[22]. This revolutionary feature allows users to transact with Web2 credentials (Google, Facebook accounts) without revealing them on-chain - bringing millions of normies into the crypto realm with a user experience smoother than Tyrion’s finest Dornish wine.</p>
+
+<hr />
+
+<h2 id="chapter-5-bitcoins-crown--suis-conquest">Chapter 5: Bitcoin’s Crown &amp; Sui’s Conquest</h2>
 <h3 id="the-golden-anchors">The Golden Anchors</h3>
-<p>Let’s be clear: <strong>Bitcoin is the realm’s true sovereign</strong>. Its $1.3 trillion market cap[21] dwarfs all competitors. But gold doesn’t build empires - armies do.</p>
+<p>Let’s be clear: <strong>Bitcoin is the realm’s true sovereign</strong>. Its $1.3 trillion market cap[24] dwarfs all competitors. But gold doesn’t build empires - armies do.</p>
 
 <p>Sui is Bitcoin’s <em>Dothraki horde</em> - a nomadic force spreading crypto’s reach into:</p>
 <ul>
   <li><strong>Gaming</strong> (100k+ transactions per second for AAA titles)</li>
   <li><strong>Micropayments</strong> (stream $0.0001 tips to creators in real-time)</li>
-  <li><strong>Enterprise Logistics</strong> (Alibaba’s $23B supply chain tracked on-chain[24])</li>
+  <li><strong>Enterprise Logistics</strong> (Alibaba’s $23B supply chain tracked on-chain[25])</li>
 </ul>
 
 <h3 id="the-final-war">The Final War</h3>
 <p>Ethereum’s sharding roadmap? A pipe dream. Solana’s “Firedancer” fix? Lipstick on a wight. Sui already <em>works</em> at planetary scale:</p>
 
 <ul>
-  <li><strong>400ms finality</strong> (Visa takes 2-3 seconds)[25]</li>
+  <li><strong>400ms finality</strong> (Visa takes 2-3 seconds)[26]</li>
   <li><strong>Zero downtime</strong> since mainnet launch</li>
-  <li><strong>15+ audits</strong> with <strong>0 critical bugs</strong>[26]</li>
+  <li><strong>15+ audits</strong> with <strong>0 critical bugs</strong>[27]</li>
 </ul>
 
 <hr />
@@ -101,6 +127,23 @@
 <p>[1] <a href="https://etherscan.io/gastracker">Ethereum Gas Tracker</a><br />
 [2] <a href="https://status.solana.com/">Solana Outage Tracker</a><br />
 [3] <a href="https://dune.com/springwhale/L2-Landscape">Layer 2 Migration Report</a><br />
+[5] <a href="https://defiyield.app/rekt-database">DeFi Hack Database</a><br />
+[6] <a href="https://www.coindesk.com/markets/2016/06/25/understanding-the-dao-attack/">The DAO Hack Analysis</a><br />
+[7] <a href="https://www.parity.io/blog/a-postmortem-on-the-parity-multi-sig-library-self-destruct/">Parity Wallet Freeze Report</a><br />
+[8] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Solana Firedancer Upgrade</a><br />
+[9] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui vs Solana Technical Comparison</a><br />
+[10] <a href="https://solanabeach.io/validators">Solana Outage History</a><br />
+[11] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui Mysticeti Upgrade</a><br />
 [12] <a href="https://solana.com/news/january-2023-network-report">Solana Bot Attack Post-Mortem</a><br />
+[14] <a href="https://docs.sui.io/learn/architecture/consensus">Sui Parallel Processing</a><br />
 [17] <a href="https://www.federalreserve.gov/newsevents/pressreleases/other20230517a.htm">FedNow Pilot Details</a><br />
-[24] <a href="https://www.alibabacloud.com/case-studies/sui-blockchain">Alibaba Cloud Case Study</a></p>]]></content><author><name>Angleito</name></author><category term="crypto" /><category term="development" /><summary type="html"><![CDATA[SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA]]></summary></entry></feed>
+[18] <a href="https://www.sphere.com/tech/blockchain-ticketing">Las Vegas Sphere NFT Implementation</a><br />
+[19] <a href="https://www.ubisoft.com/en-us/company/about-us/blockchain">Ubisoft x Sui Partnership</a><br />
+[20] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui DeFi Growth Report</a><br />
+[21] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Blockchain Transaction Statistics</a><br />
+[22] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui zkLogin Feature Overview</a><br />
+[23] <a href="https://bravenewcoin.com/insights/sol-vs-sui-vs-cybro-which-crypto-offers-the-biggest-potential-gains-by-2025">Sui vs Solana Price Analysis</a><br />
+[24] <a href="https://coinmarketcap.com/currencies/bitcoin/">Bitcoin Market Cap</a><br />
+[25] <a href="https://www.alibabacloud.com/case-studies/sui-blockchain">Alibaba Cloud Case Study</a><br />
+[26] <a href="https://twitter.com/SuiNetwork/status/1571234422116663296">Sui Finality vs Traditional Payment Systems</a><br />
+[27] <a href="https://github.com/MystenLabs/sui/tree/main/audits">Sui Security Audits</a></p>]]></content><author><name>Angleito</name></author><category term="crypto" /><category term="development" /><summary type="html"><![CDATA[SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA]]></summary></entry></feed>
