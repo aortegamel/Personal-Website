@@ -3,6 +3,7 @@ description: "Sophisticated, containerized crypto trading system using AI (Claud
 github: "https://github.com/Angleito/bluefinaitradertemplate"
 tech_stack: [Python, Docker, Microservices, Claude AI, TradingView, Bluefin API, Sui, Headless Chrome/Puppeteer, LangChain]
 private_full_version: true
+has_demo: true
 contact: "arainey555@gmail.com"
 features:
   - AI Chart Analysis (Claude + Screenshot Service)
