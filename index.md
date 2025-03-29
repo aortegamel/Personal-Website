@@ -5,7 +5,9 @@ title: Welcome to My Portfolio
 
 # Hello, I'm Angel Ortega-Melton
 
-I'm a developer passionate about creating innovative solutions. This portfolio showcases my projects and articles on various technical topics.
+I'm a new aspiring programmer leveraging AI tools to accelerate learning and project building. With experience in Python, JavaScript, and web development fundamentals, I focus on creating innovative solutions with modern technologies. I have a strong background in customer service and operational logistics with proven ability to adapt to different environments and learn new skills quickly. I'm seeking opportunities to combine my technical learning journey and customer-focused background in a software development role.
+
+This portfolio showcases my projects and articles on various technical topics, with a particular focus on blockchain development, AI integration, and efficient system design.
 
 ## Latest Projects
 
