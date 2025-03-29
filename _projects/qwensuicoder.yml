@@ -1,8 +1,8 @@
 name: "QwenSuiCoder"
 description: "End-to-end LLM Benchmarking & Training Framework for Sui blockchain development"
 tech_stack: [Python, DeepSpeed, Qwen 2.5, MLOps, PyTorch]
-private: false
-repo_url: "https://github.com/Angleito/qwensuicoder"
+github: "https://github.com/Angleito/qwensuicoder"
+private_full_version: false
 contact: "arainey555@gmail.com"
 features:
   - Hardware-aware model selection
