@@ -4,9 +4,9 @@ title: Articles
 permalink: /articles/
 ---
 
-# Technical Articles
+# My Thoughts & Journey
 
-Here you'll find articles I've written on various topics in software development, from practical tutorials to theoretical concepts.
+This is where I write my opinion pieces as well as personal stories and journey. A glimpse into my mind and experiences as I navigate through life and technology.
 
 {% for post in site.posts %}
   <div class="post-preview">
