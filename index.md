@@ -9,17 +9,6 @@ I'm a new aspiring programmer leveraging AI tools to accelerate learning and pro
 
 This portfolio showcases my projects and articles on various technical topics, with a particular focus on blockchain development, AI integration, and efficient system design.
 
-## Latest Projects
-
-<div class="disclaimer-notice">
-  <p><strong>Note:</strong> All code examples shown are simplified placeholders. 
-  For access to the real projects or more information, please <a href="mailto:arainey555@gmail.com">contact me</a>.</p>
-</div>
-
-<div id="projects-grid" class="project-grid">
-  <!-- Projects will be loaded here dynamically -->
-</div>
-
 ## Recent Articles
 
 {% for post in site.posts limit:3 %}
@@ -30,5 +19,16 @@ This portfolio showcases my projects and articles on various technical topics, w
     <a href="{{ post.url | relative_url }}">Read more</a>
   </div>
 {% endfor %}
+
+## Latest Projects
+
+<div id="projects-grid" class="project-grid">
+  <!-- Projects will be loaded here dynamically -->
+</div>
+
+<div class="disclaimer-notice">
+  <p><strong>Note:</strong> All code examples shown are simplified placeholders. 
+  For access to the real projects or more information, please <a href="mailto:arainey555@gmail.com">contact me</a>.</p>
+</div>
 
 <script src="{{ '/assets/js/project-loader.js' | relative_url }}"></script> 
