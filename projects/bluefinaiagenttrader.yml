@@ -1,6 +1,6 @@
 name: "BluefinAI Agent Trader: AI-Powered Cryptocurrency Trading Platform"
 description: "Sophisticated, containerized crypto trading system using AI (Claude) for chart analysis and automated trading on Bluefin."
-github_link: "https://github.com/Angleito/BluefinAIAgentTrader/tree/showcase/MOCK%20BLUEFIN"
+github: "https://github.com/Angleito/BluefinAIAgentTrader/tree/showcase/MOCK%20BLUEFIN"
 tech_stack: [Python, Docker, Microservices, Claude AI, TradingView, Bluefin API, Sui, Headless Chrome/Puppeteer, LangChain]
 private_full_version: true
 contact: "arainey555@gmail.com"
