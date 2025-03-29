@@ -1,7 +1,8 @@
 name: "QwenSuiCoder"
 description: "End-to-end LLM Benchmarking & Training Framework for Sui blockchain development"
 tech_stack: [Python, DeepSpeed, Qwen 2.5, MLOps, PyTorch]
-private: true
+private: false
+repo_url: "https://github.com/Angleito/qwensuicoder"
 contact: "arainey555@gmail.com"
 features:
   - Hardware-aware model selection
@@ -49,4 +50,4 @@ detailed_description: |
 
   ### Note
   
-  This project is private and not publicly available on GitHub. Please contact me at arainey555@gmail.com if you're interested in learning more about this project or discussing potential collaborations. 
+  This project is now publicly available on GitHub. You can view the code repository at [https://github.com/Angleito/qwensuicoder](https://github.com/Angleito/qwensuicoder). For any questions or collaborations, feel free to contact me at arainey555@gmail.com. 
