@@ -30,8 +30,9 @@ async function loadProjects() {
           </ul>
         </div>
         <div class="project-links">
-          <a href="${project.github}" target="_blank" class="github-link">View Code</a>
+          ${project.github ? `<a href="${project.github}" target="_blank" class="github-link">View Code</a>` : ''}
           ${project.demo ? `<a href="${project.demo}" target="_blank" class="demo-link">Live Demo</a>` : ''}
+          ${!project.github && project.private_full_version ? `<a href="mailto:${project.contact}" class="contact-link">Contact for Details</a>` : ''}
         </div>
       `;
       projectsGrid.appendChild(card);
