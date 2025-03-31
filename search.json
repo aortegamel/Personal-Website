@@ -1,6 +1,16 @@
 [
   
     {
+      "title"    : " Project Development Journal",
+      "category" : "personal, development",
+      "tags"     : ", development, journal",
+      "url"      : "/personal/development/2025/03/31/-project-journal.html",
+      "date"     : "March 31, 2025",
+      "excerpt"  : " Project Development Journal
+"
+    } ,
+  
+    {
       "title"    : "SUI: BITCOIN&#39;S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA",
       "category" : "crypto, development",
       "tags"     : "",
@@ -52,11 +62,11 @@ Artificial intelligence, machine learning, and their applications.
   
     
   
+    
+  
 
 
-No articles in this category yet. Check back soon!
-
-"
+No articles in this category yet. Check back s..."
      } ,
    
   
@@ -109,8 +119,10 @@ Blockchain technology, cryptocurrency analysis, and DeFi innovations.
 
   
     
+  
+    
       
-        SUI: BITCOIN&#39;S  - WHY THIS BLOC..."
+        SUI: BITCOIN&#39;S  - WHY T..."
      } ,
    
   
@@ -129,7 +141,8 @@ Programming, software development, and technical projects.
   
     
       
-        SUI: BITCOIN&#39;S  - WHY THIS BLOCKCHAIN..."
+         Project Development Journal
+        March..."
      } ,
    
   
@@ -149,8 +162,10 @@ Articles about economic theories, market analysis, and financial insights.
     
   
     
+  
+    
       
-        Trump&#39;s , A Persp..."
+        Trump&#39;s ,..."
      } ,
    
   
@@ -181,14 +196,9 @@ Personal stories, experiences, and reflections on my journey.
 
   
     
-  
-    
-  
-
-
-No articles in this category yet. Check back soon!
-
-"
+      
+         Project Development Journal
+        March..."
      } ,
    
   
@@ -222,5 +232,27 @@ Below is a showcase of my technical projects. Each card highlights key features 
    
   
   ,
+  
+    {
+      "title"    : "Project Development Journal",
+      "category" : "project",
+      "tags"     : "",
+      "url"      : "/projects/project-journal-template/",
+      "date"     : "",
+      "excerpt"  : "Project Development Journal
+
+This page contains a chronological timeline of development journal entries for [Project Name], documenting the progress, challen..."
+    } ,
+  
+    {
+      "title"    : "Example Project Development Journal",
+      "category" : "project",
+      "tags"     : "",
+      "url"      : "/projects/example-project-journal/",
+      "date"     : "",
+      "excerpt"  : "Example Project Development Journal
+
+This page contains a chronological timeline of development journal entries for the Example Project, documenting the prog..."
+    } 
   
 ] 

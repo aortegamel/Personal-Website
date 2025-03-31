@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-29T23:50:55+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</title><link href="https://angleito.github.io/crypto/development/2025/03/29/.html" rel="alternate" type="text/html" title="SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA" /><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/crypto/development/2025/03/29/</id><content type="html" xml:base="https://angleito.github.io/crypto/development/2025/03/29/.html"><![CDATA[<h1 id="sui-bitcoins--steel---why-this-blockchain-knight-will-slaughter-ethereum-and-solana">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-31T11:22:50+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html"> Project Development Journal</title><link href="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html" rel="alternate" type="text/html" title=" Project Development Journal" /><published>2025-03-31T00:00:00+00:00</published><updated>2025-03-31T00:00:00+00:00</updated><id>https://angleito.github.io/personal/development/2025/03/31/-project-journal</id><content type="html" xml:base="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html"><![CDATA[<h1 id="-project-development-journal"> Project Development Journal</h1>
+
+<p>This page contains a chronological timeline of development journal entries for the  Project, documenting the progress, challenges, and learnings throughout the development process.</p>
+
+<h2 id="timeline">Timeline</h2>
+
+<h3 id="2025-03-31">2025 03 31</h3>
+
+<p>### What I Did Today</p>
+<ul>
+  <li>Fixed many type errors as well as reconfigure database to be more practical and lightweight for the purposes of the .</li>
+  <li>Implemented a journal system to document the project as I go along, should have been created earlier but there is still much to fix and configure for the full implementation of the project.</li>
+</ul>
+
+<p>### Why I Made These Changes
+  Database structure was unnecessary as we only need simple token and pool ids to fetch, not a structured authenticated database of secret and secure files, made the structure faster and lighterweight on top of being easier to maintain.</p>
+
+<p>### What I Learned</p>
+<ul>
+  <li>How to fix types better and use ai to leverage large amount of error fixes using documentation and scripts.</li>
+</ul>
+
+<p>### What’s Next</p>
+<ul>
+  <li>To run the project in early production and ensure it can execute real s with this early implementation, then clean project repo to be more structured</li>
+</ul>
+
+<p>### Any Blockers or Concerns?</p>
+<ul>
+  <li>Concerned about technical debt and weary of security handling</li>
+</ul>
+
+<p>### Notes for Future Reference</p>
+<ul>
+  <li>Test, Test, Test</li>
+</ul>]]></content><author><name>Angleito</name></author><category term="personal" /><category term="development" /><category term="" /><category term="development" /><category term="journal" /><summary type="html"><![CDATA[ Project Development Journal]]></summary></entry><entry><title type="html">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</title><link href="https://angleito.github.io/crypto/development/2025/03/29/.html" rel="alternate" type="text/html" title="SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA" /><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/crypto/development/2025/03/29/</id><content type="html" xml:base="https://angleito.github.io/crypto/development/2025/03/29/.html"><![CDATA[<h1 id="sui-bitcoins--steel---why-this-blockchain-knight-will-slaughter-ethereum-and-solana">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</h1>
 
 <p><strong>Subtitle:</strong> <em>In the Game of Coins, Only One Chain Wields the Sword of Scalability - And It’s Not Who You Think</em></p>
 
