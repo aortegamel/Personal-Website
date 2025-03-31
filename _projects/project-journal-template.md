@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Project Development Journal"
-date: YYYY-MM-DD
+date: 2024-03-31
 categories: [personal, development]
 tags: [development, journal]
 ---
