@@ -1,10 +1,17 @@
 async function loadProjects() {
   try {
+    console.log('Attempting to fetch projects.json');
+    console.log('Current URL:', window.location.href);
+    console.log('Fetch URL:', '/assets/projects.json');
+    
     const response = await fetch('/assets/projects.json');
+    console.log('Fetch response:', response);
+    
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const projects = await response.json();
+    console.log('Fetched projects:', projects);
     
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) {
@@ -24,6 +31,14 @@ async function loadProjects() {
     projects.forEach(project => {
       const card = document.createElement('div');
       card.className = 'project-card';
+      
+      // Special handling for BluefinAI Agent Trader project
+      const isBluefinProject = project.name.includes('BluefinAI Agent Trader');
+      
+      if (isBluefinProject) {
+        console.warn('Detected BluefinAI Agent Trader project with potential loading issue');
+      }
+      
       card.innerHTML = `
         <h3>${project.name}</h3>
         <p>${project.description}</p>
@@ -42,11 +57,24 @@ async function loadProjects() {
           ${project.private_full_version ? `<a href="mailto:${project.contact || 'arainey555@gmail.com'}" class="contact-link">Contact for Full Version</a>` : ''}
         </div>
       `;
+      
+      if (isBluefinProject) {
+        card.classList.add('bluefin-project');
+        console.log('Added bluefin-project class to card');
+      }
+      
       projectsGrid.appendChild(card);
     });
   } catch (error) {
     console.error('Error loading projects:', error);
-    document.getElementById('projects-grid').innerHTML = '<p>Error loading projects. Please try again later.</p>';
+    const projectsGrid = document.getElementById('projects-grid');
+    if (projectsGrid) {
+      projectsGrid.innerHTML = `
+        <p>Error loading projects. Please try again later.</p>
+        <p>Debug Info:</p>
+        <pre>${JSON.stringify(error, Object.getOwnPropertyNames(error), 2)}</pre>
+      `;
+    }
   }
 }
 
