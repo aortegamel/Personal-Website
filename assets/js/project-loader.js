@@ -2,19 +2,25 @@ async function loadProjects() {
   try {
     console.log('Attempting to fetch projects.json');
     console.log('Current URL:', window.location.href);
-    console.log('Fetch URL:', '/assets/projects.json');
     
+    // Add cache-busting parameter
+    const cacheBuster = `?cb=${Date.now()}`;
     const fetchUrls = [
-      '/assets/projects.json',
-      '/assets/data/projects.json'
+      `/assets/projects.json${cacheBuster}`,
+      `/assets/data/projects.json${cacheBuster}`
     ];
     
+    console.log('Fetch URLs with cache busting:', fetchUrls);
+    
     let response;
+    let usedUrl = '';
     for (const url of fetchUrls) {
       try {
         console.log(`Trying URL: ${url}`);
         response = await fetch(url);
         if (response.ok) {
+          usedUrl = url;
+          console.log(`Successfully loaded from: ${url}`);
           break;
         }
       } catch (error) {
@@ -28,6 +34,20 @@ async function loadProjects() {
     
     const projects = await response.json();
     console.log('Fetched projects:', projects);
+    console.log('Data source URL:', usedUrl);
+    
+    // Always ensure Bluefin project has correct URL
+    projects.forEach(project => {
+      if (project.name.includes('BluefinAI Agent Trader')) {
+        const correctUrl = "https://github.com/Angleito/bluefinaitradertemplate";
+        if (project.github !== correctUrl) {
+          console.warn(`Fixing incorrect Bluefin URL: ${project.github} -> ${correctUrl}`);
+          project.github = correctUrl;
+        } else {
+          console.log('Bluefin URL is already correct:', project.github);
+        }
+      }
+    });
     
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) {
@@ -77,6 +97,20 @@ async function loadProjects() {
       if (isBluefinProject) {
         card.classList.add('bluefin-project');
         console.log('Added bluefin-project class to card');
+        console.log('Final GitHub URL used for Bluefin project:', project.github);
+        
+        // Double-check link in DOM
+        setTimeout(() => {
+          const linkElement = card.querySelector('.github-link');
+          if (linkElement) {
+            console.log('Actual link in DOM:', linkElement.href);
+            if (linkElement.href !== project.github) {
+              console.warn('URL mismatch between data and DOM!');
+            }
+          } else {
+            console.error('GitHub link element not found in card');
+          }
+        }, 100);
       }
       
       projectsGrid.appendChild(card);
