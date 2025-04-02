@@ -3,7 +3,7 @@
     "name": "BluefinAI Agent Trader: AI-Powered Cryptocurrency Trading Platform",
     "description": "Advanced, modular trading bot designed to interact with the Bluefin exchange on the SUI blockchain. Leveraging artificial intelligence and sophisticated trading strategies.",
     "tech_stack": ["Python", "Docker", "Microservices", "AI", "Bluefin API", "Sui", "Prometheus", "Grafana"],
-    "github": "https://github.com/Angleito/bluefin-ai-agent-trader",
+    "github": "https://github.com/Angleito/bluefinaitradertemplate",
     "private_full_version": true,
     "has_demo": true,
     "contact": "arainey555@gmail.com",
