@@ -1,0 +1,10 @@
+name: "AI-Powered Dashboard"
+description: "Real-time analytics interface with interactive visualizations and data filtering capabilities"
+tech_stack: [React, TypeScript, GraphQL]
+github: "https://github.com/Angleito/ai-dashboard"
+demo: "https://angleito.github.io/ai-dashboard"
+features:
+  - Real-time data visualization
+  - JWT authentication
+  - CI/CD pipeline
+  - Responsive design 
