@@ -1,18 +1,22 @@
 [
   {
-    "name": "BluefinAI Agent Trader",
-    "description": "Sophisticated, containerized crypto trading system using AI (Claude) for chart analysis and automated trading on Bluefin.",
-    "tech_stack": ["Python", "Docker", "Microservices", "Claude AI", "TradingView", "Bluefin API", "Sui"],
-    "github": "",
+    "name": "BluefinAI Agent Trader: AI-Powered Cryptocurrency Trading Platform",
+    "description": "Advanced, modular trading bot designed to interact with the Bluefin exchange on the SUI blockchain. Leveraging artificial intelligence and sophisticated trading strategies.",
+    "tech_stack": ["Python", "Docker", "Microservices", "AI", "Bluefin API", "Sui", "Prometheus", "Grafana"],
+    "github": "https://github.com/Angleito/bluefin-ai-agent-trader",
     "private_full_version": true,
+    "has_demo": true,
     "contact": "arainey555@gmail.com",
     "features": [
-      "AI Chart Analysis (Claude)",
-      "Microservices Architecture",
-      "Bluefin Exchange API Integration",
-      "TradingView Webhook Integration",
-      "Advanced Risk Management",
-      "Multi-Timeframe Analysis"
+      "AI-Powered Trading",
+      "Modular Architecture",
+      "Blockchain Integration",
+      "Comprehensive Risk Management",
+      "Secure Deployment",
+      "Monitoring and Logging",
+      "Multi-Timeframe Analysis Capability",
+      "Centralized Configuration (.env)",
+      "Comprehensive Logging & Error Handling"
     ]
   },
   {
@@ -44,4 +48,4 @@
       "Specialized for Sui blockchain development"
     ]
   }
-] # Updated on Wed Apr  2 11:14:20 AM PDT 2025
+]
