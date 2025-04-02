@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-03-31T11:22:50+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html"> Project Development Journal</title><link href="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html" rel="alternate" type="text/html" title=" Project Development Journal" /><published>2025-03-31T00:00:00+00:00</published><updated>2025-03-31T00:00:00+00:00</updated><id>https://angleito.github.io/personal/development/2025/03/31/-project-journal</id><content type="html" xml:base="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html"><![CDATA[<h1 id="-project-development-journal"> Project Development Journal</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-04-02T18:15:20+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html"> Project Development Journal</title><link href="https://angleito.github.io/personal/development/2025/04/01/-project-journal.html" rel="alternate" type="text/html" title=" Project Development Journal" /><published>2025-04-01T00:00:00+00:00</published><updated>2025-04-01T00:00:00+00:00</updated><id>https://angleito.github.io/personal/development/2025/04/01/-project-journal</id><content type="html" xml:base="https://angleito.github.io/personal/development/2025/04/01/-project-journal.html"><![CDATA[<h1 id="-project-development-journal"> Project Development Journal</h1>
+
+<p>This page contains a chronological timeline of development journal entries for the  Project, documenting the progress, challenges, and learnings throughout the development process.</p>
+
+<h2 id="timeline">Timeline</h2>
+
+<h3 id="2025-04-01">2025 04 01</h3>
+
+<p>### What I Did Today</p>
+<ul>
+  <li>Implemented automatic journal sync to website</li>
+  <li>Created sync script for seamless integration</li>
+  <li>Updated pre-commit hook to handle journal synchronization</li>
+</ul>
+
+<p>### Why I Made These Changes
+  To streamline the process of keeping the website up to date with project journal entries, making it easier to maintain documentation and share progress.</p>
+
+<p>### What I Learned</p>
+<ul>
+  <li>How to create automated sync scripts</li>
+  <li>Git hook integration techniques</li>
+  <li>Shell scripting best practices</li>
+</ul>
+
+<p>### What’s Next</p>
+<ul>
+  <li>Test the sync functionality in production</li>
+  <li>Monitor for any potential issues</li>
+  <li>Consider adding more automation features</li>
+</ul>
+
+<p>### Any Blockers or Concerns?</p>
+<ul>
+  <li>Need to ensure website repository is always accessible</li>
+  <li>Potential for merge conflicts if multiple entries are synced simultaneously</li>
+</ul>
+
+<p>### Notes for Future Reference</p>
+<ul>
+  <li>Keep the sync script simple and maintainable</li>
+  <li>Monitor website repository status</li>
+</ul>]]></content><author><name>Angleito</name></author><category term="personal" /><category term="development" /><category term="" /><category term="development" /><category term="journal" /><summary type="html"><![CDATA[ Project Development Journal]]></summary></entry><entry><title type="html"> Project Development Journal</title><link href="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html" rel="alternate" type="text/html" title=" Project Development Journal" /><published>2025-03-31T00:00:00+00:00</published><updated>2025-03-31T00:00:00+00:00</updated><id>https://angleito.github.io/personal/development/2025/03/31/-project-journal</id><content type="html" xml:base="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html"><![CDATA[<h1 id="-project-development-journal"> Project Development Journal</h1>
 
 <p>This page contains a chronological timeline of development journal entries for the  Project, documenting the progress, challenges, and learnings throughout the development process.</p>
 
