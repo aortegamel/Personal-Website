@@ -4,12 +4,28 @@ async function loadProjects() {
     console.log('Current URL:', window.location.href);
     console.log('Fetch URL:', '/assets/projects.json');
     
-    const response = await fetch('/assets/projects.json');
-    console.log('Fetch response:', response);
+    const fetchUrls = [
+      '/assets/projects.json',
+      '/assets/data/projects.json'
+    ];
     
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    let response;
+    for (const url of fetchUrls) {
+      try {
+        console.log(`Trying URL: ${url}`);
+        response = await fetch(url);
+        if (response.ok) {
+          break;
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch from ${url}:`, error);
+      }
     }
+    
+    if (!response || !response.ok) {
+      throw new Error(`Failed to fetch projects from all URLs`);
+    }
+    
     const projects = await response.json();
     console.log('Fetched projects:', projects);
     
