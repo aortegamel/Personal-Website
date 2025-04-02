@@ -1,6 +1,6 @@
 async function loadProjects() {
   try {
-    const response = await fetch('https://Angleito.github.io/assets/projects.json');
+    const response = await fetch('/assets/projects.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
