@@ -1,6 +1,6 @@
 async function loadProjects() {
   try {
-    const response = await fetch('/assets/data/projects.json');
+    const response = await fetch('https://Angleito.github.io/assets/projects.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -50,4 +50,4 @@ async function loadProjects() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadProjects); 
+document.addEventListener('DOMContentLoaded', loadProjects);
