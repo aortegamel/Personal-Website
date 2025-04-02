@@ -1,61 +1,271 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-04-02T18:16:40+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html">Modern Web Development Practices</title><link href="https://angleito.github.io/web/javascript/2025/03/28/welcome.html" rel="alternate" type="text/html" title="Modern Web Development Practices" /><published>2025-03-28T00:00:00+00:00</published><updated>2025-03-28T00:00:00+00:00</updated><id>https://angleito.github.io/web/javascript/2025/03/28/welcome</id><content type="html" xml:base="https://angleito.github.io/web/javascript/2025/03/28/welcome.html"><![CDATA[<h1 id="modern-web-development-practices">Modern Web Development Practices</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://angleito.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://angleito.github.io/" rel="alternate" type="text/html" /><updated>2025-04-02T18:21:58+00:00</updated><id>https://angleito.github.io/feed.xml</id><title type="html">Angleito’s Portfolio</title><subtitle>Welcome to my personal portfolio website</subtitle><author><name>Angleito</name></author><entry><title type="html"> Project Development Journal</title><link href="https://angleito.github.io/personal/development/2025/04/01/-project-journal.html" rel="alternate" type="text/html" title=" Project Development Journal" /><published>2025-04-01T00:00:00+00:00</published><updated>2025-04-01T00:00:00+00:00</updated><id>https://angleito.github.io/personal/development/2025/04/01/-project-journal</id><content type="html" xml:base="https://angleito.github.io/personal/development/2025/04/01/-project-journal.html"><![CDATA[<h1 id="-project-development-journal"> Project Development Journal</h1>
 
-<p>In today’s rapidly evolving tech landscape, staying current with web development best practices is crucial. This article explores some of the most important trends and techniques that are shaping modern web development.</p>
+<p>This page contains a chronological timeline of development journal entries for the  Project, documenting the progress, challenges, and learnings throughout the development process.</p>
 
-<h2 id="continuous-integration-and-deployment">Continuous Integration and Deployment</h2>
+<h2 id="timeline">Timeline</h2>
 
-<p>CI/CD pipelines have revolutionized how we deliver web applications. By automating the testing and deployment process, development teams can:</p>
+<h3 id="2025-04-01">2025 04 01</h3>
 
+<p>### What I Did Today</p>
 <ul>
-  <li>Detect bugs earlier in the development cycle</li>
-  <li>Deploy more frequently with confidence</li>
-  <li>Maintain consistent quality across releases</li>
+  <li>Implemented automatic journal sync to website</li>
+  <li>Created sync script for seamless integration</li>
+  <li>Updated pre-commit hook to handle journal synchronization</li>
 </ul>
 
-<p>A typical CI/CD workflow using GitHub Actions might look like:</p>
+<p>### Why I Made These Changes
+  To streamline the process of keeping the website up to date with project journal entries, making it easier to maintain documentation and share progress.</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">CI/CD Pipeline</span>
+<p>### What I Learned</p>
+<ul>
+  <li>How to create automated sync scripts</li>
+  <li>Git hook integration techniques</li>
+  <li>Shell scripting best practices</li>
+</ul>
 
-<span class="na">on</span><span class="pi">:</span>
-  <span class="na">push</span><span class="pi">:</span>
-    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">,</span> <span class="nv">dev</span><span class="pi">]</span>
-  <span class="na">pull_request</span><span class="pi">:</span>
-    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
+<p>### What’s Next</p>
+<ul>
+  <li>Test the sync functionality in production</li>
+  <li>Monitor for any potential issues</li>
+  <li>Consider adding more automation features</li>
+</ul>
 
-<span class="na">jobs</span><span class="pi">:</span>
-  <span class="na">test</span><span class="pi">:</span>
-    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
-        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v3</span>
-        <span class="na">with</span><span class="pi">:</span>
-          <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">16'</span>
-      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
-      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm test</span>
-  
-  <span class="na">deploy</span><span class="pi">:</span>
-    <span class="na">needs</span><span class="pi">:</span> <span class="s">test</span>
-    <span class="na">if</span><span class="pi">:</span> <span class="s">github.ref == 'refs/heads/main'</span>
-    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to production</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-          <span class="s"># Deployment commands</span>
-</code></pre></div></div>
+<p>### Any Blockers or Concerns?</p>
+<ul>
+  <li>Need to ensure website repository is always accessible</li>
+  <li>Potential for merge conflicts if multiple entries are synced simultaneously</li>
+</ul>
 
-<h2 id="performance-optimization">Performance Optimization</h2>
+<p>### Notes for Future Reference</p>
+<ul>
+  <li>Keep the sync script simple and maintainable</li>
+  <li>Monitor website repository status</li>
+</ul>]]></content><author><name>Angleito</name></author><category term="personal" /><category term="development" /><category term="" /><category term="development" /><category term="journal" /><summary type="html"><![CDATA[ Project Development Journal]]></summary></entry><entry><title type="html"> Project Development Journal</title><link href="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html" rel="alternate" type="text/html" title=" Project Development Journal" /><published>2025-03-31T00:00:00+00:00</published><updated>2025-03-31T00:00:00+00:00</updated><id>https://angleito.github.io/personal/development/2025/03/31/-project-journal</id><content type="html" xml:base="https://angleito.github.io/personal/development/2025/03/31/-project-journal.html"><![CDATA[<h1 id="-project-development-journal"> Project Development Journal</h1>
 
-<p>Web performance directly impacts user engagement and conversion rates. Key strategies include:</p>
+<p>This page contains a chronological timeline of development journal entries for the  Project, documenting the progress, challenges, and learnings throughout the development process.</p>
+
+<h2 id="timeline">Timeline</h2>
+
+<h3 id="2025-03-31">2025 03 31</h3>
+
+<p>### What I Did Today</p>
+<ul>
+  <li>Fixed many type errors as well as reconfigure database to be more practical and lightweight for the purposes of the .</li>
+  <li>Implemented a journal system to document the project as I go along, should have been created earlier but there is still much to fix and configure for the full implementation of the project.</li>
+</ul>
+
+<p>### Why I Made These Changes
+  Database structure was unnecessary as we only need simple token and pool ids to fetch, not a structured authenticated database of secret and secure files, made the structure faster and lighterweight on top of being easier to maintain.</p>
+
+<p>### What I Learned</p>
+<ul>
+  <li>How to fix types better and use ai to leverage large amount of error fixes using documentation and scripts.</li>
+</ul>
+
+<p>### What’s Next</p>
+<ul>
+  <li>To run the project in early production and ensure it can execute real s with this early implementation, then clean project repo to be more structured</li>
+</ul>
+
+<p>### Any Blockers or Concerns?</p>
+<ul>
+  <li>Concerned about technical debt and weary of security handling</li>
+</ul>
+
+<p>### Notes for Future Reference</p>
+<ul>
+  <li>Test, Test, Test</li>
+</ul>]]></content><author><name>Angleito</name></author><category term="personal" /><category term="development" /><category term="" /><category term="development" /><category term="journal" /><summary type="html"><![CDATA[ Project Development Journal]]></summary></entry><entry><title type="html">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</title><link href="https://angleito.github.io/crypto/development/2025/03/29/.html" rel="alternate" type="text/html" title="SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA" /><published>2025-03-29T00:00:00+00:00</published><updated>2025-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/crypto/development/2025/03/29/</id><content type="html" xml:base="https://angleito.github.io/crypto/development/2025/03/29/.html"><![CDATA[<h1 id="sui-bitcoins--steel---why-this-blockchain-knight-will-slaughter-ethereum-and-solana">SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA</h1>
+
+<p><strong>Subtitle:</strong> <em>In the Game of Coins, Only One Chain Wields the Sword of Scalability - And It’s Not Who You Think</em></p>
+
+<hr />
+
+<h2 id="prologue-the-iron-throne-and-the-broken-swords">Prologue: The Iron Throne and the Broken Swords</h2>
+<p>The crypto realm is a warzone littered with the corpses of overhyped chains and broken promises. <strong>Bitcoin</strong> sits atop the Iron Throne - immutable, decentralized, and untouchable. But below? Chaos reigns. Ethereum staggers under the weight of its own hubris, a crumbling relic charging peasants <em>$50 fees</em> to cross its moat of molasses-speed transactions. Solana swings a flimsy tin sword, collapsing in a heap every time a squirrel sneezes on its network.</p>
+
+<p>Enter <strong>Sui</strong> - forged in the fires of Meta’s abandoned Diem project and armored with institutional-grade tech. This isn’t just another pretender. This is <em>Bitcoin’s Kingsguard</em> - the only chain ruthless enough to unite scalability, security, and real-world utility under crypto’s bloodstained banner.</p>
+
+<hr />
+
+<h2 id="chapter-1-ethereums-winterfell---a-kingdom-rotting-from-within">Chapter 1: Ethereum’s Winterfell - A Kingdom Rotting from Within</h2>
+<h3 id="the-gas-fee-massacre">The Gas Fee Massacre</h3>
+<p>Ethereum’s claim to smart contract supremacy died screaming during the 2021 NFT boom. Users faced “gas fee” tributes higher than Littlefinger’s debt to the Iron Bank - <strong>$200</strong> to mint a JPG, <strong>$1,000</strong> to swap tokens. Its proof-of-stake “merge” solved nothing - just ask the developers fleeing to Layer 2 shanty towns like Arbitrum and Optimism[3].</p>
+
+<blockquote>
+  <p><em>“Ethereum is the Mad King Aerys of crypto - burning everyone alive while screaming ‘DeFi! DeFi!’”</em> - Anonymous DeFi Degenerate</p>
+</blockquote>
+
+<h3 id="the-solidity-siege">The Solidity Siege</h3>
+<p>Ethereum’s programming language, Solidity, is a security nightmare. Its $12 billion DeFi hack graveyard[5] makes the Red Wedding look tame. The DAO hack ($60M stolen)[6], the Parity wallet freeze ($280M lost)[7] - all stem from Solidity’s loopholes.</p>
+
+<p><strong>Sui doesn’t beg for mercy.</strong> Its <em>Move language</em> - battle-tested by Meta’s engineers - slams the gates on exploits. Assets become <em></em>: indestructible, non-replicable, and bound by cryptographic oaths. Try hacking this? You’ll get the Ned Stark treatment.</p>
+
+<hr />
+
+<h2 id="chapter-2-solanas-house-of-cards---a-paper-sword-shattered">Chapter 2: Solana’s House of Cards - A Paper Sword Shattered</h2>
+<h3 id="the-16-outages-of-shame">The 16 Outages of Shame</h3>
+<p>2022 wasn’t kind to Solana. 16 network outages[10] - more collapses than the Night’s Watch during a White Walker party. Each downtime cost traders millions in liquidations and lost NFT mints.</p>
+
+<blockquote>
+  <p><em>“Solana is the Theon Greyjoy of crypto - constantly getting its ‘sword’ chopped off.”</em> - r/CryptoTwitter</p>
+</blockquote>
+
+<h3 id="fake-speed-real-fragility">Fake Speed, Real Fragility</h3>
+<p>Solana’s “65,000 TPS” claim? Pure theater. Their Sealevel runtime prioritizes speed over stability - a tower built on sand. When bots attacked its NFT minting system in January 2023, fees spiked to <strong>$4,800 per transaction</strong>[12] - higher than Ethereum’s worst days.</p>
+
+<p>While Solana’s Firedancer upgrade[8] promises to mitigate these outages and supposedly process up to 1 million TPS, it remains more theoretical than practical – lipstick on a wight.</p>
+
+<p><strong>Sui laughs at these antics.</strong> Its <em>Narwhal-Bullshark consensus</em> processes transactions in parallel lanes - imagine the Kingsroad with 297,000 carriages moving at lightspeed[14]. All for <strong>$0.001 fees</strong>, all finalized before you can say “Hodor.”</p>
+
+<hr />
+
+<h2 id="chapter-3-suis-long-night---engineering-winter">Chapter 3: Sui’s Long Night - Engineering Winter</h2>
+<h3 id="the-meta-forge">The Meta Forge</h3>
+<p>Sui’s architects aren’t basement-dwelling anons. These are <em>Silicon Valley White Walkers</em>:</p>
+
+<ul>
+  <li><strong>Evan Cheng (CEO):</strong> Former Head of Meta’s Novi R&amp;D - built Diem’s $200M codebase</li>
+  <li><strong>Sam Blackshear (CTO):</strong> Created Move at Meta - now crypto’s only language with mathematical security proofs</li>
+  <li><strong>Adeniyi Abiodun (CPO):</strong> Scaled Google Cloud to manage <em>exabytes</em> of data</li>
+</ul>
+
+<p>These engineers don’t play “build fast, break things.” They <strong>build to survive nuclear winter</strong>.</p>
+
+<h3 id="the-object-based-revolution">The Object-Based Revolution</h3>
+<p>While both Sui and Solana offer parallel processing, Sui’s approach is fundamentally superior[9]. Solana uses an account-based model with localized fee markets, but Sui’s object-based model transforms how assets exist on-chain:</p>
 
 <ol>
-  <li><strong>Code splitting</strong>: Loading only the JavaScript needed for the current view</li>
-  <li><strong>Image optimization</strong>: Using next-gen formats like WebP and proper sizing</li>
-  <li><strong>Lazy loading</strong>: Deferring non-critical resources until needed</li>
-  <li><strong>Caching strategies</strong>: Implementing effective browser and CDN caching</li>
+  <li><strong>Simplified Asset Transfer Logic</strong>: Each object has a unique ID in global storage, making asset tracking intuitive where Solana’s approach is cumbersome</li>
+  <li><strong>Complex Ownership Structures</strong>: NFTs on Sui can hold utility tokens within them - impossible on Solana’s architecture</li>
+  <li><strong>Mysticeti Upgrade</strong>: Recently rolled out on mainnet, reducing latency to ~0.4 seconds - perfect for micropayments and high-frequency trading[11]</li>
 </ol>
 
-<h2 id="conclusion">Conclusion</h2>
+<h3 id="institutional-conquests">Institutional Conquests</h3>
+<p>While Solana chases memecoin clout and Ethereum hosts JPEG casinos, Sui’s forging alliances with actual kingdoms:</p>
 
-<p>Embracing these modern web development practices can significantly improve both the developer experience and end-user satisfaction. For code examples and implementation details, check out my <a href="https://github.com/Angleito/web-project">sample project repository</a>.</p>]]></content><author><name>Angleito</name></author><category term="Web" /><category term="JavaScript" /><category term="CI/CD" /><category term="Performance" /><summary type="html"><![CDATA[Modern Web Development Practices]]></summary></entry></feed>
+<ul>
+  <li><strong>FedNow:</strong> Piloting instant payments for 4,300 U.S. banks[17]</li>
+  <li><strong>Las Vegas Sphere:</strong> 18,000 NFT tickets scanned via Sui per concert[18]</li>
+  <li><strong>Ubisoft:</strong> Tracking 2.1 million in-game assets across 14 countries[19]</li>
+</ul>
+
+<p>This isn’t adoption. It’s <strong><em>colonization</em></strong>.</p>
+
+<hr />
+
+<h2 id="chapter-4-the-dragons-rise---suis-meteoric-ascent">Chapter 4: The Dragon’s Rise - Sui’s Meteoric Ascent</h2>
+<h3 id="the-numbers-dont-lie">The Numbers Don’t Lie</h3>
+<p>Sui’s ecosystem has expanded faster than wildfire through the Seven Kingdoms:</p>
+
+<ul>
+  <li><strong>DeFi Total Value Locked</strong>: Surpassed the $1 billion milestone in record time[20]</li>
+  <li><strong>Daily Transactions</strong>: Flipped Solana’s in early October 2024[21]</li>
+  <li><strong>Price Performance</strong>: Surged 123% in a single month while SOL struggled with a mere 12% gain[23]</li>
+</ul>
+
+<h3 id="the-secret-weapon-zklogin">The Secret Weapon: zkLogin</h3>
+<p>While Solana scrambles to improve, Sui already implemented zkLogin in September 2023[22]. This revolutionary feature allows users to transact with Web2 credentials (Google, Facebook accounts) without revealing them on-chain - bringing millions of normies into the crypto realm with a user experience smoother than Tyrion’s finest Dornish wine.</p>
+
+<hr />
+
+<h2 id="chapter-5-bitcoins-crown--suis-conquest">Chapter 5: Bitcoin’s Crown &amp; Sui’s Conquest</h2>
+<h3 id="the-golden-anchors">The Golden Anchors</h3>
+<p>Let’s be clear: <strong>Bitcoin is the realm’s true sovereign</strong>. Its $1.3 trillion market cap[24] dwarfs all competitors. But gold doesn’t build empires - armies do.</p>
+
+<p>Sui is Bitcoin’s <em>Dothraki horde</em> - a nomadic force spreading crypto’s reach into:</p>
+<ul>
+  <li><strong>Gaming</strong> (100k+ transactions per second for AAA titles)</li>
+  <li><strong>Micropayments</strong> (stream $0.0001 tips to creators in real-time)</li>
+  <li><strong>Enterprise Logistics</strong> (Alibaba’s $23B supply chain tracked on-chain[25])</li>
+</ul>
+
+<h3 id="the-final-war">The Final War</h3>
+<p>Ethereum’s sharding roadmap? A pipe dream. Solana’s “Firedancer” fix? Lipstick on a wight. Sui already <em>works</em> at planetary scale:</p>
+
+<ul>
+  <li><strong>400ms finality</strong> (Visa takes 2-3 seconds)[26]</li>
+  <li><strong>Zero downtime</strong> since mainnet launch</li>
+  <li><strong>15+ audits</strong> with <strong>0 critical bugs</strong>[27]</li>
+</ul>
+
+<hr />
+
+<h2 id="epilogue-valar-morghulis-valar-dohaeris">Epilogue: Valar Morghulis, Valar Dohaeris</h2>
+<p>The crypto wars won’t be won by chains chasing speculative vapor. They’ll be won by surgeons - chains that <em>remove</em> crypto’s tumors (high fees, slow speeds, hacks) instead of celebrating them.</p>
+
+<p><strong>Bitcoin</strong> will remain king. <strong>Sui</strong> will be its Hand - executing the vision of borderless, permissionless value with merciless efficiency. As for Ethereum and Solana? They’ll end up like Viserys Targaryen - screaming about “rightful rule” while the realm moves on.</p>
+
+<p>Winter came for the old guard. The dragons are here.</p>
+
+<hr />
+
+<h3 id="armory-sources">Armory (Sources)</h3>
+<p>[1] <a href="https://etherscan.io/gastracker">Ethereum Gas Tracker</a><br />
+[2] <a href="https://status.solana.com/">Solana Outage Tracker</a><br />
+[3] <a href="https://dune.com/springwhale/L2-Landscape">Layer 2 Migration Report</a><br />
+[5] <a href="https://defiyield.app/rekt-database">DeFi Hack Database</a><br />
+[6] <a href="https://www.coindesk.com/markets/2016/06/25/understanding-the-dao-attack/">The DAO Hack Analysis</a><br />
+[7] <a href="https://www.parity.io/blog/a-postmortem-on-the-parity-multi-sig-library-self-destruct/">Parity Wallet Freeze Report</a><br />
+[8] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Solana Firedancer Upgrade</a><br />
+[9] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui vs Solana Technical Comparison</a><br />
+[10] <a href="https://solanabeach.io/validators">Solana Outage History</a><br />
+[11] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui Mysticeti Upgrade</a><br />
+[12] <a href="https://solana.com/news/january-2023-network-report">Solana Bot Attack Post-Mortem</a><br />
+[14] <a href="https://docs.sui.io/learn/architecture/consensus">Sui Parallel Processing</a><br />
+[17] <a href="https://www.federalreserve.gov/newsevents/pressreleases/other20230517a.htm">FedNow Pilot Details</a><br />
+[18] <a href="https://www.sphere.com/tech/blockchain-ticketing">Las Vegas Sphere NFT Implementation</a><br />
+[19] <a href="https://www.ubisoft.com/en-us/company/about-us/blockchain">Ubisoft x Sui Partnership</a><br />
+[20] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui DeFi Growth Report</a><br />
+[21] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Blockchain Transaction Statistics</a><br />
+[22] <a href="https://medium.com/@aspendigitalAMP/sui-vs-solana-79d2fb2e7568">Sui zkLogin Feature Overview</a><br />
+[23] <a href="https://bravenewcoin.com/insights/sol-vs-sui-vs-cybro-which-crypto-offers-the-biggest-potential-gains-by-2025">Sui vs Solana Price Analysis</a><br />
+[24] <a href="https://coinmarketcap.com/currencies/bitcoin/">Bitcoin Market Cap</a><br />
+[25] <a href="https://www.alibabacloud.com/case-studies/sui-blockchain">Alibaba Cloud Case Study</a><br />
+[26] <a href="https://twitter.com/SuiNetwork/status/1571234422116663296">Sui Finality vs Traditional Payment Systems</a><br />
+[27] <a href="https://github.com/MystenLabs/sui/tree/main/audits">Sui Security Audits</a></p>]]></content><author><name>Angleito</name></author><category term="crypto" /><category term="development" /><summary type="html"><![CDATA[SUI: BITCOIN’S  - WHY THIS BLOCKCHAIN KNIGHT WILL SLAUGHTER ETHEREUM AND SOLANA]]></summary></entry><entry><title type="html">Trump’s , A Perspective From A Fellow Las Vegan</title><link href="https://angleito.github.io/economics/politics/2024/03/29/.html" rel="alternate" type="text/html" title="Trump’s , A Perspective From A Fellow Las Vegan" /><published>2024-03-29T00:00:00+00:00</published><updated>2024-03-29T00:00:00+00:00</updated><id>https://angleito.github.io/economics/politics/2024/03/29/</id><content type="html" xml:base="https://angleito.github.io/economics/politics/2024/03/29/.html"><![CDATA[<p><strong># Trump’s , A Perspective From A Fellow Las Vegan</strong></p>
+
+<hr />
+
+<h3 id="the-art-of-economic-contradictions"><strong>The Art of Economic Contradictions</strong></h3>
+
+<p>Let me be blunt: Donald Trump’s economic agenda dances on a knife’s edge, and I’m here for it. As someone born and raised in the luck of the draw, the heat of the flop, I understand the gamble, and America desperately needs it. For years the working American class as been pushed back while letting China and Mexico have all our manufacturing jobs, jobs much needed by the american working class. The old neoliberal tale of lower goods prices will make our lives better has only made us more fat and addicted to our electronics. The American working class has recognized this and the democrat and neoconservative and neoliberal approaches have done nothing to help them, the 2008 crisis destroyed these Americans and the continued austerity has done even more damage. This is why Trump won 2016 and why he won again in 2024. Biden-nomics was no different that Obama-nomics, just simply pushing the can down the road. Personally I absolutely despise Trump, every bone in my body hates him, but as someone who can recognize the opportunity of the fundamental fix he can provide? I must support him and hope his wild and downright disgusting tactics and save this country and the working class. Can he fix the debt situation, bring back hard working american jobs, and create a booming American economy for another twenty plus years? I think he can and if he fails at least someone had the guts to go all in.</p>
+
+<p>Here’s why: The Fed’s 2% inflation target is obsolete in a world where U.S. debt grows faster than GDP. It does nothing for the majority of americans, this artificial target made up by some swedes is just that, a number that sounded right. What we need is to modernize our economy, stop fixing old things with old methods and start thinking anew with forward solutions. Trump gets this. His rumored push for <strong>century bonds</strong>—100-year debt to lock in today’s rates—isn’t just Zoltan Pozsar’s brainchild (<a href="https://www.credit-suisse.com">Credit Suisse, 2023</a>). It’s survival arithmetic. <em>“You can’t outrun a debt spiral with quarterly Treasury auctions. You need generational fixes.”</em></p>
+
+<hr />
+
+<h3 id="the-triffin-trapand-why-the-mar-a-lago-accord-matters"><strong>The Triffin Trap—and Why the ‘Mar-a-Lago Accord’ Matters</strong></h3>
+
+<p>The <strong>Triffin dilemma</strong> is no academic footnote—it’s why your Bitcoin portfolio matters. For decades, the U.S. supplied global dollar liquidity at the cost of ballooning deficits. We have taken the sacrifice and hurt our own people for the good of the world, and what do we get in return? Nothing. Its time we look out for ourselves and take true ownership of our american libertarian views the founding fathers distilled into us. But who will take this great sacrifice? Who will take on the worlds reserve currency? Bitcoin and stablecoins, thats who. Trump’s team sees the endgame: either collapse the system or reboot it with new upgraded software.</p>
+
+<p>This is where Lyn Alden’s “<strong>Mar-a-Lago Accord</strong>” theory grabs me and tethers rise to U.S. Treasury dominance makes me ponder. (<a href="https://www.lynalden.com">Alden, 2024</a>, <a href="https://cointelegraph.com/news/tether-becomes-7th-largest-us-treasury-holder-stablecoin-growth">Tether, 2025</a>). Imagine a geopolitical deal where Gulf states, Asian allies, and the stablecoin crypto industry absorb U.S. debt in exchange for military, tech favors, and financial stability. It’s messy, realpolitik, and borderline desperate, but it’s exactly the kind of “creative destruction” Washington needs. My take? <em>“Global reserve currencies don’t die quietly. They either transform or take hostages.”</em></p>
+
+<hr />
+
+<h3 id="scott-bessent-vs-the-hammer"><strong>Scott Bessent vs. The Hammer</strong></h3>
+
+<p>Let’s address the elephant in the room: Trump’s policy civil war. On one side, adviser <strong>Scott Bessent</strong>—a Soros protégé—wants to cool markets with fiscal restraint. Tell snake charmed silver-tongued lies while the mad man bull that trump is, is thrashing around the fine china of the us stock market. On the other, Trump’s 2025 tax cut proposals are pure adrenaline for risk assets, but the tariffs cause real stagflation considering inflation hasn’t slowed all too much.</p>
+
+<p>I’ve seen this movie before. In 2018, Trump tweeted markets into submission, then pivoted to stimulus. Today’s tension is strategic: Bessent’s “feather” aims to smooth transitions, while Trump’s “hammer” forces structural change. The result? Short-term pain for long-term sovereignty. As my Russian pen pal once told me: <em>“Once you survive a bear attack, you can survive anything.”</em></p>
+
+<hr />
+
+<h3 id="cryptos-golden-age-thanks-to-debt-madness"><strong>Crypto’s Golden Age (Thanks to Debt Madness)</strong></h3>
+
+<p>Let’s talk crypto. If century bonds fail—and I give them 50/50 odds—Bitcoin becomes the ultimate hedge. During Trump’s first term, BTC surged 180% as deficits exploded (<a href="https://www.coingecko.com">CoinGecko, 2020</a>). The lesson? <em>“Fiat chaos breeds crypto demand.”</em></p>
+
+<p>But here’s my contrarian angle: A successful debt overhaul <em>also</em> helps crypto. Why? Because sustainable U.S. finances reduce systemic risk, making blockchain innovation (not speculation) the focus. Trump’s pro-crypto pivot isn’t philanthropy—it’s a bet that decentralized tech can thrive in a rebalanced fiscal order. On top of using the U.S’s new finanical health to add crypto to its balance sheet, further legitimizing an amazing industry. Trump understands the “Only Up” mentality of crypto.</p>
+
+<hr />
+
+<h3 id="pain-now-power-later"><strong>Pain Now, Power Later</strong></h3>
+
+<p>Yes, markets will scream. Century bonds could trigger a 1994-style bond massacre. The dollar might waffle as BRICS nations test alternatives. But consider history: Volcker’s rate hikes gutted the 1980s economy but killed inflation for decades.</p>
+
+<p>I’ll leave you with this: America’s debt addiction won’t be cured with half-measures. Trump’s team is opting for radical surgery because Band-Aids expired in 2008. As I wrote in my Substack last month: <em>“Bear markets don’t build resilience—surviving them does.”</em></p>
+
+<hr />
+<p><em>The author is a Gen Z crypto bro, take commentary with caution.</em></p>
+
+<p><em>(Sources cited inline; commentary reflects personal analysis)</em></p>]]></content><author><name>Angleito</name></author><category term="economics" /><category term="politics" /><summary type="html"><![CDATA[# Trump’s , A Perspective From A Fellow Las Vegan]]></summary></entry></feed>
