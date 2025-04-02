@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   
     {
@@ -271,4 +272,44 @@ This page contains a chronological timeline of development journal entries for [
 This page contains a chronological timeline of development journal entries for the Example Project, documenting the prog..."
     } 
   
+=======
+---
+layout: null
+---
+[
+  {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "category" : "{{ post.categories | join: ', ' }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date | date: '%B %d, %Y' }}",
+      "excerpt"  : "{{ post.excerpt | strip_html | truncate: 160 | escape }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ,
+  {% for page in site.pages %}
+   {% if page.title and page.title != "Search" %}
+     {
+       "title"    : "{{ page.title | escape }}",
+       "category" : "page",
+       "tags"     : "",
+       "url"      : "{{ site.baseurl }}{{ page.url }}",
+       "date"     : "",
+       "excerpt"  : "{{ page.content | strip_html | truncate: 160 | escape }}"
+     } {% unless forloop.last %},{% endunless %}
+   {% endif %}
+  {% endfor %}
+  ,
+  {% for project in site.projects %}
+    {
+      "title"    : "{{ project.title | escape }}",
+      "category" : "project",
+      "tags"     : "",
+      "url"      : "{{ site.baseurl }}{{ project.url }}",
+      "date"     : "",
+      "excerpt"  : "{{ project.content | strip_html | truncate: 160 | escape }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+>>>>>>> origin/dev
 ] 
