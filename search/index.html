@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search | Angleito's Portfolio</title>
+  <meta name="description" content="Welcome to my personal portfolio website">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Search | Angleito’s Portfolio</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Search" />
+<meta name="author" content="Angleito" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Welcome to my personal portfolio website" />
+<meta property="og:description" content="Welcome to my personal portfolio website" />
+<link rel="canonical" href="https://angleito.github.io/search/" />
+<meta property="og:url" content="https://angleito.github.io/search/" />
+<meta property="og:site_name" content="Angleito’s Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Search" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Angleito"},"description":"Welcome to my personal portfolio website","headline":"Search","url":"https://angleito.github.io/search/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="/">Angleito's Portfolio</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/articles/">Articles</a></li>
+          <li><a href="/categories/">Categories</a></li>
+          <li><a href="/search/">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="page">
+  <header class="page-header">
+    <h1>Search</h1>
+  </header>
+
+  <div class="page-content">
+    <div id="search-container">
+  <input type="text" id="search-input" placeholder="Search articles..." />
+  <div id="results-container"></div>
+</div>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<div class="search-result"><a href="{url}">{title}</a><p>{excerpt}</p></div>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false
+  });
+</script>
+
+<style>
+  #search-container {
+    max-width: 100%;
+    padding: 20px 0;
+  }
+  
+  #search-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .search-result {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-result a {
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .search-result p {
+    margin-top: 5px;
+    color: #333;
+  }
+</style>
+
+
+  </div>
+</article> 
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Angleito. All rights reserved.</p>
+      <p>
+        <a href="https://github.com/" target="_blank">GitHub</a> |
+        <a href="mailto:arainey555@gmail.com">Email</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html> 
