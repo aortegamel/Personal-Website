@@ -20,4 +20,15 @@ vendor/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log* 
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+build/
+
+# GitHub Pages
+.github-pages/
+
+# Contentlayer
+.contentlayer/

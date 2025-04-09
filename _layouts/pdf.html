@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <style>
+    body {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #003366;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    .post-meta {
+      color: #666;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    blockquote {
+      border-left: 4px solid #ccc;
+      padding-left: 15px;
+      margin-left: 0;
+      font-style: italic;
+      color: #555;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      background-color: #f5f5f5;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    .page-break {
+      page-break-after: always;
+    }
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+      {% if page.author %}
+        • {{ page.author }}
+      {% endif %}
+      {% if page.categories.size > 0 %}
+        • Categories: 
+        {% for category in page.categories %}
+          {{ category }}{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="footer">
+    <p>© {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
+    <p>Generated from Angleito's Portfolio - https://Angleito.github.io</p>
+  </div>
+</body>
+</html>
