@@ -1,0 +1,19 @@
+diff a/nextjs-portfolio/src/app/layout.tsx b/nextjs-portfolio/src/app/layout.tsx	(rejected hunks)
+@@ -1,13 +1,14 @@
+ import type { Metadata } from "next";
+-import { Geist, Geist_Mono } from "next/font/google";
++import { GeistSans } from "next/font/google/GeistSans";
++import { GeistMono } from "next/font/google/GeistMono";
+ import "./globals.css";
+ 
+-const geistSans = Geist({
++const geistSans = GeistSans({
+   variable: "--font-geist-sans",
+   subsets: ["latin"],
+ });
+ 
+-const geistMono = Geist_Mono({
++const geistMono = GeistMono({
+   variable: "--font-geist-mono",
+   subsets: ["latin"],
+ });
