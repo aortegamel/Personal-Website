@@ -170,11 +170,11 @@ footer {
   .project-grid {
     grid-template-columns: 1fr;
   }
-  
+
   nav ul {
     flex-direction: column;
   }
-  
+
   nav ul li {
     margin-bottom: 0.5rem;
   }
@@ -239,4 +239,31 @@ footer {
 
 .disclaimer-notice a {
   font-weight: 500;
-} 
+}
+
+/* PDF Download Button */
+.pdf-download {
+  margin: 1.5rem 0;
+}
+
+.pdf-button {
+  display: inline-block;
+  background-color: #d14836;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.pdf-button:hover {
+  background-color: #c13826;
+  text-decoration: none;
+  color: white;
+}
+
+.pdf-button:before {
+  content: '📄 ';
+  margin-right: 5px;
+}
