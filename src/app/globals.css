@@ -5,3 +5,15 @@
 body {
   @apply bg-white text-black;
 }
+
+/* Prevent body scrolling when mobile menu is open */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* Smooth transitions for mobile menu */
+@media (max-width: 768px) {
+  header nav {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+}
