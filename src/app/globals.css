@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --tw-colors-deepSea-surface: #0a2342;
+  --tw-colors-deepSea-shallow: #084887;
+  --tw-colors-deepSea-middle: #05668d;
+  --tw-colors-deepSea-deep: #023e73;
+  --tw-colors-deepSea-abyss: #001f3f;
+}
+
 body {
-  @apply bg-white text-black;
+  @apply bg-gradient-to-b from-deepSea-surface to-deepSea-abyss text-white min-h-screen;
+  background-attachment: fixed;
 }
 
 /* Prevent body scrolling when mobile menu is open */
@@ -15,5 +24,40 @@ body.mobile-menu-open {
 @media (max-width: 768px) {
   header nav {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+}
+
+/* Custom component classes */
+@layer components {
+  .abyss-card {
+    @apply bg-deepSea-middle/30 backdrop-blur-sm border border-abyss-400/20 rounded-lg shadow-lg;
+  }
+
+  .bitcoin-button {
+    @apply bg-bitcoin-500 hover:bg-bitcoin-600 text-deepSea-abyss font-medium px-4 py-2 rounded transition-all duration-300 shadow-bitcoin hover:shadow-bitcoin-lg;
+  }
+
+  .abyss-button {
+    @apply bg-deepSea-shallow hover:bg-deepSea-middle text-white font-medium px-4 py-2 rounded transition-all duration-300;
+  }
+
+  .abyss-input {
+    @apply bg-deepSea-surface/50 border border-abyss-400/30 text-white placeholder-abyss-300/50 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-bitcoin-500/50;
+  }
+
+  .bitcoin-accent {
+    @apply text-bitcoin-500;
+  }
+
+  .abyss-link {
+    @apply text-bitcoin-400 hover:text-bitcoin-300 transition-colors duration-300 underline decoration-bitcoin-500/30 hover:decoration-bitcoin-400/70;
+  }
+
+  .abyss-gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-bitcoin-400 to-bitcoin-600;
+  }
+
+  .abyss-section {
+    @apply bg-deepSea-deep/30 backdrop-blur-sm border border-abyss-400/10 rounded-lg p-6 shadow-lg;
   }
 }
