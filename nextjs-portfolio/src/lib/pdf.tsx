@@ -144,7 +144,7 @@ export const PostPDF = ({ post }: { post: Post }) => (
       
       <Text style={styles.footer}>
         © {new Date().getFullYear()} Angleito. All rights reserved.
-        Generated from Angleito's Portfolio - https://Angleito.github.io
+        Generated from Angleito&apos;s Portfolio - https://Angleito.github.io
       </Text>
       
       <Text 
@@ -158,5 +158,7 @@ export const PostPDF = ({ post }: { post: Post }) => (
 
 // Generate PDF buffer
 export const generatePDF = async (post: Post): Promise<Buffer> => {
-  return await pdf(<PostPDF post={post} />).toBuffer();
+  const pdfDocument = pdf(<PostPDF post={post} />);
+  const pdfBlob = await pdfDocument.toBlob();
+  return Buffer.from(await pdfBlob.arrayBuffer());
 };
