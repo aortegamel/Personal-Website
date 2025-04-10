@@ -1,0 +1,14 @@
+# Ignore everything except the nextjs-portfolio directory
+/*
+!nextjs-portfolio/
+
+# Ignore node_modules and other unnecessary files in the nextjs-portfolio directory
+nextjs-portfolio/node_modules
+nextjs-portfolio/.next
+nextjs-portfolio/out
+nextjs-portfolio/.vercel
+nextjs-portfolio/.env*
+nextjs-portfolio/npm-debug.log*
+nextjs-portfolio/yarn-debug.log*
+nextjs-portfolio/yarn-error.log*
+nextjs-portfolio/.DS_Store
