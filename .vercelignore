@@ -1,6 +1,10 @@
-# Ignore everything except the nextjs-portfolio directory
-/*
-!nextjs-portfolio/
+# Only ignore unnecessary files
+.git/
+.github/
+**/node_modules
+**/.next/cache
+**/out
+**/.vercel
 
 # Ignore node_modules and other unnecessary files in the nextjs-portfolio directory
 nextjs-portfolio/node_modules
