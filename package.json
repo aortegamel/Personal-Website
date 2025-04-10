@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "cd nextjs-portfolio && npm run dev",
-    "build": "cd nextjs-portfolio && npm install && npm run build",
-    "start": "cd nextjs-portfolio && npm run start"
+    "build": "./vercel-build.sh",
+    "start": "node index.js",
+    "vercel-build": "./vercel-build.sh"
   },
   "dependencies": {
-    "next": "15.2.5"
+    "next": "15.2.5",
+    "http": "^0.0.1-security"
   },
   "engines": {
     "node": ">=18.x"
