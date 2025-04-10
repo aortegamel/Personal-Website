@@ -1,13 +1,15 @@
 {
   "name": "nextjs-portfolio",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && npm run generate-search",
     "start": "next start",
     "lint": "next lint",
-    "generate-search": "node src/lib/generateSearchData.js"
+    "generate-search": "node src/lib/generateSearchData.js",
+    "vercel-build": "next build && npm run generate-search"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
@@ -25,6 +27,7 @@
     "@types/node": "^20.17.30",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
+    "@types/scheduler": "^0.26.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.5",
     "tailwindcss": "^4",
