@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run generate-search",
     "start": "next start",
     "lint": "next lint",
-    "generate-search": "node src/lib/generateSearchData.js"
+    "generate-search": "node src/lib/generateSearchData.js",
+    "vercel-build": "next build && npm run generate-search"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
