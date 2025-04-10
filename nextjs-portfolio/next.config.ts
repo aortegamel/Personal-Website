@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from 'contentlayer/next';
 
 const nextConfig: NextConfig = {
   // Enable image optimization for Vercel deployment
@@ -10,4 +11,4 @@ const nextConfig: NextConfig = {
   trailingSlash: true
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
