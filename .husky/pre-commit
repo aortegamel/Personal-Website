@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🧪 Running pre-commit tests in headless mode..."
+
+# Start the development server in the background and capture the port
+echo "🚀 Starting development server..."
+
+# Use a random available port
+PORT=0 npm run dev > .server-output.log 2>&1 &
+SERVER_PID=$!
+
+# Give the server time to start
+echo "⏳ Waiting for server to start..."
+sleep 5
+
+# Extract the port from the server output
+SERVER_PORT=$(grep -o 'http://localhost:[0-9]\+' .server-output.log | grep -o '[0-9]\+' | head -1)
+
+if [ -z "$SERVER_PORT" ]; then
+  echo "❌ Failed to detect server port. Using default port 3000."
+  SERVER_PORT=3000
+else
+  echo "💻 Server running on port $SERVER_PORT"
+fi
+
+# Run the tests with the detected port
+PORT=$SERVER_PORT npm run test:headless
+TEST_EXIT_CODE=$?
+
+# Kill the development server
+echo "🛑 Stopping development server..."
+kill $SERVER_PID
+
+# Clean up temporary files
+rm -f .server-output.log
+
+# Strictly enforce all tests passing
+if [ $TEST_EXIT_CODE -ne 0 ]; then
+  echo "❌ Tests failed. Commit aborted."
+  echo "💡 Fix all issues before committing to ensure production readiness."
+  exit 1
+else
+  echo "✅ All tests passed. Proceeding with commit."
+  exit 0
+fi
