@@ -1,20 +1,13 @@
 import Link from 'next/link';
-import { allPosts, allProjects } from 'contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import PostPreview from '@/components/PostPreview';
 import ProjectCard from '@/components/ProjectCard';
+import { loadPosts, loadProjects } from '@/lib/content-loader';
 
 export default function Home() {
-  // Sort posts by date, most recent first
-  const sortedPosts = allPosts.sort((a, b) => 
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
-
-  // Take the first 3 posts
+  const sortedPosts = loadPosts();
   const recentPosts = sortedPosts.slice(0, 3);
-
-  // Take all projects
-  const projects = allProjects;
+  const projects = loadProjects();
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -39,11 +32,7 @@ export default function Home() {
           {recentPosts.map((post) => (
             <PostPreview 
               key={post.slug}
-              title={post.title}
-              date={format(parseISO(post.date), 'LLLL d, yyyy')}
-              excerpt={post.excerpt || ''}
-              slug={post.slug}
-              categories={post.categories}
+              post={post}
             />
           ))}
         </div>
@@ -65,7 +54,7 @@ export default function Home() {
               key={project.slug}
               name={project.name}
               description={project.description}
-              techStack={project.tech_stack}
+              techStack={project.techStack}
               slug={project.slug}
             />
           ))}

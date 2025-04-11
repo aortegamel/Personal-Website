@@ -1,44 +1,32 @@
-'use client';
-
-import React from 'react';
 import { cn } from '@/lib/utils';
-import { Container } from './Container';
+import { ReactNode } from 'react';
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
-  containerSize?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
-  containerClassName?: string;
-  withContainer?: boolean;
-  as?: 'section' | 'div' | 'article' | 'aside';
+interface SectionProps {
+  children: ReactNode;
+  className?: string;
+  align?: 'left' | 'center' | 'right';
 }
 
-const Section = React.forwardRef<HTMLElement, SectionProps>(
-  ({ 
-    className, 
-    containerSize = 'lg', 
-    containerClassName,
-    withContainer = true,
-    as: Component = 'section',
-    children,
-    ...props 
-  }, ref) => {
-    return (
-      <Component
-        ref={ref}
-        className={cn('py-12', className)}
-        {...props}
-      >
-        {withContainer ? (
-          <Container size={containerSize} className={containerClassName}>
-            {children}
-          </Container>
-        ) : (
-          children
-        )}
-      </Component>
-    );
-  }
-);
+export default function Section({ 
+  children, 
+  className, 
+  align = 'left' 
+}: SectionProps) {
+  const alignmentClasses = {
+    left: 'text-left',
+    center: 'text-center',
+    right: 'text-right'
+  };
 
-Section.displayName = 'Section';
-
-export { Section };
+  return (
+    <section 
+      className={cn(
+        'py-12', 
+        alignmentClasses[align], 
+        className
+      )}
+    >
+      {children}
+    </section>
+  );
+}

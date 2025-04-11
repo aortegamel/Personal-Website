@@ -2,5 +2,7 @@
 
 import posts__2024_03_29TrumpsVegasGambleMd from './posts__2024-03-29-.md.json' assert { type: 'json' }
 import posts__2025_03_29SuiSteelMd from './posts__2025-03-29-.md.json' assert { type: 'json' }
+import posts__2025_03_31ProjectJournalMd from './posts__2025-03-31--project-journal.md.json' assert { type: 'json' }
+import posts__2025_04_01ProjectJournalMd from './posts__2025-04-01--project-journal.md.json' assert { type: 'json' }
 
-export const allPosts = [posts__2024_03_29TrumpsVegasGambleMd, posts__2025_03_29SuiSteelMd]
+export const allPosts = [posts__2024_03_29TrumpsVegasGambleMd, posts__2025_03_29SuiSteelMd, posts__2025_03_31ProjectJournalMd, posts__2025_04_01ProjectJournalMd]
