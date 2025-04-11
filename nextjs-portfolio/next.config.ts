@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
-import { withContentlayer } from 'contentlayer/next';
 
 const nextConfig: NextConfig = {
   // Enable image optimization for Vercel deployment
   images: {
-    domains: ['angleito.github.io'],
-    formats: ['image/avif', 'image/webp']
+    unoptimized: true
   },
-  // Add trailing slashes for consistent URLs
-  trailingSlash: true
+  output: 'export',
+  trailingSlash: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/Angleito.github.io' : '',
 };
 
-export default withContentlayer(nextConfig);
+export default nextConfig;

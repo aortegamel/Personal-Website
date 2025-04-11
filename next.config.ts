@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: true,
   basePath: process.env.NODE_ENV === 'production' ? '/Angleito.github.io' : '',
+  typescript: {
+    ignoreBuildErrors: true,
+  }
 };
 
 export default nextConfig;

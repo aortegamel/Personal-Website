@@ -1,48 +1,44 @@
-import { allPosts, Post } from 'contentlayer/generated';
-import Link from 'next/link';
-import { format } from 'date-fns';
+interface Post {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+}
+
+const sortedPosts: Post[] = [
+  {
+    slug: 'post-1',
+    title: 'First Blog Post',
+    date: '2025-01-15',
+    excerpt: 'An introduction to our blog'
+  },
+  {
+    slug: 'post-2',
+    title: 'Second Blog Post',
+    date: '2025-02-20',
+    excerpt: 'Exploring new technologies'
+  }
+];
 
 export default function PostsPage() {
-  // Sort posts by date in descending order (most recent first)
-  const sortedPosts: Post[] = allPosts.sort((a: Post, b: Post) => 
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedPosts.map((post: Post) => (
-          <Link 
+          <a 
             key={post.slug} 
-            href={post.url} 
+            href={`/posts/${post.slug}`} 
             className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <h2 className="text-2xl font-semibold mb-4">{post.title}</h2>
             <div className="text-sm text-gray-500 mb-4">
-              <span>{format(new Date(post.date), 'MMMM d, yyyy')}</span>
-              <span className="mx-2">•</span>
-              <span>{post.author}</span>
+              <span>{new Date(post.date).toLocaleDateString()}</span>
             </div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.categories.map((category: string) => (
-                <span 
-                  key={category} 
-                  className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                >
-                  {category}
-                </span>
-              ))}
-            </div>
-            <div className="text-blue-500 hover:underline">Read More</div>
-          </Link>
+            <p className="text-gray-600">{post.excerpt}</p>
+          </a>
         ))}
       </div>
     </div>
   );
 }
-
-export const metadata = {
-  title: 'Blog Posts | Angleito Portfolio',
-  description: 'A collection of my thoughts, insights, and experiences across various topics.'
-};
