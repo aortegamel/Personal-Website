@@ -25,7 +25,7 @@ else
 fi
 
 # Run the tests with the detected port
-PORT=$SERVER_PORT npm run test:headless
+PORT=$SERVER_PORT npm run connect-browser-mcp
 TEST_EXIT_CODE=$?
 
 # Kill the development server
