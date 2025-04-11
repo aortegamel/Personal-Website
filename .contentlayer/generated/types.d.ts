@@ -20,8 +20,8 @@ export type Post = {
   categories: string[]
   tags?: string[] | undefined
   excerpt?: string | undefined
-  /** Markdown file body */
-  body: Markdown
+  /** MDX file body */
+  body: MDX
   slug: string
   url: string
 }
@@ -39,8 +39,8 @@ export type Project = {
   has_demo?: boolean | undefined
   contact?: string | undefined
   features: string[]
-  /** Markdown file body */
-  body: Markdown
+  /** MDX file body */
+  body: MDX
   slug: string
   url: string
 }  

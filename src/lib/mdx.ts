@@ -1,142 +1,90 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { format } from 'date-fns';
-
-// Define the Post type
-export type Post = {
+export interface Post {
   slug: string;
   title: string;
   date: string;
-  formattedDate: string;
-  author: string;
   excerpt: string;
-  content: string;
   categories: string[];
-  tags?: string[];
-};
+  author: string;
+  url: string;
+}
 
-// Define the Project type
-export type Project = {
+export interface Project {
   slug: string;
   name: string;
   description: string;
   techStack: string[];
   github?: string;
-  demo?: string;
-  privateFullVersion?: boolean;
-  contact?: string;
-  features: string[];
-  detailedDescription?: string;
-};
-
-const postsDirectory = path.join(process.cwd(), 'src/content/posts');
-const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
-
-// Get all post slugs
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  url: string;
 }
 
-// Get all project slugs
-export function getProjectSlugs() {
-  return fs.readdirSync(projectsDirectory);
-}
+const POSTS: Post[] = [
+  {
+    slug: '2024-03-29-',
+    title: 'Trump\'s ',
+    date: '2024-03-29',
+    excerpt: 'An analysis of recent political developments in Las Vegas',
+    categories: ['politics', 'economics'],
+    author: 'Angel Ortega-Melton',
+    url: '/posts/2024-03-29-'
+  },
+  {
+    slug: '2025-03-29-',
+    title: 'Sui ',
+    date: '2025-03-29',
+    excerpt: 'Exploring blockchain technology and its potential applications',
+    categories: ['crypto', 'technology'],
+    author: 'Angel Ortega-Melton',
+    url: '/posts/2025-03-29-'
+  }
+];
 
-// Get post by slug
-export function getPostBySlug(slug: string): Post {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = path.join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-  
-  const date = data.date instanceof Date ? data.date : new Date(data.date);
-  const formattedDate = format(date, 'MMMM d, yyyy');
+const PROJECTS: Project[] = [
+  {
+    slug: 'bluefinaiagenttrader',
+    name: 'BlueFin AI Agent Trader',
+    description: 'An AI-powered trading platform for cryptocurrency markets',
+    techStack: ['Python', 'Machine Learning', 'Blockchain'],
+    github: 'https://github.com/angelortegamelton/bluefinaiagenttrader',
+    url: '/projects/bluefinaiagenttrader'
+  },
+  {
+    slug: 'bot',
+    name: ' Bot',
+    description: 'Automated DeFi trading bot utilizing flash loan technology',
+    techStack: ['Solidity', 'Web3.js', 'Blockchain'],
+    github: 'https://github.com/angelortegamelton/bot',
+    url: '/projects/bot'
+  }
+];
 
-  return {
-    slug: realSlug,
-    title: data.title,
-    date: data.date.toString(),
-    formattedDate,
-    author: data.author || 'Angel Ortega-Melton',
-    excerpt: data.excerpt || content.slice(0, 160),
-    content,
-    categories: data.categories || [],
-    tags: data.tags || [],
-  };
-}
-
-// Get project by slug
-export function getProjectBySlug(slug: string): Project {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = path.join(projectsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
-  return {
-    slug: realSlug,
-    name: data.name,
-    description: data.description,
-    techStack: data.tech_stack || [],
-    github: data.github,
-    demo: data.demo,
-    privateFullVersion: data.private_full_version,
-    contact: data.contact || 'arainey555@gmail.com',
-    features: data.features || [],
-    detailedDescription: content,
-  };
-}
-
-// Get all posts
 export function getAllPosts(): Post[] {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    .sort((post1, post2) => (new Date(post1.date) > new Date(post2.date) ? -1 : 1));
-  return posts;
+  return POSTS.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
-
-// Get all projects
-import { allProjects } from 'contentlayer/generated';
 
 export function getAllProjects(): Project[] {
-  return allProjects;
+  return PROJECTS;
 }
 
-// Get posts by category
 export function getPostsByCategory(category: string): Post[] {
-  const allPosts = getAllPosts();
-  return allPosts.filter((post) => 
-    post.categories.includes(category)
-  );
+  return POSTS.filter(post => 
+    post.categories.some(cat => cat.toLowerCase() === category.toLowerCase())
+  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-// Get all categories
+export function getPostBySlug(slug: string): Post | undefined {
+  return POSTS.find(post => post.slug === slug);
+}
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return PROJECTS.find(project => project.slug === slug);
+}
+
 export function getAllCategories(): string[] {
-  const posts = getAllPosts();
-  const categories = new Set<string>();
-  
-  posts.forEach((post) => {
-    post.categories.forEach((category) => {
-      categories.add(category);
+  const allCategories = new Set<string>();
+  POSTS.forEach(post => {
+    post.categories.forEach(category => {
+      allCategories.add(category.toLowerCase());
     });
   });
-  
-  return Array.from(categories);
-}
-
-// Get all tags
-export function getAllTags(): string[] {
-  const posts = getAllPosts();
-  const tags = new Set<string>();
-  
-  posts.forEach((post) => {
-    if (post.tags) {
-      post.tags.forEach((tag) => {
-        tags.add(tag);
-      });
-    }
-  });
-  
-  return Array.from(tags);
+  return Array.from(allCategories).sort();
 }
