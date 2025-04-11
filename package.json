@@ -1,31 +1,32 @@
 {
   "name": "angleito-portfolio",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "contentlayer build && next build",
+    "build": "next build",
     "start": "next start",
     "test": "playwright test",
-    "test:headless": "node --experimental-modules scripts/vercel-monitor.js",
     "connect-browser-mcp": "node --loader ts-node/esm scripts/connect-browser-mcp.ts",
-    "prepare": "husky",
-    "install-browsers": "node --experimental-modules scripts/install-browsers.js"
+    "vercel-build": "next build"
   },
   "dependencies": {
     "@playwright/test": "^1.42.1",
-    "contentlayer": "0.3.4",
+    "@react-pdf/renderer": "^3.1.14",
+    "class-variance-authority": "^0.7.0",
+    "contentlayer": "latest",
     "date-fns": "^2.30.0",
-    "next": "^14.1.0",
-    "next-contentlayer": "0.3.4",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "next": "^14.2.28",
+    "next-contentlayer": "latest",
+    "postcss": "^8.4.38",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.0",
-    "husky": "^9.1.7",
-    "playwright": "^1.51.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   }
