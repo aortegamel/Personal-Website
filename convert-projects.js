@@ -1,6 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const yaml = require('js-yaml');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import yaml from 'js-yaml';
+
+// Get current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Define the projects directory
 const projectsDir = path.join(__dirname, '_projects');
@@ -15,6 +20,8 @@ if (!fs.existsSync(contentProjectsDir)) {
 const convertProjects = () => {
   const projectFiles = fs.readdirSync(projectsDir);
   projectFiles.forEach((file) => {
+    if (!file.endsWith('.yml')) return;
+    
     const filePath = path.join(projectsDir, file);
     const content = fs.readFileSync(filePath, 'utf8');
 

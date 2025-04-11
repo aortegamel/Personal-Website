@@ -1,36 +1,26 @@
 import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { format, parseISO } from 'date-fns';
 
 /**
  * Combines multiple class names and merges Tailwind CSS classes
+ * @param inputs Class names to combine
+ * @returns Combined class names
  */
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
 /**
- * Formats a date string to a human-readable format
+ * Formats a date string into a human-readable format
+ * @param dateString ISO date string
+ * @param formatStr Optional date format (defaults to 'MMMM d, yyyy')
+ * @returns Formatted date string
  */
-export function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
-}
-
-/**
- * Truncates a string to a specified length and adds an ellipsis
- */
-export function truncateText(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength) + '...';
-}
-
-/**
- * Generates a random ID
- */
-export function generateId(length: number = 8): string {
-  return Math.random().toString(36).substring(2, 2 + length);
+export function formatDate(dateString: string, formatStr: string = 'MMMM d, yyyy'): string {
+  try {
+    return format(parseISO(dateString), formatStr);
+  } catch (error) {
+    console.warn(`Invalid date format: ${dateString}`);
+    return dateString;
+  }
 }

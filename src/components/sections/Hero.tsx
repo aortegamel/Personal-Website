@@ -1,109 +1,47 @@
-'use client';
-
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Section } from '../layout/Section';
+import Section from '../layout/Section';
 import { Button } from '../ui/Button';
 
 interface HeroProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
-  subtitle?: string;
-  primaryAction?: {
-    label: string;
-    href: string;
-  };
-  secondaryAction?: {
-    label: string;
-    href: string;
-  };
-  withGradient?: boolean;
-  centered?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  description: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
-export function Hero({
-  className,
+export default function Hero({
   title,
-  subtitle,
-  primaryAction,
-  secondaryAction,
-  withGradient = true,
-  centered = true,
-  size = 'lg',
+  description,
+  ctaText = 'Learn More',
+  ctaLink = '#',
+  className,
   ...props
 }: HeroProps) {
   return (
-    <Section
+    <Section 
       className={cn(
-        'relative overflow-hidden py-20',
-        {
-          'text-center': centered,
-          'py-16': size === 'sm',
-          'py-20': size === 'md',
-          'py-24': size === 'lg',
-        },
+        'bg-gradient-to-b from-gray-50 to-white',
         className
       )}
-      {...props}
+      align="center"
     >
-      {/* Background elements */}
-      {withGradient && (
-        <>
-          <div className="absolute inset-0 bg-abyss-radial opacity-30" />
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-abyss-400/50 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-abyss-400/50 to-transparent" />
-        </>
-      )}
-
-      <div className="relative z-10 max-w-3xl mx-auto">
-        <h1 className={cn(
-          'font-bold font-montserrat mb-6 tracking-tight',
-          {
-            'text-3xl md:text-4xl': size === 'sm',
-            'text-4xl md:text-5xl': size === 'md',
-            'text-5xl md:text-6xl': size === 'lg',
-          }
-        )}>
-          {withGradient ? (
-            <span className="abyss-gradient-text">{title}</span>
-          ) : (
-            title
-          )}
+      <div 
+        className="container mx-auto px-4 py-16 text-center"
+        {...props}
+      >
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
+          {title}
         </h1>
-
-        {subtitle && (
-          <p className={cn(
-            'text-abyss-100 mb-8 max-w-2xl mx-auto',
-            {
-              'text-lg': size === 'sm',
-              'text-xl': size === 'md',
-              'text-2xl': size === 'lg',
-            }
-          )}>
-            {subtitle}
-          </p>
-        )}
-
-        {(primaryAction || secondaryAction) && (
-          <div className={cn(
-            'flex gap-4 mt-8',
-            {
-              'justify-center': centered,
-              'flex-col sm:flex-row': true,
-            }
-          )}>
-            {primaryAction && (
-              <Button variant="bitcoin" size="lg" href={primaryAction.href}>
-                {primaryAction.label}
-              </Button>
-            )}
-            {secondaryAction && (
-              <Button variant="outline" size="lg" href={secondaryAction.href}>
-                {secondaryAction.label}
-              </Button>
-            )}
-          </div>
-        )}
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          {description}
+        </p>
+        <Button 
+          href={ctaLink}
+          variant="default"
+        >
+          {ctaText}
+        </Button>
       </div>
     </Section>
   );

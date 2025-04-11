@@ -17,6 +17,7 @@ export interface Project {
   url: string;
 }
 
+// Hardcoded data for static generation
 const POSTS: Post[] = [
   {
     slug: '2024-03-29-',
@@ -57,34 +58,17 @@ const PROJECTS: Project[] = [
   }
 ];
 
-export function getAllPosts(): Post[] {
+export function loadPosts(): Post[] {
   return POSTS.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-export function getAllProjects(): Project[] {
+export function loadProjects(): Project[] {
   return PROJECTS;
 }
 
-export function getPostsByCategory(category: string): Post[] {
-  return POSTS.filter(post => 
-    post.categories.some(cat => cat.toLowerCase() === category.toLowerCase())
-  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
-
-export function getPostBySlug(slug: string): Post | undefined {
-  return POSTS.find(post => post.slug === slug);
-}
-
-export function getProjectBySlug(slug: string): Project | undefined {
-  return PROJECTS.find(project => project.slug === slug);
-}
-
-export function getAllCategories(): string[] {
-  const allCategories = new Set<string>();
-  POSTS.forEach(post => {
-    post.categories.forEach(category => {
-      allCategories.add(category.toLowerCase());
-    });
-  });
-  return Array.from(allCategories).sort();
+export async function generateStaticParams() {
+  return {
+    posts: POSTS.map(post => ({ slug: post.slug })),
+    projects: PROJECTS.map(project => ({ slug: project.slug }))
+  };
 }
