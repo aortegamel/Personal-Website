@@ -12,13 +12,12 @@
     "vercel-build": "next build && npm run generate-search"
   },
   "dependencies": {
+    "@next/mdx": "^15.3.0",
     "@react-pdf/renderer": "^4.3.0",
-    "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.488.0",
     "next": "15.2.5",
-    "next-contentlayer": "^0.3.4",
     "next-mdx-remote": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
