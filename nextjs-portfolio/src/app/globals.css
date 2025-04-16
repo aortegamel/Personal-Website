@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -24,3 +27,65 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom classes for abyss-bitcoin-glow-up inspired design */
+.glass-card {
+  background: rgba(24, 27, 35, 0.7);
+  border-radius: 1rem;
+  box-shadow: 0 4px 32px 0 rgba(127, 90, 240, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(127, 90, 240, 0.15);
+}
+
+.glow-effect {
+  box-shadow: 0 0 24px 4px #2563eb;
+  animation: glow-blue 2s infinite alternate;
+}
+
+@keyframes glow-blue {
+  0% {
+    filter: drop-shadow(0 0 2px #2563eb);
+  }
+  100% {
+    filter: drop-shadow(0 0 16px #2563eb);
+  }
+}
+
+.glow-orange {
+  box-shadow: 0 0 24px 4px #F7931A;
+  animation: glow-orange 2s infinite alternate;
+}
+
+@keyframes glow-orange {
+  0% {
+    filter: drop-shadow(0 0 2px #F7931A);
+  }
+  100% {
+    filter: drop-shadow(0 0 16px #F7931A);
+  }
+}
+
+html, body, * {
+  color: #fff !important;
+}
+
+strong, b, em, i, mark, .emphasis {
+  color: #2563eb !important;
+}
+
+.text-bitcoin, h3.text-bitcoin, .text-bitcoin * {
+  color: #F7931A !important;
+}
+
+/* Make every instance of 'Angel Ortega-Melton' blue */
+
+/* Use a span wrapper for JS/TSX, but for pure CSS, use ::after/::before or JS for dynamic text replacement. For now, add a CSS rule for a custom class: */
+.name-blue {
+  color: #2563eb !important;
+}
+
+/* Optional: target the exact text using a CSS selector (not supported in all browsers, but future-proof): */
+span:has-text("Angel Ortega-Melton") {
+  color: #2563eb !important;
+}
+
