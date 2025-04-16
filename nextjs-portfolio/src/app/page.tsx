@@ -1,4 +1,4 @@
-import { getAllMdxPosts } from "../../lib/mdx-posts";
+import { getAllMdxPosts } from "../lib/mdx-posts";
 import { Code, Terminal, BookOpen, Folder, User } from "lucide-react";
 import Link from "next/link";
 import { format } from 'date-fns'
