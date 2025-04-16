@@ -1,4 +1,4 @@
-import { Post as ContentLayerPost, Project as ContentLayerProject, allPosts, allProjects } from '.contentlayer/generated'
+
 
 export interface Post {
   slug: string;
@@ -21,7 +21,7 @@ export interface Project {
 
 export function loadPosts() {
   return allPosts
-    .map((post: ContentLayerPost) => ({
+
       slug: post.slug,
       title: post.title,
       date: post.date,
@@ -34,7 +34,7 @@ export function loadPosts() {
 }
 
 export function loadProjects() {
-  return allProjects.map((project: ContentLayerProject) => ({
+
     slug: project.slug,
     name: project.name,
     description: project.description,

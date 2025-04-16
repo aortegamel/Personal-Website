@@ -1,4 +1,4 @@
-import { allPosts } from 'contentlayer/generated'
+import { getAllMdxPosts } from "../lib/mdx-posts";
 import { Code, Terminal, BookOpen, Folder, User } from "lucide-react";
 import Link from "next/link";
 import { compareDesc, format } from 'date-fns'
@@ -12,10 +12,8 @@ interface FeaturedProject {
 }
 
 export default function Home() {
-  // Sort posts by date
-  const recentPosts = allPosts
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-    .slice(0, 3);
+  // Get recent MDX posts
+  const recentPosts = getAllMdxPosts().slice(0, 3);
 
   // Featured projects
   const featuredProjects: FeaturedProject[] = [
@@ -106,16 +104,16 @@ export default function Home() {
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-2"><BookOpen className="text-accent" /> Recent Articles</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {recentPosts.map((post) => (
-            <a 
+            <Link 
               key={post.slug}
-              href={post.url}
+              href={`/posts/${post.slug}`}
               className="glass-card glow-effect bg-abyss-light p-6 rounded-xl shadow-lg hover:scale-[1.02] transition block"
             >
               <h3 className="text-xl font-semibold text-accent mb-2">{post.title}</h3>
               <p className="text-zinc-300 mb-2">{format(new Date(post.date), 'MMMM dd, yyyy')}</p>
               <p className="text-zinc-400 mb-4">{post.excerpt}</p>
               <span className="text-accent-light font-medium">Read more →</span>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
