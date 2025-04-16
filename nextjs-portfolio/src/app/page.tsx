@@ -1,7 +1,7 @@
-import { getAllMdxPosts } from "../lib/mdx-posts";
+import { getAllMdxPosts } from "../../lib/mdx-posts";
 import { Code, Terminal, BookOpen, Folder, User } from "lucide-react";
 import Link from "next/link";
-import { compareDesc, format } from 'date-fns'
+import { format } from 'date-fns'
 
 interface FeaturedProject {
   name: string;
@@ -13,7 +13,7 @@ interface FeaturedProject {
 
 export default function Home() {
   // Get recent MDX posts
-  const recentPosts = getAllMdxPosts().slice(0, 3);
+  const recentPosts = getAllMdxPosts().slice(0, 3); // type: MdxPostMeta[]
 
   // Featured projects
   const featuredProjects: FeaturedProject[] = [
@@ -103,7 +103,7 @@ export default function Home() {
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-2"><BookOpen className="text-accent" /> Recent Articles</h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {recentPosts.map((post) => (
+          {recentPosts.map((post: import("../../lib/mdx-posts").MdxPostMeta) => (
             <Link 
               key={post.slug}
               href={`/posts/${post.slug}`}
