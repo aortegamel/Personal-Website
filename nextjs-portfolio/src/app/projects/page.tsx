@@ -3,45 +3,31 @@ interface Project {
   name: string;
   description: string;
   techStack: string[];
+  url: string;
 }
 
 const allProjects: Project[] = [
   {
-    slug: 'Trend2Zero',
-    name: 'Trend2Zero',
-    description: 'Track global assets like stocks, gold, oil, and indices priced in Bitcoin. Visualize how every asset trends to zero in Bitcoin terms. Interactive charts, comprehensive data, and a true value perspective.',
-    techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Chart.js', 'Bitcoin Data APIs'],
+    name: "Trend2Zero",
+    description: "Automated trading bot using zero-based momentum strategy with advanced risk management",
+    techStack: ["Python", "Pandas", "NumPy", "ccxt", "AWS Lambda"],
+    slug: "trend2zero",
+    url: "https://github.com/Angleito/Trend2Zero"
   },
   {
-    slug: 'SuiFlashBotTemplate',
-    name: 'SuiFlashBotTemplate',
-    description: 'A template for building Sui flash bots.',
-    techStack: ['TypeScript', 'Node.js', 'Sui SDK', 'Navi SDK', 'Suilend SDK', 'Jest', 'Docker'],
+    name: "BluefinAI Agent Template",
+    description: "Customizable template for creating AI-powered trading agents on the Bluefin DEX",
+    techStack: ["TypeScript", "Node.js", "Bluefin API", "Docker"],
+    slug: "bluefinaitradertemplate",
+    url: "https://github.com/Angleito/bluefinaitradertemplate"
   },
   {
-    slug: 'bluefinaitradertemplate',
-    name: 'bluefinaitradertemplate',
-    description: 'Template for my Bluefin AI Trader. Mock and Simulated Version of my real project.',
-    techStack: ['Python', 'aiohttp', 'httpx', 'pandas', 'numpy', 'pydantic', 'Prometheus', 'pytest'],
-  },
-  {
-    slug: 'qwensuicoder',
-    name: 'qwensuicoder',
-    description: "Qwen 2.5 Coder trained on Sui Documentation and SDK as well as many Sui ecosystem SDK's and documentations.",
-    techStack: ['Python', 'PyTorch', 'TorchVision', 'NumPy', 'Matplotlib', 'Requests', 'Rich'],
-  },
-  {
-    slug: 'Angleito.github.io',
-    name: 'Angleito.github.io',
-    description: 'My personal website to host my articles and projects.',
-    techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Contentlayer', 'Playwright'],
-  },
-  {
-    slug: 'StripeMVP',
-    name: 'StripeMVP',
-    description: 'A minimal Stripe integration MVP for learning payment processing.',
-    techStack: ['Vite', 'Tailwind CSS', 'Alpine.js', 'Laravel Vite Plugin', 'Axios'],
-  },
+    name: "Stripe MVP",
+    description: "Minimalist e-commerce solution with Stripe integration and automated payment processing",
+    techStack: ["Next.js", "Stripe API", "Tailwind CSS", "TypeScript"],
+    slug: "stripemvp",
+    url: "https://github.com/Angleito/StripeMVP"
+  }
 ];
 
 import Navbar from "../components/Navbar";
@@ -59,15 +45,7 @@ export default function ProjectsPage() {
             {allProjects.map((project: Project) => (
               <a
                 key={project.slug}
-                href={
-                  project.slug === 'Trend2Zero' ? 'https://github.com/Angleito/Trend2Zero'
-                  : project.slug === 'SuiFlashBotTemplate' ? 'https://github.com/Angleito/SuiFlashBotTemplate'
-                  : project.slug === 'bluefinaitradertemplate' ? 'https://github.com/Angleito/bluefinaitradertemplate'
-                  : project.slug === 'qwensuicoder' ? 'https://github.com/Angleito/qwensuicoder'
-                  : project.slug === 'Angleito.github.io' ? 'https://github.com/Angleito/Angleito.github.io'
-                  : project.slug === 'StripeMVP' ? 'https://github.com/Angleito/StripeMVP'
-                  : '#'
-                }
+                href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card glow-effect bg-abyss-light p-6 rounded-xl shadow-lg hover:scale-[1.02] transition block"
