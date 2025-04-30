@@ -6,11 +6,11 @@ permalink: /about/
 
 # About Me
 
-New aspiring programmer leveraging AI tools to accelerate learning and project building. Experience with Python, JavaScript, and web development fundamentals. Strong background in customer service and operational logistics with proven ability to adapt to different environments and learn new skills quickly. Seeking opportunities to combine my technical learning journey and customer-focused background in a software development role.
+Finance graduate who has transformed into a software developer by mastering AI agentic coding tools like Claude Code, Aider, GitHub Copilot, and Cursor. These powerful AI assistants have accelerated my learning journey and development capabilities, allowing me to build sophisticated projects efficiently. With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions with modern technologies. My background in finance and customer service, combined with my AI-assisted technical skills, enables me to tackle complex problems and deliver impactful software. I'm passionate about pushing the boundaries of what's possible when human creativity meets AI collaboration.
 
 ## Technical Skills
 
-- **AI-Assisted Development:** Building projects with AI tools while learning programming concepts (Python, TypeScript, JavaScript, HTML, CSS, Ruby)
+- **AI Agentic Coding:** Mastery of Claude Code, Aider, GitHub Copilot, and Cursor for efficient, high-quality development while continuously learning programming concepts (Python, TypeScript, JavaScript, HTML, CSS, Ruby)
 - **Command Line & Environments:** Linux terminal, macOS terminal, PowerShell
 - **Version Control:** Git, GitHub
 - **Blockchain & DeFi:** Sui Blockchain, Smart Contract Development, DEX Integration, Flash Loans, Trading Bots, Cross-platform DeFi Solutions
@@ -31,4 +31,4 @@ New aspiring programmer leveraging AI tools to accelerate learning and project b
 
 ## Contact
 
-Feel free to reach out to me at [arainey555@gmail.com](mailto:arainey555@gmail.com) or connect with me on [GitHub](https://github.com/Angleito). I'm open to discussing my projects in more detail, including access to full implementations not publicly available. 
+Feel free to reach out to me at [arainey555@gmail.com](mailto:arainey555@gmail.com) or connect with me on [GitHub](https://github.com/Angleito). I'm open to discussing my projects in more detail, including access to full implementations not publicly available.

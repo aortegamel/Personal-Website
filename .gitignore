@@ -62,3 +62,15 @@ vendor
 
 # Build cache
 .cache/
+
+# AI Tool Configuration
+CLAUDE.md
+.aider*
+.aider.conf.yml
+.aider/
+.cursor/
+.github/copilot
+.github/copilot-instructions.md
+.vscode/copilot
+*claude-config.json
+current-changes.patch
