@@ -13,14 +13,21 @@ export default function AboutPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Background</h2>
         <p className="text-lg text-gray-700 mb-4">
-          I'm a new aspiring programmer leveraging AI tools to accelerate learning and project building. 
-          With experience in Python, JavaScript, and web development fundamentals, I focus on creating 
-          innovative solutions with modern technologies.
+          I'm a finance graduate who has embraced the power of AI agentic coding to transform into a capable software developer. 
+          By mastering tools like Claude Code, Aider, GitHub Copilot, and Cursor, I've accelerated my learning journey and 
+          development capabilities far beyond traditional paths. These AI assistants have enabled me to build sophisticated 
+          projects with efficiency and creativity.
+        </p>
+        <p className="text-lg text-gray-700 mb-4">
+          With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions that 
+          combine my finance background with cutting-edge technologies. The partnership between my domain knowledge and 
+          AI assistance has proven to be a powerful combination for solving complex problems.
         </p>
         <p className="text-lg text-gray-700">
-          I have a strong background in customer service and operational logistics with proven ability 
-          to adapt to different environments and learn new skills quickly. I'm seeking opportunities to 
-          combine my technical learning journey and customer-focused background in a software development role.
+          My background in customer service and operational logistics provides me with a unique perspective on user needs 
+          and system design. I'm passionate about demonstrating how AI-assisted development can empower people from diverse 
+          backgrounds to contribute meaningfully to the tech industry, and I'm seeking opportunities to further develop 
+          this AI-augmented approach to software creation.
         </p>
       </section>
       
@@ -46,11 +53,14 @@ export default function AboutPage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-3">AI & Tools</h3>
+            <h3 className="text-xl font-semibold mb-3">AI & Agentic Coding Tools</h3>
             <ul className="list-disc list-inside space-y-1 text-gray-700">
-              <li>Claude AI</li>
+              <li>Claude Code</li>
+              <li>Aider AI Pair Programming</li>
+              <li>GitHub Copilot</li>
+              <li>Cursor AI</li>
               <li>LangChain</li>
-              <li>AI-assisted development</li>
+              <li>Prompt Engineering</li>
             </ul>
           </div>
           <div>
