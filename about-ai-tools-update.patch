@@ -1,0 +1,236 @@
+diff --git a/.gitignore b/.gitignore
+index 089e17c..d86ca6e 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -62,3 +62,15 @@ vendor
+ 
+ # Build cache
+ .cache/
++
++# AI Tool Configuration
++CLAUDE.md
++.aider*
++.aider.conf.yml
++.aider/
++.cursor/
++.github/copilot
++.github/copilot-instructions.md
++.vscode/copilot
++*claude-config.json
++current-changes.patch
+diff --git a/.husky/pre-commit b/.husky/pre-commit
+index 15399d9..ace5092 100755
+--- a/.husky/pre-commit
++++ b/.husky/pre-commit
+@@ -1,31 +1,33 @@
+ #!/usr/bin/env sh
+-. "$(dirname -- "$0")/_/husky.sh"
+ 
+ echo "🧪 Running pre-commit tests in headless mode..."
+ 
+ # Start the development server in the background and capture the port
+ echo "🚀 Starting development server..."
+ 
+-# Use a random available port
+-PORT=0 npm run dev > .server-output.log 2>&1 &
++# Find a free port to use
++find_free_port() {
++  for port in $(seq 3002 3999); do
++    if ! lsof -i :"$port" > /dev/null 2>&1; then
++      echo "$port"
++      return 0
++    fi
++  done
++  echo "3456" # Fallback port if all in range are used
++}
++
++# Use a random free port
++SERVER_PORT=$(find_free_port)
++echo "💻 Using available port $SERVER_PORT"
++PORT=$SERVER_PORT npm run dev > .server-output.log 2>&1 &
+ SERVER_PID=$!
+ 
+ # Give the server time to start
+ echo "⏳ Waiting for server to start..."
+-sleep 5
++sleep 8
+ 
+-# Extract the port from the server output
+-SERVER_PORT=$(grep -o 'http://localhost:[0-9]\+' .server-output.log | grep -o '[0-9]\+' | head -1)
+-
+-if [ -z "$SERVER_PORT" ]; then
+-  echo "❌ Failed to detect server port. Using default port 3000."
+-  SERVER_PORT=3000
+-else
+-  echo "💻 Server running on port $SERVER_PORT"
+-fi
+-
+-# Run the tests with the detected port
+-PORT=$SERVER_PORT npm run connect-browser-mcp
++# Run the tests with the detected port - pass explicitly the URL with port
++npm run connect-browser-mcp http://localhost:$SERVER_PORT
+ TEST_EXIT_CODE=$?
+ 
+ # Kill the development server
+@@ -43,4 +45,4 @@ if [ $TEST_EXIT_CODE -ne 0 ]; then
+ else
+   echo "✅ All tests passed. Proceeding with commit."
+   exit 0
+-fi
++fi
+\ No newline at end of file
+diff --git a/about.md b/about.md
+index 6c09a53..0e9e3e5 100644
+--- a/about.md
++++ b/about.md
+@@ -6,11 +6,11 @@ permalink: /about/
+ 
+ # About Me
+ 
+-New aspiring programmer with a finance degree leveraging AI tools to accelerate learning and project building. Experience with Python, JavaScript, and web development fundamentals. Strong background in customer service and operational logistics with proven ability to adapt to different environments and learn new skills quickly. Seeking opportunities to combine my technical learning journey and customer-focused background in a software development role.
++Finance graduate who has transformed into a software developer by mastering AI agentic coding tools like Claude Code, Aider, GitHub Copilot, and Cursor. These powerful AI assistants have accelerated my learning journey and development capabilities, allowing me to build sophisticated projects efficiently. With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions with modern technologies. My background in finance and customer service, combined with my AI-assisted technical skills, enables me to tackle complex problems and deliver impactful software. I'm passionate about pushing the boundaries of what's possible when human creativity meets AI collaboration.
+ 
+ ## Technical Skills
+ 
+-- **AI-Assisted Development:** Building projects with AI tools while learning programming concepts (Python, TypeScript, JavaScript, HTML, CSS, Ruby)
++- **AI Agentic Coding:** Mastery of Claude Code, Aider, GitHub Copilot, and Cursor for efficient, high-quality development while continuously learning programming concepts (Python, TypeScript, JavaScript, HTML, CSS, Ruby)
+ - **Command Line & Environments:** Linux terminal, macOS terminal, PowerShell
+ - **Version Control:** Git, GitHub
+ - **Blockchain & DeFi:** Sui Blockchain, Smart Contract Development, DEX Integration, Flash Loans, Trading Bots, Cross-platform DeFi Solutions
+diff --git a/package-lock.json b/package-lock.json
+index 1fe89d3..838f232 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -29,6 +29,7 @@
+         "@types/node": "^20.11.30",
+         "@types/react": "^18.2.0",
+         "concurrently": "^9.1.2",
++        "husky": "^9.1.7",
+         "ts-node": "^10.9.2",
+         "typescript": "^5.4.3"
+       },
+@@ -1773,6 +1774,22 @@
+         "url": "https://opencollective.com/unified"
+       }
+     },
++    "node_modules/husky": {
++      "version": "9.1.7",
++      "resolved": "https://registry.npmjs.org/husky/-/husky-9.1.7.tgz",
++      "integrity": "sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==",
++      "dev": true,
++      "license": "MIT",
++      "bin": {
++        "husky": "bin.js"
++      },
++      "engines": {
++        "node": ">=18"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/typicode"
++      }
++    },
+     "node_modules/hyphen": {
+       "version": "1.10.6",
+       "resolved": "https://registry.npmjs.org/hyphen/-/hyphen-1.10.6.tgz",
+diff --git a/package.json b/package.json
+index 8bfe538..4955b07 100644
+--- a/package.json
++++ b/package.json
+@@ -12,7 +12,8 @@
+     "vercel:check": "node scripts/mock-vercel/check-deployment.js",
+     "vercel:build": "node scripts/mock-vercel/build.js",
+     "vercel:deploy": "node scripts/mock-vercel/deploy.js",
+-    "vercel": "node scripts/mock-vercel/index.js"
++    "vercel": "node scripts/mock-vercel/index.js",
++    "prepare": "husky"
+   },
+   "dependencies": {
+     "@playwright/test": "^1.42.1",
+@@ -36,6 +37,7 @@
+     "@types/node": "^20.11.30",
+     "@types/react": "^18.2.0",
+     "concurrently": "^9.1.2",
++    "husky": "^9.1.7",
+     "ts-node": "^10.9.2",
+     "typescript": "^5.4.3"
+   },
+diff --git a/src/app/about/page.tsx b/src/app/about/page.tsx
+index 919b73b..7fec2f1 100644
+--- a/src/app/about/page.tsx
++++ b/src/app/about/page.tsx
+@@ -13,14 +13,21 @@ export default function AboutPage() {
+       <section className="mb-12">
+         <h2 className="text-2xl font-bold mb-4">Background</h2>
+         <p className="text-lg text-gray-700 mb-4">
+-          I'm a new aspiring programmer with a finance degree leveraging AI tools to accelerate learning and project building. 
+-          With experience in Python, JavaScript, and web development fundamentals, I focus on creating 
+-          innovative solutions with modern technologies.
++          I'm a finance graduate who has embraced the power of AI agentic coding to transform into a capable software developer. 
++          By mastering tools like Claude Code, Aider, GitHub Copilot, and Cursor, I've accelerated my learning journey and 
++          development capabilities far beyond traditional paths. These AI assistants have enabled me to build sophisticated 
++          projects with efficiency and creativity.
++        </p>
++        <p className="text-lg text-gray-700 mb-4">
++          With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions that 
++          combine my finance background with cutting-edge technologies. The partnership between my domain knowledge and 
++          AI assistance has proven to be a powerful combination for solving complex problems.
+         </p>
+         <p className="text-lg text-gray-700">
+-          I have a strong background in customer service and operational logistics with proven ability 
+-          to adapt to different environments and learn new skills quickly. I'm seeking opportunities to 
+-          combine my technical learning journey and customer-focused background in a software development role.
++          My background in customer service and operational logistics provides me with a unique perspective on user needs 
++          and system design. I'm passionate about demonstrating how AI-assisted development can empower people from diverse 
++          backgrounds to contribute meaningfully to the tech industry, and I'm seeking opportunities to further develop 
++          this AI-augmented approach to software creation.
+         </p>
+       </section>
+       
+@@ -46,11 +53,14 @@ export default function AboutPage() {
+             </ul>
+           </div>
+           <div>
+-            <h3 className="text-xl font-semibold mb-3">AI & Tools</h3>
++            <h3 className="text-xl font-semibold mb-3">AI & Agentic Coding Tools</h3>
+             <ul className="list-disc list-inside space-y-1 text-gray-700">
+-              <li>Claude AI</li>
++              <li>Claude Code</li>
++              <li>Aider AI Pair Programming</li>
++              <li>GitHub Copilot</li>
++              <li>Cursor AI</li>
+               <li>LangChain</li>
+-              <li>AI-assisted development</li>
++              <li>Prompt Engineering</li>
+             </ul>
+           </div>
+           <div>
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index 0093d01..01e20bf 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -17,8 +17,7 @@ export default function Home() {
+           Exploring technology, sharing insights, and showcasing projects that push the boundaries of innovation.
+         </p>
+         <p className="text-lg text-zinc-300 mb-6">
+-          I am a finance graduate and a software developer who utilizes and leverages AI tools for speed, efficiency, and learning. With experience in Python, JavaScript, and web development fundamentals, I focus on creating 
+-          innovative solutions with modern technologies. My background in customer service and operational logistics, combined with my technical and analytical skills, allows me to adapt quickly and solve complex problems. I am passionate about combining my finance knowledge and software development expertise to build impactful projects and accelerate my learning journey.
++          I am a finance graduate who has transformed into a software developer by mastering AI agentic coding tools like Claude Code, Aider, GitHub Copilot, and Cursor. These powerful AI assistants have accelerated my learning journey and development capabilities, allowing me to build sophisticated projects efficiently. With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions with modern technologies. My background in finance and customer service, combined with my AI-assisted technical skills, enables me to tackle complex problems and deliver impactful software. I'm passionate about pushing the boundaries of what's possible when human creativity meets AI collaboration.
+         </p>
+       </section>
+ 
+diff --git a/yarn.lock b/yarn.lock
+index 042c31c..ed1e279 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -1007,6 +1007,11 @@ html-url-attributes@^3.0.0:
+   resolved "https://registry.npmjs.org/html-url-attributes/-/html-url-attributes-3.0.1.tgz"
+   integrity sha512-ol6UPyBWqsrO6EJySPz2O7ZSr856WDrEzM5zMqp+FJJLGMW35cLYmmZnl0vztAZxRUoNZJFTCohfjuIJ8I4QBQ==
+ 
++husky@^9.1.7:
++  version "9.1.7"
++  resolved "https://registry.npmjs.org/husky/-/husky-9.1.7.tgz"
++  integrity sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==
++
+ hyphen@^1.6.4:
+   version "1.10.6"
+   resolved "https://registry.npmjs.org/hyphen/-/hyphen-1.10.6.tgz"
