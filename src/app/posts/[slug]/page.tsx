@@ -4,7 +4,7 @@ import { format, parseISO } from 'date-fns';
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
-  // searchParams?: { [key: string]: string | string[] | undefined }; // Optional
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function PostPage({ params }: PostPageProps) {
