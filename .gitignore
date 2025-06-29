@@ -63,6 +63,9 @@ vendor
 # Build cache
 .cache/
 
+# Performance/Testing Reports
+.lighthouseci/
+
 # AI Tool Configuration
 CLAUDE.md
 .aider*
