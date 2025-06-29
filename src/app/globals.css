@@ -1,3 +1,7 @@
+/* Import Theme System */
+@import '../styles/theme.css';
+@import '../styles/animations.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,24 +33,103 @@ body.mobile-menu-open {
 
 /* Custom component classes */
 @layer components {
+  /* Card Components - Enhanced with NYXUSD patterns */
   .abyss-card {
-    @apply bg-deepSea-middle/30 backdrop-blur-sm border border-abyss-400/20 rounded-lg shadow-lg;
+    @apply bg-deepSea-middle/30 backdrop-blur-sm border border-abyss-400/20 rounded-lg shadow-lg transition-all duration-300;
+    background: linear-gradient(135deg, rgba(10, 35, 66, 0.3) 0%, rgba(0, 31, 63, 0.3) 100%);
   }
 
+  .abyss-card:hover {
+    @apply shadow-ocean border-abyss-400/30;
+    transform: translateY(-2px);
+  }
+
+  /* Advanced Card Variants */
+  .card {
+    background-color: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-default);
+    transition: all var(--duration-normal) ease;
+  }
+
+  .card:hover {
+    background-color: var(--surface-3);
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-glass {
+    @apply glass rounded-xl p-6 transition-all duration-300;
+  }
+
+  .card-glass-dark {
+    @apply glass-dark rounded-xl p-6 transition-all duration-300;
+  }
+
+  /* Button Components - Enhanced with gradients and animations */
   .bitcoin-button {
-    @apply bg-bitcoin-500 hover:bg-bitcoin-600 text-deepSea-abyss font-medium px-4 py-2 rounded transition-all duration-300 shadow-bitcoin hover:shadow-bitcoin-lg;
+    @apply bg-bitcoin-500 hover:bg-bitcoin-600 text-deepSea-abyss font-medium px-4 py-2 rounded-lg transition-all duration-300 shadow-bitcoin hover:shadow-bitcoin-lg btn-press;
+    background: var(--gradient-btn-secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bitcoin-button:hover {
+    background: var(--gradient-btn-secondary-hover);
+    transform: translateY(-2px);
+  }
+
+  .bitcoin-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+  }
+
+  .bitcoin-button:active::after {
+    width: 300px;
+    height: 300px;
   }
 
   .abyss-button {
-    @apply bg-deepSea-shallow hover:bg-deepSea-middle text-white font-medium px-4 py-2 rounded transition-all duration-300;
+    @apply bg-deepSea-shallow hover:bg-deepSea-middle text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 btn-press;
+    background: var(--gradient-btn-primary);
+    box-shadow: var(--shadow-accent-sm);
   }
 
+  .abyss-button:hover {
+    background: var(--gradient-btn-primary-hover);
+    box-shadow: var(--shadow-accent-md);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-surface-50/10 text-abyss-300 hover:text-white font-medium px-4 py-2 rounded-lg transition-all duration-300;
+  }
+
+  /* Input Components - Enhanced with focus states */
   .abyss-input {
-    @apply bg-deepSea-surface/50 border border-abyss-400/30 text-white placeholder-abyss-300/50 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-bitcoin-500/50;
+    @apply bg-deepSea-surface/50 border border-abyss-400/30 text-white placeholder-abyss-300/50 rounded-lg px-4 py-2 transition-all duration-300;
+    background-color: var(--surface-overlay-8);
   }
 
+  .abyss-input:focus {
+    @apply outline-none ring-2 ring-bitcoin-500/50 border-bitcoin-500/50;
+    background-color: var(--surface-overlay-12);
+    box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.12);
+  }
+
+  /* Text Effects */
   .bitcoin-accent {
-    @apply text-bitcoin-500;
+    @apply text-bitcoin-500 font-semibold;
   }
 
   .abyss-link {
@@ -54,10 +137,82 @@ body.mobile-menu-open {
   }
 
   .abyss-gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-bitcoin-400 to-bitcoin-600;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-bitcoin-400 to-bitcoin-600 font-bold;
   }
 
+  /* Section Components */
   .abyss-section {
-    @apply bg-deepSea-deep/30 backdrop-blur-sm border border-abyss-400/10 rounded-lg p-6 shadow-lg;
+    @apply bg-deepSea-deep/30 backdrop-blur-sm border border-abyss-400/10 rounded-xl p-6 shadow-lg;
+    background: linear-gradient(135deg, rgba(2, 62, 115, 0.3) 0%, rgba(0, 31, 63, 0.3) 100%);
+  }
+
+  /* Hero Section Enhancement */
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--abyss-dark) 0%, var(--abyss-ocean) 50%, var(--ocean-primary) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Modern Card with Glow */
+  .card-modern {
+    @apply relative overflow-hidden rounded-xl p-6 transition-all duration-500;
+    background: linear-gradient(135deg, rgba(10, 35, 66, 0.8) 0%, rgba(0, 31, 63, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 115, 230, 0.2);
+  }
+
+  .card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 115, 230, 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .card-modern:hover::before {
+    opacity: 1;
+  }
+
+  /* Badge Components */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-ocean {
+    @apply bg-ocean-primary/20 text-ocean-primary-light border border-ocean-primary/30;
+  }
+
+  .badge-bitcoin {
+    @apply bg-bitcoin-primary/20 text-bitcoin-primary-light border border-bitcoin-primary/30;
+  }
+
+  .badge-success {
+    @apply bg-green-500/20 text-green-300 border border-green-500/30;
+  }
+
+  /* Loading States */
+  .skeleton {
+    @apply animate-pulse bg-deepSea-shallow/50 rounded;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
   }
 }
