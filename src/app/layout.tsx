@@ -1,3 +1,5 @@
+'use client';
+
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -9,13 +11,6 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
-
-export const metadata: Metadata = {
-  title: "Angleito's Portfolio",
-  description: "Welcome to my personal portfolio website",
-};
-
-'use client';
 
 export default function RootLayout({
   children,
