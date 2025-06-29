@@ -1,46 +1,64 @@
-import Link from 'next/link';
+'use client';
+
 import { loadProjects } from '@/lib/content-loader';
+import { ProjectCard } from '@/components/common/ProjectCard';
 
 export default function ProjectsPage() {
   const projects = loadProjects();
+  
+  // Define featured projects
+  const featuredSlugs = ['singleagenttrader', 'nyxusd', 'bot'];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <Link 
-            key={project.slug} 
-            href={project.url} 
-            className="bg-white shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <h2 className="text-2xl font-semibold mb-4">{project.name}</h2>
-            <p className="text-gray-600 mb-4">{project.description}</p>
-            <div className="mb-4">
-              <h3 className="text-lg font-semibold mb-2">Tech Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.techStack.map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
-                  >
-                    {tech}
-                  </span>
+    <div className="min-h-screen bg-abyss-900">
+      <div className="container mx-auto px-4 py-16">
+        {/* Page Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-montserrat font-bold text-abyss-100 mb-4">
+            Projects
+          </h1>
+          <p className="text-xl text-abyss-200 max-w-2xl mx-auto">
+            Exploring the intersection of AI, blockchain, and decentralized finance through innovative solutions
+          </p>
+        </div>
+
+        {/* Featured Projects Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-montserrat font-bold text-bitcoin-400 mb-8">
+            Featured Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects
+              .filter(project => featuredSlugs.includes(project.slug))
+              .map((project) => (
+                <ProjectCard 
+                  key={project.slug} 
+                  project={project} 
+                  variant="featured"
+                />
+              ))}
+          </div>
+        </div>
+
+        {/* Other Projects Section */}
+        {projects.filter(project => !featuredSlugs.includes(project.slug)).length > 0 && (
+          <div>
+            <h2 className="text-3xl font-montserrat font-bold text-abyss-100 mb-8">
+              Other Projects
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects
+                .filter(project => !featuredSlugs.includes(project.slug))
+                .map((project) => (
+                  <ProjectCard 
+                    key={project.slug} 
+                    project={project} 
+                    variant="default"
+                  />
                 ))}
-              </div>
             </div>
-            {project.github && (
-              <a 
-                href={project.github} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-blue-500 hover:underline"
-              >
-                View on GitHub
-              </a>
-            )}
-          </Link>
-        ))}
+          </div>
+        )}
       </div>
     </div>
   );
