@@ -8,12 +8,31 @@
    ========================= */
 
 html {
-  font-size: 16px;
+  /* Fluid base font size using clamp */
+  font-size: clamp(14px, 2vw + 0.5rem, 18px);
   font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  font-variant-ligatures: common-ligatures contextual;
+  text-rendering: optimizeLegibility;
+}
+
+/* Support for variable fonts */
+@supports (font-variation-settings: normal) {
+  body {
+    font-variation-settings: 
+      'wght' var(--font-weight-normal, 400),
+      'slnt' 0,
+      'opsz' var(--font-optical-size, 16);
+  }
+
+  /* Smooth weight transitions */
+  * {
+    transition: font-variation-settings 0.3s ease;
+  }
 }
 
 /* =========================
@@ -27,36 +46,49 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
   color: var(--text-primary);
+  text-wrap: balance;
 }
 
+/* Fluid typography with clamp() */
 h1 {
-  font-size: var(--text-5xl);
-  letter-spacing: -0.025em;
+  font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  letter-spacing: clamp(-0.04em, -0.5vw, -0.02em);
+  line-height: clamp(1, 1.1 - 0.05 * (100vw - 20rem) / 60, 1.1);
 }
 
 h2 {
-  font-size: var(--text-4xl);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 4vw + 0.75rem, 3.25rem);
+  letter-spacing: clamp(-0.03em, -0.4vw, -0.015em);
 }
 
 h3 {
-  font-size: var(--text-3xl);
-  letter-spacing: -0.015em;
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+  letter-spacing: clamp(-0.02em, -0.3vw, -0.01em);
 }
 
 h4 {
-  font-size: var(--text-2xl);
+  font-size: clamp(1.25rem, 2.5vw + 0.25rem, 2rem);
   letter-spacing: -0.01em;
 }
 
 h5 {
-  font-size: var(--text-xl);
+  font-size: clamp(1.125rem, 2vw + 0.125rem, 1.5rem);
   letter-spacing: -0.005em;
 }
 
 h6 {
-  font-size: var(--text-lg);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: var(--font-weight-semibold);
+}
+
+/* Variable font weight adjustments for headings */
+@supports (font-variation-settings: normal) {
+  h1 { font-variation-settings: 'wght' 800, 'opsz' 48; }
+  h2 { font-variation-settings: 'wght' 700, 'opsz' 40; }
+  h3 { font-variation-settings: 'wght' 600, 'opsz' 32; }
+  h4 { font-variation-settings: 'wght' 600, 'opsz' 24; }
+  h5 { font-variation-settings: 'wght' 500, 'opsz' 20; }
+  h6 { font-variation-settings: 'wght' 500, 'opsz' 16; }
 }
 
 /* =========================
@@ -90,24 +122,49 @@ p {
    ========================= */
 
 .display-1 {
-  font-size: 4rem;
+  font-size: clamp(3rem, 8vw + 1rem, 6rem);
   font-weight: var(--font-weight-bold);
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: clamp(-0.05em, -1vw, -0.02em);
+  font-variation-settings: 'wght' 900, 'opsz' 72;
 }
 
 .display-2 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 6vw + 1rem, 5rem);
   font-weight: var(--font-weight-bold);
   line-height: 1.1;
-  letter-spacing: -0.025em;
+  letter-spacing: clamp(-0.04em, -0.8vw, -0.015em);
+  font-variation-settings: 'wght' 800, 'opsz' 60;
 }
 
 .display-3 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw + 0.5rem, 4rem);
   font-weight: var(--font-weight-semibold);
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: clamp(-0.03em, -0.6vw, -0.01em);
+  font-variation-settings: 'wght' 700, 'opsz' 48;
+}
+
+/* Animated gradient text for displays */
+.display-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--tw-colors-bitcoin-400) 0%,
+    var(--tw-colors-abyss-400) 25%,
+    var(--tw-colors-bitcoin-500) 50%,
+    var(--tw-colors-abyss-500) 75%,
+    var(--tw-colors-bitcoin-400) 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text 8s ease infinite;
+}
+
+@keyframes gradient-text {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* =========================
@@ -322,4 +379,94 @@ mark {
 
 .leading-loose {
   line-height: 2;
+}
+
+/* =========================
+   MODERN TEXT EFFECTS
+   ========================= */
+
+/* Text balancing for better readability */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Advanced text shadows */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-bitcoin {
+  text-shadow: 
+    0 0 20px rgba(255, 195, 0, 0.5),
+    0 0 40px rgba(255, 195, 0, 0.3),
+    0 0 60px rgba(255, 195, 0, 0.1);
+}
+
+.text-shadow-abyss {
+  text-shadow: 
+    0 0 20px rgba(0, 115, 230, 0.5),
+    0 0 40px rgba(0, 115, 230, 0.3),
+    0 0 60px rgba(0, 115, 230, 0.1);
+}
+
+/* Variable font utilities */
+.font-stretch-condensed {
+  font-stretch: condensed;
+}
+
+.font-stretch-normal {
+  font-stretch: normal;
+}
+
+.font-stretch-expanded {
+  font-stretch: expanded;
+}
+
+/* Optical sizing */
+.text-optical-auto {
+  font-optical-sizing: auto;
+}
+
+.text-optical-none {
+  font-optical-sizing: none;
+}
+
+/* Modern selection styles */
+::selection {
+  background-color: var(--tw-colors-bitcoin-500);
+  color: var(--tw-colors-deepSea-abyss);
+  text-shadow: none;
+}
+
+/* Fluid paragraph spacing */
+p + p {
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Responsive font features */
+@media (max-width: 768px) {
+  /* Optimize for mobile reading */
+  body {
+    font-variation-settings: 'wght' 420, 'opsz' 14;
+    letter-spacing: 0.01em;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Optimize for large screens */
+  body {
+    font-variation-settings: 'wght' 380, 'opsz' 20;
+  }
 }
