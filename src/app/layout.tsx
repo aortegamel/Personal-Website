@@ -3,6 +3,9 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { usePathname } from "next/navigation";
+import React from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
@@ -12,17 +15,37 @@ export const metadata: Metadata = {
   description: "Welcome to my personal portfolio website",
 };
 
+'use client';
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/posts", label: "Articles" },
+    { href: "/search", label: "Search" },
+  ];
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === href;
+    return pathname.startsWith(href);
+  };
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
+      <body 
+        className={`${inter.variable} ${montserrat.variable} font-sans`}
+        data-mobile-menu-open={mobileMenuOpen ? 'true' : 'false'}
+      >
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
-            <header className="bg-deepSea-surface/80 backdrop-blur-md border-b border-abyss-400/20 text-white py-6 sticky top-0 z-50">
+            <header className="bg-deepSea-surface/80 backdrop-blur-md border-b border-abyss-400/20 text-white py-6 sticky top-0 z-50 transition-all duration-300">
               <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center">
                   <Link href="/" className="group">
@@ -33,20 +56,90 @@ export default function RootLayout({
                   </Link>
                   <nav className="hidden md:block">
                     <ul className="flex space-x-6">
-                      <li><Link href="/" className="abyss-link">Home</Link></li>
-                      <li><Link href="/about" className="abyss-link">About</Link></li>
-                      <li><Link href="/projects" className="abyss-link">Projects</Link></li>
-                      <li><Link href="/posts" className="abyss-link">Articles</Link></li>
-                      <li><Link href="/search" className="abyss-link">Search</Link></li>
+                      {navLinks.map((link) => (
+                        <li key={link.href} className="relative">
+                          <Link 
+                            href={link.href} 
+                            className={`
+                              relative py-2 transition-all duration-300
+                              ${isActive(link.href) 
+                                ? 'text-bitcoin-400 font-medium' 
+                                : 'text-abyss-200 hover:text-bitcoin-300'
+                              }
+                            `}
+                          >
+                            {link.label}
+                            {isActive(link.href) && (
+                              <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-bitcoin-500 to-bitcoin-400 rounded-full animate-fade-in" />
+                            )}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </nav>
                   <div className="md:hidden">
-                    <button className="text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                      </svg>
+                    <button 
+                      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                      className="relative w-10 h-10 text-white focus:outline-none"
+                      aria-label="Toggle menu"
+                    >
+                      <span className="sr-only">Open main menu</span>
+                      <div className="absolute w-6 h-5 left-2 top-2.5">
+                        <span 
+                          className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out ${
+                            mobileMenuOpen ? 'rotate-45 translate-y-2' : 'translate-y-0'
+                          }`} 
+                        />
+                        <span 
+                          className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out translate-y-2 ${
+                            mobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                          }`} 
+                        />
+                        <span 
+                          className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out ${
+                            mobileMenuOpen ? '-rotate-45 translate-y-2' : 'translate-y-4'
+                          }`} 
+                        />
+                      </div>
                     </button>
                   </div>
+                </div>
+                
+                {/* Mobile Navigation Menu */}
+                <div 
+                  className={`md:hidden fixed inset-x-0 top-[88px] bg-deepSea-surface/95 backdrop-blur-lg border-b border-abyss-400/20 transform transition-all duration-300 ease-in-out ${
+                    mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+                  }`}
+                >
+                  <nav className="container mx-auto px-4 py-6">
+                    <ul className="space-y-4">
+                      {navLinks.map((link, index) => (
+                        <li 
+                          key={link.href}
+                          className="transform transition-all duration-300"
+                          style={{
+                            transitionDelay: mobileMenuOpen ? `${index * 50}ms` : '0ms',
+                            transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-20px)',
+                            opacity: mobileMenuOpen ? 1 : 0,
+                          }}
+                        >
+                          <Link 
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={`
+                              block py-2 px-4 rounded-lg transition-all duration-300
+                              ${isActive(link.href)
+                                ? 'bg-bitcoin-500/10 text-bitcoin-400 font-medium border-l-4 border-bitcoin-500'
+                                : 'text-abyss-200 hover:bg-abyss-700/30 hover:text-bitcoin-300'
+                              }
+                            `}
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </header>
@@ -86,6 +179,7 @@ export default function RootLayout({
             </footer>
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
