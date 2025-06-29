@@ -15,7 +15,6 @@ tech_stack:
   - IPFS
   - TheGraph
   - Web3.js/Ethers.js
-github: https://github.com/Angleito/nyxusd-protocol
 webpage: https://nyxusd.com
 demo: https://nyxusd.com
 features:
