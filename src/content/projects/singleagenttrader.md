@@ -13,7 +13,7 @@ tech_stack:
   - Sui
   - Headless Chrome/Puppeteer
   - LangChain
-github: https://github.com/Angleito/bluefinaitradertemplate
+github: https://github.com/Angleito/Single-Agent-Trader
 private_full_version: true
 has_demo: true
 contact: arainey555@gmail.com
