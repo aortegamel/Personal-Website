@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove 'output: export' for Vercel deployment
+  output: 'export',
   images: {
     domains: ['vercel.com'],
     formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
   trailingSlash: true,
-  // Remove basePath for Vercel deployment
   typescript: {
     ignoreBuildErrors: true,
   },
