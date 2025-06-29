@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build:
@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -31,4 +31,4 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}     # Vercel org ID secret
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Vercel project ID secret
           prod: true                                      # Deploy to production
-          working-directory: ./nextjs-portfolio          # Path to Next.js app
+          # working-directory removed - using root directory
