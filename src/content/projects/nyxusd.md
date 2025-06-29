@@ -5,11 +5,11 @@ description: >-
   technology, offering algorithmic stability mechanisms and capital-efficient collateralization
   for the DeFi ecosystem.
 tech_stack:
-  - Solidity
+  - Compact
   - Move
-  - Rust
   - TypeScript
-  - Hardhat/Foundry
+  - Zero-Knowledge Proofs
+  - Midnight Protocol
   - Oracle Networks
   - Layer 2 Solutions
   - IPFS
