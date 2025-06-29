@@ -40,12 +40,12 @@ const POSTS: Post[] = [
 
 const PROJECTS: Project[] = [
   {
-    slug: 'bluefinaiagenttrader',
+    slug: 'singleagenttrader',
     name: 'BlueFin AI Agent Trader',
     description: 'An AI-powered trading platform for cryptocurrency markets',
     techStack: ['Python', 'Machine Learning', 'Blockchain'],
     github: 'https://github.com/angleito/bluefinaiagenttrader',
-    url: '/projects/bluefinaiagenttrader'
+    url: '/projects/singleagenttrader'
   },
   {
     slug: 'bot',

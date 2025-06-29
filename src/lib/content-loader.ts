@@ -87,12 +87,12 @@ const mockPosts: Post[] = [
 
 const mockProjects: Project[] = [
   {
-    slug: 'bluefinaiagenttrader',
+    slug: 'singleagenttrader',
     name: 'BlueFin AI Agent Trader',
     description: 'AI-powered trading agent for DeFi',
     techStack: ['TypeScript', 'AI', 'DeFi'],
     github: 'https://github.com/Angleito/bluefinaiagenttrader',
-    url: '/projects/bluefinaiagenttrader/'
+    url: '/projects/singleagenttrader/'
   },
   {
     slug: 'bot',
