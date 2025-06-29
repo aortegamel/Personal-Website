@@ -19,14 +19,19 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"],
-      "@/*": ["src/*"]
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ],
+      "@/*": [
+        "src/*"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
