@@ -1,0 +1,7 @@
+# Commit message template
+# 
+# Format: <type>: <subject>
+# 
+# Types: fix, feat, docs, style, refactor, test, chore
+# 
+# Example: fix: resolve build errors in deployment pipeline
