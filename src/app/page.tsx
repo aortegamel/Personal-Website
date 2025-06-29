@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
-import PostPreview from '@/components/PostPreview';
-import ProjectCard from '@/components/ProjectCard';
+import { PostCard } from '@/components/common/PostCard';
+import { ProjectCard } from '@/components/common/ProjectCard';
 import { loadPosts, loadProjects } from '@/lib/content-loader';
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {recentPosts.map((post) => (
-            <PostPreview 
+            <PostCard 
               key={post.slug}
               post={post}
             />
