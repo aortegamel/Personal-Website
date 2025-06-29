@@ -5,7 +5,7 @@ description: >-
   technology, offering algorithmic stability mechanisms and capital-efficient collateralization
   for the DeFi ecosystem.
 tech_stack:
-  - Compact
+  - Compact (Midnight Protocol)
   - Move
   - TypeScript
   - Zero-Knowledge Proofs
