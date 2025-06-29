@@ -5,7 +5,7 @@ export default function ProjectsPage() {
   const projects = loadProjects();
   
   // Define featured projects
-  const featuredSlugs = ['singleagenttrader', 'nyxusd', 'bot'];
+  const featuredSlugs = ['nyxusd', 'singleagenttrader', 'qwensuicoder'];
 
   return (
     <div className="min-h-screen bg-abyss-900">
