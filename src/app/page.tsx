@@ -55,10 +55,10 @@ export default function Home() {
           {projects.map((project) => (
             <ProjectCard 
               key={project.slug}
-              name={project.name}
-              description={project.description}
-              techStack={project.techStack}
-              slug={project.slug}
+              project={{
+                ...project,
+                url: `/projects/${project.slug}`
+              }}
             />
           ))}
         </div>
