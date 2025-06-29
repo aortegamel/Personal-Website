@@ -1,5 +1,5 @@
 ---
-name: 'BluefinAI Agent Trader: AI-Powered Cryptocurrency Trading Platform'
+name: 'Single Agent Trader: AI-Powered Cryptocurrency Trading Platform'
 description: >-
   Sophisticated, containerized crypto trading system using AI (Claude) for chart
   analysis and automated trading on Bluefin.
@@ -31,9 +31,9 @@ features:
   - Comprehensive Logging & Error Handling
 ---
 
-## Project Overview: BluefinAI Agent Trader
+## Project Overview: Single Agent Trader
 
-BluefinAI Agent Trader is a sophisticated, containerized cryptocurrency trading system that leverages artificial intelligence for market analysis and automated trading decisions. The platform integrates with the Bluefin exchange API to enable algorithmic trading based on technical analysis, chart patterns, and real-time market signals.
+Single Agent Trader is a sophisticated, containerized cryptocurrency trading system that leverages artificial intelligence for market analysis and automated trading decisions. The platform integrates with the Bluefin exchange API to enable algorithmic trading based on technical analysis, chart patterns, and real-time market signals.
 
 The system employs state-of-the-art AI technologies, including Claude (by Anthropic) for chart analysis, alongside browser automation tools to capture and process TradingView charts. The entire platform is containerized using Docker, following a microservices architecture that ensures scalability, maintainability, and fault tolerance.
 
