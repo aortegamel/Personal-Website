@@ -2,9 +2,9 @@ name: Deploy Next.js Portfolio
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
   pull_request:
-    branches: [main]
+    branches: [dev]
 
 jobs:
   build-and-deploy:
@@ -30,7 +30,7 @@ jobs:
         run: npm run build
       
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/dev'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
