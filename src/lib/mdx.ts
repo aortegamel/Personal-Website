@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
     description: 'A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.',
     techStack: ['Solidity', 'Rust', 'Web3.js', 'React', 'TypeScript', 'Smart Contracts'],
     github: 'https://github.com/angleito/nyxusd-protocol',
-    demo: 'https://nyxusd.finance',
+    demo: 'https://nyxusd.com',
     url: '/projects/nyxusd'
   },
   {
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
     name: 'Single Agent Trader',
     description: 'An advanced AI-powered trading platform that leverages machine learning algorithms to analyze cryptocurrency markets in real-time. Features include automated trade execution, risk management protocols, sentiment analysis, and predictive modeling for optimal trading strategies across multiple exchanges.',
     techStack: ['Python', 'Machine Learning', 'TensorFlow', 'Blockchain', 'API Integration'],
-    github: 'https://github.com/angleito/bluefinaiagenttrader',
+    github: 'https://github.com/Angleito/Single-Agent-Trader',
     url: '/projects/singleagenttrader'
   },
   {
