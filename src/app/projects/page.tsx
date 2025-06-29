@@ -1,5 +1,3 @@
-'use client';
-
 import { loadProjects } from '@/lib/content-loader';
 import { ProjectCard } from '@/components/common/ProjectCard';
 

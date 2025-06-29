@@ -51,7 +51,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'singleagenttrader',
-    name: 'BlueFin AI Agent Trader',
+    name: 'Single Agent Trader',
     description: 'An advanced AI-powered trading platform that leverages machine learning algorithms to analyze cryptocurrency markets in real-time. Features include automated trade execution, risk management protocols, sentiment analysis, and predictive modeling for optimal trading strategies across multiple exchanges.',
     techStack: ['Python', 'Machine Learning', 'TensorFlow', 'Blockchain', 'API Integration'],
     github: 'https://github.com/angleito/bluefinaiagenttrader',
@@ -64,6 +64,14 @@ const PROJECTS: Project[] = [
     techStack: ['Solidity', 'Web3.js', 'Node.js', 'Ethereum', 'DeFi Protocols'],
     github: 'https://github.com/angleito/bot',
     url: '/projects/bot'
+  },
+  {
+    slug: 'qwensuicoder',
+    name: 'QwenSuiCoder',
+    description: 'End-to-end LLM Benchmarking & Training Framework for Sui blockchain development. Features automated benchmarking of models from 0.5B to 14B parameters, hardware-aware model selection, smart parameter selection, and DeepSpeed-optimized training with ZeRO optimization.',
+    techStack: ['Python', 'DeepSpeed', 'Qwen 2.5', 'MLOps', 'PyTorch'],
+    github: 'https://github.com/Angleito/qwensuicoder',
+    url: '/projects/qwensuicoder'
   }
 ];
 
