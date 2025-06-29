@@ -14,6 +14,7 @@ export interface Project {
   description: string;
   techStack: string[];
   github?: string;
+  demo?: string;
   url: string;
 }
 
@@ -45,21 +46,22 @@ const PROJECTS: Project[] = [
     description: 'A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.',
     techStack: ['Solidity', 'Rust', 'Web3.js', 'React', 'TypeScript', 'Smart Contracts'],
     github: 'https://github.com/angleito/nyxusd-protocol',
+    demo: 'https://nyxusd.finance',
     url: '/projects/nyxusd'
   },
   {
     slug: 'singleagenttrader',
     name: 'BlueFin AI Agent Trader',
-    description: 'An AI-powered trading platform for cryptocurrency markets',
-    techStack: ['Python', 'Machine Learning', 'Blockchain'],
+    description: 'An advanced AI-powered trading platform that leverages machine learning algorithms to analyze cryptocurrency markets in real-time. Features include automated trade execution, risk management protocols, sentiment analysis, and predictive modeling for optimal trading strategies across multiple exchanges.',
+    techStack: ['Python', 'Machine Learning', 'TensorFlow', 'Blockchain', 'API Integration'],
     github: 'https://github.com/angleito/bluefinaiagenttrader',
     url: '/projects/singleagenttrader'
   },
   {
     slug: 'bot',
     name: ' Bot',
-    description: 'Automated DeFi trading bot utilizing flash loan technology',
-    techStack: ['Solidity', 'Web3.js', 'Blockchain'],
+    description: 'A sophisticated DeFi trading bot that capitalizes on arbitrage opportunities using flash loan technology. The bot monitors multiple decentralized exchanges simultaneously, executes complex multi-step transactions within a single block, and implements gas-optimized strategies for maximum profitability.',
+    techStack: ['Solidity', 'Web3.js', 'Node.js', 'Ethereum', 'DeFi Protocols'],
     github: 'https://github.com/angleito/bot',
     url: '/projects/bot'
   }
