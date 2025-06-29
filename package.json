@@ -13,7 +13,6 @@
     "vercel": "node scripts/mock-vercel/index.js"
   },
   "dependencies": {
-    "@playwright/test": "^1.42.1",
     "@react-pdf/renderer": "^4.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/mdx": "^2.0.13",
@@ -31,7 +30,6 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.0",
     "ts-node": "^10.9.2",
