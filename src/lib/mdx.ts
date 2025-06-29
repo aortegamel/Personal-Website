@@ -44,7 +44,7 @@ const PROJECTS: Project[] = [
     slug: 'nyxusd',
     name: 'NyxUSD Protocol',
     description: 'A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.',
-    techStack: ['Compact', 'TypeScript', 'Zero-Knowledge Proofs', 'Web3.js', 'React', 'Smart Contracts'],
+    techStack: ['Compact (Midnight Protocol)', 'TypeScript', 'Zero-Knowledge Proofs', 'Web3.js', 'React', 'Smart Contracts'],
     github: 'https://github.com/angleito/nyxusd-protocol',
     demo: 'https://nyxusd.com',
     url: '/projects/nyxusd'
