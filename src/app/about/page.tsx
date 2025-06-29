@@ -83,7 +83,7 @@ export default function AboutPage() {
         </p>
         <ul className="list-disc list-inside space-y-3 text-gray-700">
           <li>
-            <strong>BluefinAI Agent Trader:</strong> AI-Powered Cryptocurrency Trading Platform using Claude for chart analysis
+            <strong>Single Agent Trader:</strong> AI-Powered Cryptocurrency Trading Platform using Claude for chart analysis
           </li>
           <li>
             <strong>QwenSuiCoder:</strong> End-to-end LLM Benchmarking & Training Framework for Sui blockchain development
