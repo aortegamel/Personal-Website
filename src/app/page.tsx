@@ -53,7 +53,10 @@ export default function Home() {
               <div 
                 key={project.slug} 
                 className={`transform transition-all duration-500 hover:-translate-y-2 animate-fade-in-up`}
-                style={{ animationDelay: `${(index + 1) * 150}ms` }}
+                style={{ 
+                  animationDelay: `${(index + 1) * 150}ms`,
+                  animationFillMode: 'forwards'
+                }}
               >
                 <div className="h-full bg-gradient-to-br from-abyss-800/50 to-abyss-900/50 rounded-lg p-[1px] hover:from-bitcoin-500/20 hover:to-abyss-700/20 transition-all duration-300">
                   <div className="h-full bg-abyss-900 rounded-lg">
