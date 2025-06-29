@@ -106,6 +106,112 @@
   }
 }
 
+/* Advanced gradient animations */
+.gradient-flow {
+  background: linear-gradient(
+    135deg,
+    var(--tw-colors-abyss-600) 0%,
+    var(--tw-colors-bitcoin-500) 25%,
+    var(--tw-colors-abyss-500) 50%,
+    var(--tw-colors-bitcoin-600) 75%,
+    var(--tw-colors-abyss-600) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Morphing gradient */
+.gradient-morph {
+  background: radial-gradient(
+    circle at var(--gradient-x, 50%) var(--gradient-y, 50%),
+    var(--tw-colors-bitcoin-400) 0%,
+    var(--tw-colors-abyss-500) 25%,
+    var(--tw-colors-abyss-700) 50%,
+    var(--tw-colors-deepSea-abyss) 100%
+  );
+  animation: gradient-morph 15s ease infinite;
+}
+
+@keyframes gradient-morph {
+  0%, 100% {
+    --gradient-x: 20%;
+    --gradient-y: 20%;
+  }
+  25% {
+    --gradient-x: 80%;
+    --gradient-y: 20%;
+  }
+  50% {
+    --gradient-x: 80%;
+    --gradient-y: 80%;
+  }
+  75% {
+    --gradient-x: 20%;
+    --gradient-y: 80%;
+  }
+}
+
+/* Chromatic aberration effect */
+.chromatic-text {
+  position: relative;
+  animation: chromatic 8s ease-in-out infinite;
+}
+
+.chromatic-text::before,
+.chromatic-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chromatic-text::before {
+  color: var(--tw-colors-bitcoin-500);
+  animation: chromatic-before 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+.chromatic-text::after {
+  color: var(--tw-colors-abyss-400);
+  animation: chromatic-after 8s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes chromatic {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 20px rgba(255, 195, 0, 0.5); }
+}
+
+@keyframes chromatic-before {
+  0%, 100% { transform: translate(0); }
+  50% { transform: translate(2px, -1px); }
+}
+
+@keyframes chromatic-after {
+  0%, 100% { transform: translate(0); }
+  50% { transform: translate(-2px, 1px); }
+}
+
 /* Ocean wave effect */
 .ocean-wave {
   position: relative;
@@ -146,6 +252,85 @@
   50% {
     box-shadow: 0 0 30px rgba(255, 195, 0, 0.8);
   }
+}
+
+/* Dynamic color breathing */
+.color-breathe {
+  animation: color-breathe 4s ease-in-out infinite;
+}
+
+@keyframes color-breathe {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
+
+/* Hue rotation effect */
+.hue-rotate-slow {
+  animation: hue-rotate-slow 20s linear infinite;
+}
+
+@keyframes hue-rotate-slow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Multi-layer glow */
+.glow-multi {
+  position: relative;
+}
+
+.glow-multi::before,
+.glow-multi::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glow-multi::before {
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-bitcoin-400) 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: glow-pulse-1 3s ease-in-out infinite;
+}
+
+.glow-multi::after {
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-abyss-400) 0%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  animation: glow-pulse-2 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.glow-multi:hover::before,
+.glow-multi:hover::after {
+  opacity: 0.7;
+}
+
+@keyframes glow-pulse-1 {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes glow-pulse-2 {
+  0%, 100% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
 }
 
 /* =========================
@@ -390,5 +575,135 @@
   }
   100% {
     transform: rotate(45deg) translateY(100%);
+  }
+}
+
+/* =========================
+   DYNAMIC COLOR EFFECTS
+   ========================= */
+
+/* Aurora effect */
+.aurora {
+  position: relative;
+  overflow: hidden;
+}
+
+.aurora::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    var(--tw-colors-abyss-600) 0%,
+    var(--tw-colors-bitcoin-500) 20%,
+    var(--tw-colors-abyss-500) 40%,
+    var(--tw-colors-bitcoin-400) 60%,
+    var(--tw-colors-abyss-400) 80%,
+    var(--tw-colors-bitcoin-600) 100%
+  );
+  opacity: 0.3;
+  animation: aurora 15s linear infinite;
+  filter: blur(100px);
+}
+
+@keyframes aurora {
+  0% {
+    transform: rotate(0deg) translateY(0%);
+  }
+  100% {
+    transform: rotate(360deg) translateY(50%);
+  }
+}
+
+/* Liquid gradient */
+.liquid-gradient {
+  position: relative;
+  background: var(--tw-colors-deepSea-surface);
+  overflow: hidden;
+}
+
+.liquid-gradient::before,
+.liquid-gradient::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  border-radius: 45% 55% 60% 40% / 60% 30% 70% 40%;
+}
+
+.liquid-gradient::before {
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-bitcoin-500) 0%,
+    transparent 70%
+  );
+  animation: liquid-1 20s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+.liquid-gradient::after {
+  bottom: -50%;
+  right: -50%;
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-abyss-400) 0%,
+    transparent 70%
+  );
+  animation: liquid-2 20s ease-in-out infinite;
+  animation-delay: -5s;
+  opacity: 0.3;
+}
+
+@keyframes liquid-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
+  }
+}
+
+@keyframes liquid-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(-30px, 30px) rotate(-120deg) scale(1.2);
+  }
+  66% {
+    transform: translate(40px, -20px) rotate(-240deg) scale(0.8);
+  }
+}
+
+/* Color wave */
+.color-wave {
+  background: linear-gradient(
+    90deg,
+    var(--tw-colors-abyss-700) 0%,
+    var(--tw-colors-abyss-600) 16.66%,
+    var(--tw-colors-bitcoin-700) 33.33%,
+    var(--tw-colors-bitcoin-600) 50%,
+    var(--tw-colors-bitcoin-700) 66.66%,
+    var(--tw-colors-abyss-600) 83.33%,
+    var(--tw-colors-abyss-700) 100%
+  );
+  background-size: 200% 100%;
+  animation: color-wave 10s linear infinite;
+}
+
+@keyframes color-wave {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
   }
 }
