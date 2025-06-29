@@ -20,7 +20,7 @@ export const truncateList = <T,>(
 // Pure function to render badges
 export const renderBadges = (
   items: string[],
-  variant: 'tech' | 'category' = 'tech',
+  variant: 'default' | 'category' = 'default',
   limit?: number,
   className?: string
 ) => {

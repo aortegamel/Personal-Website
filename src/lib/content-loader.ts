@@ -14,6 +14,8 @@ export interface Project {
   description: string;
   techStack: string[];
   github?: string;
+  demo?: string;
+  features?: string[];
   url: string;
 }
 
@@ -88,19 +90,63 @@ const mockPosts: Post[] = [
 const mockProjects: Project[] = [
   {
     slug: 'singleagenttrader',
-    name: 'BlueFin AI Agent Trader',
-    description: 'AI-powered trading agent for DeFi',
-    techStack: ['TypeScript', 'AI', 'DeFi'],
-    github: 'https://github.com/Angleito/bluefinaiagenttrader',
+    name: 'Single Agent Trader',
+    description: 'Sophisticated, containerized crypto trading system using AI (Claude) for chart analysis and automated trading on Bluefin.',
+    techStack: ['Python', 'Docker', 'Microservices', 'Claude AI', 'TradingView', 'Bluefin API', 'Sui'],
+    features: [
+      'AI Chart Analysis (Claude + Screenshot Service)',
+      'Microservices Architecture (Dockerized)',
+      'Bluefin Exchange API Integration',
+      'TradingView Webhook Integration',
+      'Automated Position Monitoring & Analysis Triggering',
+      'Advanced Risk Management',
+      'Multi-Timeframe Analysis Capability'
+    ],
+    github: 'https://github.com/Angleito/bluefinaitradertemplate',
     url: '/projects/singleagenttrader/'
+  },
+  {
+    slug: 'nyxusd',
+    name: 'NyxUSD',
+    description: 'A next-generation decentralized stablecoin protocol built on cutting-edge blockchain technology, offering algorithmic stability mechanisms and capital-efficient collateralization for the DeFi ecosystem.',
+    techStack: ['Solidity', 'Move', 'Rust', 'TypeScript', 'Hardhat/Foundry', 'Oracle Networks', 'Layer 2'],
+    features: [
+      'Multi-Collateral Debt Positions (CDPs)',
+      'Algorithmic Interest Rate Discovery',
+      'Decentralized Governance (veNYX)',
+      'Cross-Chain Bridge Support',
+      'Flash Mint Capabilities',
+      'Liquidation Protection Mechanisms',
+      'Price Oracle Aggregation'
+    ],
+    github: 'https://github.com/Angleito/nyxusd-protocol',
+    demo: 'https://app.nyxusd.finance',
+    url: '/projects/nyxusd/'
   },
   {
     slug: 'bot',
     name: 'Flash Loan Bot',
-    description: 'Automated flash loan arbitrage bot',
-    techStack: ['Solidity', 'TypeScript', 'DeFi'],
-    github: 'https://github.com/Angleito/bot',
+    description: 'Automated trading bot for Sui leveraging DEX aggregation and potentially flash loans for DeFi opportunities.',
+    techStack: ['TypeScript', 'Sui', 'Node.js', '@mysten/sui.js', '@7kprotocol/sdk-ts', 'DEX Aggregation', 'DeFi'],
+    features: [
+      'Sui Blockchain Interaction (@mysten/sui.js)',
+      'DEX Aggregation (7k Protocol)',
+      'Optimal Swap Execution Engine',
+      'Secure Key Management',
+      'Resilient Sui Client Connection',
+      'Fallback Pricing Mechanism',
+      'Arbitrage/ Orchestration Layer'
+    ],
+    github: 'https://github.com/Angleito/SuiFlashBotTemplate',
     url: '/projects/bot/'
+  },
+  {
+    slug: 'qwensuicoder',
+    name: 'Qwen Sui Coder',
+    description: 'AI-powered development assistant specialized for Sui blockchain development.',
+    techStack: ['Python', 'AI/ML', 'Sui', 'Move', 'LangChain'],
+    github: 'https://github.com/Angleito/qwensuicoder',
+    url: '/projects/qwensuicoder/'
   }
 ];
 
