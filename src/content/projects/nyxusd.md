@@ -5,19 +5,19 @@ description: >-
   technology, offering algorithmic stability mechanisms and capital-efficient collateralization
   for the DeFi ecosystem.
 tech_stack:
-  - Solidity
+  - Compact (Midnight Protocol)
   - Move
-  - Rust
   - TypeScript
-  - Hardhat/Foundry
+  - Zero-Knowledge Proofs
+  - Midnight Protocol
   - Oracle Networks
   - Layer 2 Solutions
   - IPFS
   - TheGraph
   - Web3.js/Ethers.js
 github: https://github.com/Angleito/nyxusd-protocol
-webpage: https://nyxusd.finance
-demo: https://app.nyxusd.finance
+webpage: https://nyxusd.com
+demo: https://nyxusd.com
 features:
   - Multi-Collateral Debt Positions (CDPs)
   - Algorithmic Interest Rate Discovery
