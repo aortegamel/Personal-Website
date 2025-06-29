@@ -24,10 +24,23 @@ export default function AboutPage() {
       <section className="mb-12">
         <h2 className="text-3xl font-bold mb-4 text-abyss-100">Background</h2>
         <p className="text-lg text-abyss-200 mb-4 leading-relaxed">
-          I started as a finance major but found myself drawn to the problem-solving nature of computer engineering. 
-          The transition wasn't traditional, but that's where AI-assisted development became my secret weapon. Tools 
-          like Claude Code and Cursor didn't just help me write code faster—they became my coding mentors, helping me 
-          understand the "why" behind every function and teaching me best practices as I built real projects.
+          My journey started at UNR studying mechanical engineering, sparked by a love for physics I discovered in 
+          my AP Physics class. Life had other plans though—family health issues forced me to leave and reevaluate my path. 
+          When I returned to school, I chose finance because it felt more manageable and aligned with my passion for 
+          trading crypto, stocks, and forex. But something was missing.
+        </p>
+        <p className="text-lg text-abyss-200 mb-4 leading-relaxed">
+          I missed the engineering mindset, the systematic problem-solving, the building of things. I'd always wanted 
+          to learn to code, but the entry barrier felt insurmountable. Unlike many of my friends who had coding 
+          experience from high school, I was starting from absolute zero. Traditional learning paths seemed too 
+          time-consuming and overwhelming for someone juggling work and studies.
+        </p>
+        <p className="text-lg text-abyss-200 mb-4 leading-relaxed">
+          Then AI changed everything. Tools like Claude Code and Cursor didn't just help me write code faster—they 
+          became my coding mentors, breaking down that intimidating entry ceiling I'd been staring at for years. 
+          Suddenly, I could build the things I'd always envisioned, learning by doing instead of spending months 
+          on syntax and theory. AI accelerated my learning curve so dramatically that I could finally bridge my 
+          finance background with the engineering thinking I'd been craving.
         </p>
         <p className="text-lg text-abyss-200 mb-4 leading-relaxed">
           My years at Chipotle and Skechers might seem unrelated to coding, but they're actually my superpower. 
