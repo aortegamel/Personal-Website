@@ -187,8 +187,17 @@ html[data-mobile-menu-open="true"] body {
 
   /* Magnetic hover effect */
   .bitcoin-button-magnetic {
-    @apply bitcoin-button;
+    @apply bg-bitcoin-500 hover:bg-bitcoin-600 text-deepSea-abyss font-medium px-6 py-3 rounded-xl transition-all duration-500 shadow-bitcoin hover:shadow-bitcoin-lg;
+    background: linear-gradient(135deg, #ffc300 0%, #ffb700 100%);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
     transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .bitcoin-button-magnetic a {
+    @apply relative z-20 text-deepSea-abyss no-underline;
   }
 
   .abyss-button {
