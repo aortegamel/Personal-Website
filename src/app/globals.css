@@ -20,7 +20,7 @@ body {
 }
 
 /* Prevent body scrolling when mobile menu is open */
-body.mobile-menu-open {
+html[data-mobile-menu-open="true"] body {
   overflow: hidden;
 }
 
