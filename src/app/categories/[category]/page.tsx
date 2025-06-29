@@ -1,5 +1,5 @@
 import { getPostsByCategory, getAllCategories } from '@/lib/mdx';
-import PostPreview from '@/components/PostPreview';
+import { PostCard } from '@/components/common/PostCard';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
@@ -49,7 +49,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
       <div className="space-y-10">
         {posts.length > 0 ? (
           posts.map((post) => (
-            <PostPreview key={post.slug} post={post} />
+            <PostCard key={post.slug} post={post} />
           ))
         ) : (
           <p className="text-gray-600">No articles in this category yet. Check back soon!</p>
