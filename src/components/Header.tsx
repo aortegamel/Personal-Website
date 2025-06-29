@@ -2,36 +2,40 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
 const Header = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Use CSS to handle body scroll locking through data attribute
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.classList.add('mobile-menu-open');
-    } else {
-      document.body.classList.remove('mobile-menu-open');
-    }
+    document.documentElement.setAttribute('data-mobile-menu-open', String(isMobileMenuOpen));
+    return () => {
+      document.documentElement.removeAttribute('data-mobile-menu-open');
+    };
   }, [isMobileMenuOpen]);
 
   const isActive = (path: string) => {
     return pathname === path ? 'bg-blue-700' : '';
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
 
-  const navLinks = [
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
+
+  const navLinks = useMemo(() => [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
     { href: '/posts', label: 'Articles' },
     { href: '/categories', label: 'Categories' },
     { href: '/search', label: 'Search' }
-  ];
+  ], []);
 
   return (
     <header className="bg-blue-600 text-white py-4">
@@ -81,7 +85,7 @@ const Header = () => {
                       hover:bg-blue-700 transition
                       ${isActive(link.href)}
                     `}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {link.label}
                   </Link>

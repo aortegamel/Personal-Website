@@ -105,7 +105,7 @@ const CompactProjectCard = ({ project }: { project: Project }) => (
     <p className="text-abyss-100 text-sm mb-2">{project.description}</p>
     {project.techStack && project.techStack.length > 0 && (
       <div className="flex flex-wrap gap-1">
-        {renderBadges(project.techStack, 'tech', 3, 'text-xs')}
+        {renderBadges(project.techStack, 'default', 3, 'text-xs')}
       </div>
     )}
   </article>

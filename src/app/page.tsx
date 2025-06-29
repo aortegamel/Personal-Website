@@ -13,29 +13,61 @@ export default function Home() {
           Exploring technology, sharing insights, and showcasing projects that push the boundaries of innovation.
         </p>
         <p className="text-lg text-abyss-300 max-w-4xl">
-          I am a finance graduate who has transformed into a software developer by mastering AI agentic coding tools like Claude Code, Aider, GitHub Copilot, and Cursor. These powerful AI assistants have accelerated my learning journey and development capabilities, allowing me to build sophisticated projects efficiently. With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions with modern technologies. My background in finance and customer service, combined with my AI-assisted technical skills, enables me to tackle complex problems and deliver impactful software. I'm passionate about pushing the boundaries of what's possible when human creativity meets AI collaboration.
+          I am a finance major and self-taught programmer who has mastered AI agentic coding tools like Claude Code, Aider, GitHub Copilot, and Cursor. These powerful AI assistants have accelerated my learning journey and development capabilities, allowing me to build sophisticated projects efficiently. With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions with modern technologies. My background in finance combined with my self-taught technical skills enables me to tackle complex problems and deliver impactful software. I'm passionate about pushing the boundaries of what's possible when human creativity meets AI collaboration.
         </p>
       </section>
 
-      <section>
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-bitcoin-400">Featured Projects</h2>
-          <p className="text-xl text-abyss-300 max-w-2xl mx-auto">
+      <section className="relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-bitcoin-500/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-abyss-500/5 rounded-full blur-3xl" />
+        </div>
+
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-bitcoin-400 via-bitcoin-300 to-abyss-400 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <p className="text-xl text-abyss-200 max-w-3xl mx-auto leading-relaxed">
             Innovative solutions leveraging cutting-edge technologies in DeFi, AI, and blockchain development.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
-          {projects.slice(0, 4).map((project) => (
-            <div key={project.slug} className="abyss-card hover:border-bitcoin-500/30 transition-all duration-300">
+        <div className="space-y-12">
+          {/* Featured project - Single Agent Trader */}
+          {projects.length > 0 && (
+            <div className="transform transition-all duration-500 hover:scale-[1.02] animate-fade-in-up">
               <ProjectCard 
                 project={{
-                  ...project,
-                  url: `/projects/${project.slug}`
+                  ...projects[0],
+                  url: `/projects/${projects[0].slug}`
                 }}
+                variant="featured"
               />
             </div>
-          ))}
+          )}
+
+          {/* Grid for remaining projects with NyxUSD prominently displayed */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.slice(1, 4).map((project, index) => (
+              <div 
+                key={project.slug} 
+                className={`transform transition-all duration-500 hover:-translate-y-2 animate-fade-in-up`}
+                style={{ animationDelay: `${(index + 1) * 150}ms` }}
+              >
+                <div className="h-full bg-gradient-to-br from-abyss-800/50 to-abyss-900/50 rounded-lg p-[1px] hover:from-bitcoin-500/20 hover:to-abyss-700/20 transition-all duration-300">
+                  <div className="h-full bg-abyss-900 rounded-lg">
+                    <ProjectCard 
+                      project={{
+                        ...project,
+                        url: `/projects/${project.slug}`
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {projects.length > 4 && (
