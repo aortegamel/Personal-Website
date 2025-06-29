@@ -40,6 +40,14 @@ const POSTS: Post[] = [
 
 const PROJECTS: Project[] = [
   {
+    slug: 'nyxusd',
+    name: 'NyxUSD Protocol',
+    description: 'A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.',
+    techStack: ['Solidity', 'Rust', 'Web3.js', 'React', 'TypeScript', 'Smart Contracts'],
+    github: 'https://github.com/angleito/nyxusd-protocol',
+    url: '/projects/nyxusd'
+  },
+  {
     slug: 'singleagenttrader',
     name: 'BlueFin AI Agent Trader',
     description: 'An AI-powered trading platform for cryptocurrency markets',
