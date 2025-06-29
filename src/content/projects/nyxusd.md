@@ -16,8 +16,8 @@ tech_stack:
   - TheGraph
   - Web3.js/Ethers.js
 github: https://github.com/Angel Ortega-Melton/nyxusd-protocol
-webpage: https://nyxusd.finance
-demo: https://app.nyxusd.finance
+webpage: https://nyxusd.com
+demo: https://nyxusd.com
 features:
   - Multi-Collateral Debt Positions (CDPs)
   - Algorithmic Interest Rate Discovery

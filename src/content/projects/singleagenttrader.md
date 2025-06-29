@@ -13,7 +13,7 @@ tech_stack:
   - Sui
   - Headless Chrome/Puppeteer
   - LangChain
-github: https://github.com/Angel Ortega-Melton/bluefinaitradertemplate
+github: https://github.com/Angel Ortega-Melton/Single-Agent-Trader
 private_full_version: true
 has_demo: true
 contact: arainey555@gmail.com
