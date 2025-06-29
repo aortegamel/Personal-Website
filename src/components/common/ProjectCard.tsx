@@ -74,7 +74,7 @@ const ProjectActions = ({
   github?: string; 
   demo?: string; 
   url: string; 
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'default' | 'lg';
 }) => (
   <>
     {github && (
