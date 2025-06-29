@@ -61,16 +61,16 @@ body.mobile-menu-open {
   }
 
   .card-glass {
-    @apply glass rounded-xl p-6 transition-all duration-300;
+    @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 transition-all duration-300;
   }
 
   .card-glass-dark {
-    @apply glass-dark rounded-xl p-6 transition-all duration-300;
+    @apply bg-black/20 backdrop-blur-sm rounded-xl p-6 transition-all duration-300;
   }
 
   /* Button Components - Enhanced with gradients and animations */
   .bitcoin-button {
-    @apply bg-bitcoin-500 hover:bg-bitcoin-600 text-deepSea-abyss font-medium px-4 py-2 rounded-lg transition-all duration-300 shadow-bitcoin hover:shadow-bitcoin-lg btn-press;
+    @apply bg-bitcoin-500 hover:bg-bitcoin-600 text-deepSea-abyss font-medium px-4 py-2 rounded-lg transition-all duration-300 shadow-bitcoin hover:shadow-bitcoin-lg;
     background: var(--gradient-btn-secondary);
     position: relative;
     overflow: hidden;
@@ -100,7 +100,7 @@ body.mobile-menu-open {
   }
 
   .abyss-button {
-    @apply bg-deepSea-shallow hover:bg-deepSea-middle text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 btn-press;
+    @apply bg-deepSea-shallow hover:bg-deepSea-middle text-white font-medium px-4 py-2 rounded-lg transition-all duration-300;
     background: var(--gradient-btn-primary);
     box-shadow: var(--shadow-accent-sm);
   }
@@ -112,7 +112,7 @@ body.mobile-menu-open {
   }
 
   .btn-ghost {
-    @apply bg-transparent hover:bg-surface-50/10 text-abyss-300 hover:text-white font-medium px-4 py-2 rounded-lg transition-all duration-300;
+    @apply bg-transparent hover:bg-white/10 text-abyss-300 hover:text-white font-medium px-4 py-2 rounded-lg transition-all duration-300;
   }
 
   /* Input Components - Enhanced with focus states */
@@ -184,11 +184,11 @@ body.mobile-menu-open {
   }
 
   .badge-ocean {
-    @apply bg-ocean-primary/20 text-ocean-primary-light border border-ocean-primary/30;
+    @apply bg-abyss-500/20 text-abyss-300 border border-abyss-500/30;
   }
 
   .badge-bitcoin {
-    @apply bg-bitcoin-primary/20 text-bitcoin-primary-light border border-bitcoin-primary/30;
+    @apply bg-bitcoin-500/20 text-bitcoin-300 border border-bitcoin-500/30;
   }
 
   .badge-success {
