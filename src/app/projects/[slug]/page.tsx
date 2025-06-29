@@ -27,6 +27,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       { icon: <FaCode />, title: 'Flash Loans', description: 'Automated arbitrage opportunities' },
       { icon: <FaServer />, title: 'Multi-DEX', description: 'Supports multiple exchanges' },
       { icon: <FaCog />, title: 'Gas Optimized', description: 'Efficient transaction processing' }
+    ],
+    qwensuicoder: [
+      { icon: <FaCog />, title: 'Hardware-Aware', description: 'Intelligent model selection based on GPU' },
+      { icon: <FaChartLine />, title: 'Automated Benchmarking', description: '0.5B to 14B parameter testing' },
+      { icon: <FaRocket />, title: 'DeepSpeed Optimized', description: 'ZeRO optimization for efficient training' }
     ]
   };
 
