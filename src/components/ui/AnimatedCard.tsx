@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useMemo } from 'react';
 import { useRelativeMousePosition } from '@/hooks/useMousePosition';
 import { useScrollAnimation } from '@/hooks/useIntersectionObserver';
 import { composeClasses } from '@/lib/ui-utils';
@@ -99,24 +99,38 @@ export const AnimatedCard = forwardRef<HTMLDivElement, AnimatedCardProps>(
       else if (forwardedRef) forwardedRef.current = el;
     };
     
-    // Build class names functionally
-    const animatedClassName = composeClasses(
-      getVariantClass(variant),
-      hoverEffect !== 'none' && getHoverClass(hoverEffect),
-      scrollAnimation !== 'none' && getScrollClass(scrollAnimation),
-      scrollAnimation !== 'none' && isVisible && 'in-view',
-      hoverBorder && 'hover:border-bitcoin-500/50',
-      mouseGlow && 'card-modern',
-      className
+    // Memoize class names to avoid recalculation
+    const animatedClassName = useMemo(
+      () => composeClasses(
+        getVariantClass(variant),
+        hoverEffect !== 'none' && getHoverClass(hoverEffect),
+        scrollAnimation !== 'none' && getScrollClass(scrollAnimation),
+        scrollAnimation !== 'none' && isVisible && 'in-view',
+        hoverBorder && 'hover:border-bitcoin-500/50',
+        mouseGlow && 'card-modern',
+        className
+      ),
+      [variant, hoverEffect, scrollAnimation, isVisible, hoverBorder, mouseGlow, className]
     );
     
-    // Build styles with mouse position
-    const animatedStyle = {
-      ...style,
-      animationDelay: animationDelay ? `${animationDelay}ms` : undefined,
-      '--mouse-x': mouseGlow ? `${(relativeX + 1) * 50}%` : undefined,
-      '--mouse-y': mouseGlow ? `${(relativeY + 1) * 50}%` : undefined,
-    } as React.CSSProperties;
+    // Memoize static style properties
+    const baseStyle = useMemo(
+      () => ({
+        ...style,
+        animationDelay: animationDelay ? `${animationDelay}ms` : undefined,
+      }),
+      [style, animationDelay]
+    );
+    
+    // Calculate mouse position styles separately to minimize re-renders
+    const animatedStyle = useMemo(
+      () => ({
+        ...baseStyle,
+        '--mouse-x': mouseGlow ? `${(relativeX + 1) * 50}%` : undefined,
+        '--mouse-y': mouseGlow ? `${(relativeY + 1) * 50}%` : undefined,
+      } as React.CSSProperties),
+      [baseStyle, mouseGlow, relativeX, relativeY]
+    );
 
     return (
       <div
