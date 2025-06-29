@@ -1,23 +1,15 @@
-export interface Post {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt?: string;
-  categories: string[];
-  author: string;
-  url: string;
-}
+// Import the actual data from mdx.ts to avoid duplication
+import { 
+  getAllPosts, 
+  getAllProjects, 
+  getPostsByCategory, 
+  getProjectBySlug, 
+  getPostBySlug,
+  getAllCategories
+} from './mdx';
 
-export interface Project {
-  slug: string;
-  name: string;
-  description: string;
-  techStack: string[];
-  github?: string;
-  demo?: string;
-  features?: string[];
-  url: string;
-}
+// Re-export types from mdx.ts
+export type { Post, Project } from './mdx';
 
 // Type for content filters
 type ContentFilter<T> = (item: T) => boolean;
@@ -34,27 +26,27 @@ const withContentOperation = <T, R>(
 const bySlug = <T extends { slug: string }>(slug: string): ContentFilter<T> =>
   (item) => item.slug === slug;
 
-const byCategory = (category: string): ContentFilter<Post> =>
+const byCategory = (category: string): ContentFilter<import('./mdx').Post> =>
   (post) => post.categories.includes(category);
 
-const byTechStack = (tech: string): ContentFilter<Project> =>
+const byTechStack = (tech: string): ContentFilter<import('./mdx').Project> =>
   (project) => project.techStack.includes(tech);
 
 // Composable sort functions
-const byDate = (order: 'asc' | 'desc' = 'desc'): ContentSorter<Post> =>
+const byDate = (order: 'asc' | 'desc' = 'desc'): ContentSorter<import('./mdx').Post> =>
   (a, b) => {
     const comparison = new Date(b.date).getTime() - new Date(a.date).getTime();
     return order === 'desc' ? comparison : -comparison;
   };
 
-const byName: ContentSorter<Project> = (a, b) =>
+const byName: ContentSorter<import('./mdx').Project> = (a, b) =>
   a.name.localeCompare(b.name);
 
 // Pure data transformation functions
-const extractCategories = (posts: Post[]): string[] =>
+const extractCategories = (posts: import('./mdx').Post[]): string[] =>
   Array.from(new Set(posts.flatMap(post => post.categories)));
 
-const extractTechStack = (projects: Project[]): string[] =>
+const extractTechStack = (projects: import('./mdx').Project[]): string[] =>
   Array.from(new Set(projects.flatMap(project => project.techStack)));
 
 // Compose filters
@@ -65,112 +57,20 @@ const composeFilters = <T>(...filters: ContentFilter<T>[]): ContentFilter<T> =>
 const pipe = <T>(...fns: Array<(arg: T) => T>): ((arg: T) => T) =>
   (arg) => fns.reduce((prev, fn) => fn(prev), arg);
 
-// Mock data (to be replaced with actual data loading)
-const mockPosts: Post[] = [
-  {
-    slug: '',
-    title: 'SUI: The  of Blockchains',
-    date: '2025-03-29',
-    excerpt: 'Exploring the SUI blockchain and its unique features',
-    categories: ['crypto', 'development'],
-    author: 'Angel Romero',
-    url: '/posts//'
-  },
-  {
-    slug: '',
-    title: 'Trump\'s ',
-    date: '2024-03-29',
-    excerpt: 'Analysis of political and economic implications',
-    categories: ['economics', 'politics'],
-    author: 'Angel Romero',
-    url: '/posts//'
-  }
-];
+// Main content loading functions - now using data from mdx.ts
+export const loadPosts = getAllPosts;
 
-const mockProjects: Project[] = [
-  {
-    slug: 'singleagenttrader',
-    name: 'Single Agent Trader',
-    description: 'Sophisticated, containerized crypto trading system using AI (Claude) for chart analysis and automated trading on Bluefin.',
-    techStack: ['Python', 'Docker', 'Microservices', 'Claude AI', 'TradingView', 'Bluefin API', 'Sui'],
-    features: [
-      'AI Chart Analysis (Claude + Screenshot Service)',
-      'Microservices Architecture (Dockerized)',
-      'Bluefin Exchange API Integration',
-      'TradingView Webhook Integration',
-      'Automated Position Monitoring & Analysis Triggering',
-      'Advanced Risk Management',
-      'Multi-Timeframe Analysis Capability'
-    ],
-    github: 'https://github.com/Angleito/bluefinaitradertemplate',
-    url: '/projects/singleagenttrader/'
-  },
-  {
-    slug: 'nyxusd',
-    name: 'NyxUSD',
-    description: 'A next-generation decentralized stablecoin protocol built on cutting-edge blockchain technology, offering algorithmic stability mechanisms and capital-efficient collateralization for the DeFi ecosystem.',
-    techStack: ['Solidity', 'Move', 'Rust', 'TypeScript', 'Hardhat/Foundry', 'Oracle Networks', 'Layer 2'],
-    features: [
-      'Multi-Collateral Debt Positions (CDPs)',
-      'Algorithmic Interest Rate Discovery',
-      'Decentralized Governance (veNYX)',
-      'Cross-Chain Bridge Support',
-      'Flash Mint Capabilities',
-      'Liquidation Protection Mechanisms',
-      'Price Oracle Aggregation'
-    ],
-    github: 'https://github.com/Angleito/nyxusd-protocol',
-    demo: 'https://app.nyxusd.finance',
-    url: '/projects/nyxusd/'
-  },
-  {
-    slug: 'bot',
-    name: 'Flash Loan Bot',
-    description: 'Automated trading bot for Sui leveraging DEX aggregation and potentially flash loans for DeFi opportunities.',
-    techStack: ['TypeScript', 'Sui', 'Node.js', '@mysten/sui.js', '@7kprotocol/sdk-ts', 'DEX Aggregation', 'DeFi'],
-    features: [
-      'Sui Blockchain Interaction (@mysten/sui.js)',
-      'DEX Aggregation (7k Protocol)',
-      'Optimal Swap Execution Engine',
-      'Secure Key Management',
-      'Resilient Sui Client Connection',
-      'Fallback Pricing Mechanism',
-      'Arbitrage/ Orchestration Layer'
-    ],
-    github: 'https://github.com/Angleito/SuiFlashBotTemplate',
-    url: '/projects/bot/'
-  },
-  {
-    slug: 'qwensuicoder',
-    name: 'Qwen Sui Coder',
-    description: 'AI-powered development assistant specialized for Sui blockchain development.',
-    techStack: ['Python', 'AI/ML', 'Sui', 'Move', 'LangChain'],
-    github: 'https://github.com/Angleito/qwensuicoder',
-    url: '/projects/qwensuicoder/'
-  }
-];
+export const loadProjects = getAllProjects;
 
-// Main content loading functions using composition
-export const loadPosts = (): Post[] => mockPosts;
+export const loadPostBySlug = getPostBySlug;
 
-export const loadProjects = (): Project[] => mockProjects;
+export const loadProjectBySlug = getProjectBySlug;
 
-export const loadPostBySlug = (slug: string): Post | undefined =>
-  withContentOperation(loadPosts(), posts => posts.find(bySlug(slug)));
+export const loadCategories = getAllCategories;
 
-export const loadProjectBySlug = (slug: string): Project | undefined =>
-  withContentOperation(loadProjects(), projects => projects.find(bySlug(slug)));
+export const loadPostsByCategory = getPostsByCategory;
 
-export const loadCategories = (): string[] =>
-  withContentOperation(loadPosts(), extractCategories);
-
-export const loadPostsByCategory = (category: string): Post[] =>
-  withContentOperation(
-    loadPosts(),
-    posts => posts.filter(byCategory(category)).sort(byDate())
-  );
-
-export const loadProjectsByTech = (tech: string): Project[] =>
+export const loadProjectsByTech = (tech: string): import('./mdx').Project[] =>
   withContentOperation(
     loadProjects(),
     projects => projects.filter(byTechStack(tech)).sort(byName)
@@ -178,18 +78,18 @@ export const loadProjectsByTech = (tech: string): Project[] =>
 
 // Advanced query functions using composition
 export const queryPosts = (
-  filters: ContentFilter<Post>[] = [],
-  sorter: ContentSorter<Post> = byDate()
-): Post[] =>
+  filters: ContentFilter<import('./mdx').Post>[] = [],
+  sorter: ContentSorter<import('./mdx').Post> = byDate()
+): import('./mdx').Post[] =>
   withContentOperation(
     loadPosts(),
     posts => posts.filter(composeFilters(...filters)).sort(sorter)
   );
 
 export const queryProjects = (
-  filters: ContentFilter<Project>[] = [],
-  sorter: ContentSorter<Project> = byName
-): Project[] =>
+  filters: ContentFilter<import('./mdx').Project>[] = [],
+  sorter: ContentSorter<import('./mdx').Project> = byName
+): import('./mdx').Project[] =>
   withContentOperation(
     loadProjects(),
     projects => projects.filter(composeFilters(...filters)).sort(sorter)
@@ -219,4 +119,16 @@ export const searchContent = <T extends { [key: string]: any }>(
       return typeof value === 'string' && value.toLowerCase().includes(lowerQuery);
     })
   );
+};
+
+// Export the composable utilities for external use
+export {
+  bySlug,
+  byCategory,
+  byTechStack,
+  byDate,
+  byName,
+  composeFilters,
+  pipe,
+  withContentOperation
 };

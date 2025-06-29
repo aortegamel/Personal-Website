@@ -2,7 +2,7 @@ import { getAllProjects, getProjectBySlug } from '@/lib/mdx';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaCog } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaCog, FaChartLine, FaShieldAlt, FaServer } from 'react-icons/fa';
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
@@ -15,18 +15,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   const projectFeatures = {
     nyxusd: [
       { icon: <FaRocket />, title: 'DeFi Innovation', description: 'Cutting-edge decentralized finance protocol' },
-      { icon: <FaCog />, title: 'Smart Contracts', description: 'Audited and optimized Solidity contracts' },
-      { icon: <FaCode />, title: 'High Performance', description: 'Built for scalability and efficiency' }
+      { icon: <FaShieldAlt />, title: 'Smart Contracts', description: 'Audited and optimized Solidity contracts' },
+      { icon: <FaServer />, title: 'High Performance', description: 'Built for scalability and efficiency' }
     ],
     singleagenttrader: [
-      { icon: <FaRocket />, title: 'AI-Powered', description: 'Advanced machine learning algorithms' },
-      { icon: <FaCog />, title: 'Real-time Trading', description: 'Low-latency execution engine' },
-      { icon: <FaCode />, title: 'Risk Management', description: 'Sophisticated risk controls' }
+      { icon: <FaChartLine />, title: 'AI-Powered', description: 'Advanced machine learning algorithms' },
+      { icon: <FaRocket />, title: 'Real-time Trading', description: 'Low-latency execution engine' },
+      { icon: <FaShieldAlt />, title: 'Risk Management', description: 'Sophisticated risk controls' }
     ],
     bot: [
-      { icon: <FaRocket />, title: 'Flash Loans', description: 'Automated arbitrage opportunities' },
-      { icon: <FaCog />, title: 'Multi-DEX', description: 'Supports multiple exchanges' },
-      { icon: <FaCode />, title: 'Gas Optimized', description: 'Efficient transaction processing' }
+      { icon: <FaCode />, title: 'Flash Loans', description: 'Automated arbitrage opportunities' },
+      { icon: <FaServer />, title: 'Multi-DEX', description: 'Supports multiple exchanges' },
+      { icon: <FaCog />, title: 'Gas Optimized', description: 'Efficient transaction processing' }
     ]
   };
 
@@ -36,15 +36,23 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     <div className="min-h-screen bg-deepSea-abyss">
       {/* Background decorations */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-96 -right-96 w-[768px] h-[768px] bg-bitcoin-500/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-96 -left-96 w-[768px] h-[768px] bg-abyss-500/5 rounded-full blur-3xl" />
+        <div className="absolute -top-96 -right-96 w-[768px] h-[768px] bg-bitcoin-500/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute -bottom-96 -left-96 w-[768px] h-[768px] bg-abyss-500/5 rounded-full blur-3xl animate-float-slow" />
+        {project.slug === 'nyxusd' && (
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1024px] h-[1024px] rounded-full blur-3xl animate-gradient-xy"
+            style={{
+              background: 'radial-gradient(circle, rgba(255,195,0,0.1) 0%, rgba(0,115,230,0.05) 50%, transparent 70%)'
+            }}
+          />
+        )}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[512px] h-[512px] bg-deepSea-shallow/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 py-16 max-w-5xl">
         <article className="space-y-12">
           {/* Header Section */}
-          <header className="text-center space-y-6">
+          <header className="text-center space-y-6 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-bold abyss-gradient-text mb-4">
               {project.name}
             </h1>
@@ -53,9 +61,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="flex flex-wrap gap-2 justify-center mb-8">
               {project.techStack.map((tech) => (
                 <Badge 
-                  key={tech} 
+                  key={tech}
                   variant="bitcoin"
-                  className="text-sm font-semibold px-4 py-1.5"
+                  className="text-sm font-semibold px-4 py-1.5 hover:scale-110 transition-transform"
                 >
                   {tech}
                 </Badge>
@@ -76,9 +84,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   View on GitHub
                 </Button>
               )}
-              {project.slug === 'nyxusd' && (
+              {project.demo && (
                 <Button
-                  href="#"
+                  href={project.demo}
+                  external
                   variant="outline"
                   size="lg"
                   className="group"
@@ -91,7 +100,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </header>
 
           {/* Main Content */}
-          <div className="bg-deepSea-deep/50 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-abyss-400/20 shadow-2xl">
+          <div className="bg-deepSea-deep/50 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-abyss-400/20 shadow-2xl animate-fade-in">
             <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-abyss-100 text-xl leading-relaxed">
                 {project.description}
@@ -104,7 +113,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 {features.map((feature, index) => (
                   <div 
                     key={index}
-                    className="bg-deepSea-abyss/50 rounded-lg p-6 border border-abyss-400/20 hover:border-bitcoin-500/30 transition-all duration-300 hover:shadow-bitcoin"
+                    className="bg-deepSea-abyss/50 rounded-lg p-6 border border-abyss-400/20 hover:border-bitcoin-500/30 transition-all duration-300 hover:shadow-bitcoin hover:scale-105"
                   >
                     <div className="text-bitcoin-400 text-3xl mb-4">{feature.icon}</div>
                     <h3 className="text-abyss-100 font-semibold text-lg mb-2">{feature.title}</h3>
