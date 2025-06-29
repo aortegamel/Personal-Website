@@ -44,7 +44,7 @@ const PROJECTS: Project[] = [
     slug: 'nyxusd',
     name: 'NyxUSD Protocol',
     description: 'A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.',
-    techStack: ['Solidity', 'Rust', 'Web3.js', 'React', 'TypeScript', 'Smart Contracts'],
+    techStack: ['Compact', 'TypeScript', 'Zero-Knowledge Proofs', 'Web3.js', 'React', 'Smart Contracts'],
     github: 'https://github.com/angleito/nyxusd-protocol',
     demo: 'https://nyxusd.com',
     url: '/projects/nyxusd'
@@ -61,7 +61,7 @@ const PROJECTS: Project[] = [
     slug: 'bot',
     name: ' Bot',
     description: 'A sophisticated DeFi trading bot that capitalizes on arbitrage opportunities using flash loan technology. The bot monitors multiple decentralized exchanges simultaneously, executes complex multi-step transactions within a single block, and implements gas-optimized strategies for maximum profitability.',
-    techStack: ['Solidity', 'Web3.js', 'Node.js', 'Ethereum', 'DeFi Protocols'],
+    techStack: ['Move', 'Sui', 'TypeScript', 'Node.js', 'DeFi Protocols'],
     github: 'https://github.com/angleito/bot',
     url: '/projects/bot'
   },
