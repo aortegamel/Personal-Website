@@ -19,22 +19,22 @@ export interface Project {
 
 const POSTS: Post[] = [
   {
-    slug: '2024-03-29-',
+    slug: '',
     title: 'Trump\'s ',
     date: '2024-03-29',
     excerpt: 'An analysis of recent political developments in Las Vegas',
     categories: ['politics', 'economics'],
     author: 'Angleito',
-    url: '/posts/2024-03-29-'
+    url: '/posts/'
   },
   {
-    slug: '2025-03-29-',
+    slug: '',
     title: 'Sui ',
     date: '2025-03-29',
     excerpt: 'Exploring blockchain technology and its potential applications',
     categories: ['crypto', 'technology'],
     author: 'Angleito',
-    url: '/posts/2025-03-29-'
+    url: '/posts/'
   }
 ];
 
