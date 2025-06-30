@@ -1,0 +1,174 @@
+# Robots.txt - Optimized for Both SEO and AI/LLM Crawlers
+# Portfolio Website: Angleito.github.io
+# Last Updated: 2025-06-30
+
+# ==========================================
+# STANDARD SEARCH ENGINE CRAWLERS (SEO)
+# ==========================================
+
+User-agent: *
+# Allow access to main content
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /categories/
+Allow: /showcase/
+
+# Block technical assets and non-content paths
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.txt$
+Disallow: /*?*
+Disallow: /search/
+
+# ==========================================
+# AI/LLM CRAWLERS - SELECTIVE PERMISSIONS
+# ==========================================
+
+# OpenAI GPT Crawlers
+User-agent: GPTBot
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.txt$
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.txt$
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+User-agent: Claude-Web
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+# Google AI Crawlers
+User-agent: Google-Extended
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.txt$
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+# xAI Grok
+User-agent: GrokBot
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+# Other AI Crawlers
+User-agent: meta-externalagent
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+User-agent: cohere-ai
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+User-agent: YouBot
+Allow: /
+Allow: /about/
+Allow: /posts/
+Allow: /projects/
+Allow: /showcase/
+Disallow: /_next/
+Disallow: /api/
+
+# ==========================================
+# SITEMAP LOCATION
+# ==========================================
+Sitemap: https://angleito.github.io/sitemap.xml
+
+# ==========================================
+# NOTES FOR SITE OWNERS
+# ==========================================
+# This robots.txt is optimized for:
+# 1. SEO: Allows search engines to crawl valuable content while avoiding crawl traps
+# 2. AI Training: Permits AI crawlers to access high-quality content for training
+# 3. Performance: Blocks access to technical assets that don't provide value
+# 4. Privacy: Maintains control over which content is crawled by different agents
+#
+# Key optimizations:
+# - Allows AI access to main content (posts, projects, about, showcase)
+# - Blocks technical paths (/_next/, /api/, *.txt files)
+# - Includes sitemap for better discoverability
+# - Follows latest SEO and AI crawler best practices
