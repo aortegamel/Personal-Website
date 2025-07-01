@@ -144,12 +144,12 @@ export default function AboutPage() {
           </a>{' '}
           or connect with me on{' '}
           <a 
-            href="https://github.com/Angleito" 
+            href="https://www.linkedin.com/in/angel-ortega-melton-31647a186/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-bitcoin-400 hover:text-bitcoin-300 underline transition-colors"
           >
-            GitHub
+            LinkedIn
           </a>.
         </p>
         <p className="text-lg text-abyss-200 leading-relaxed">
