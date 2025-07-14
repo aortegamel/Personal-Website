@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Me - Angleito\'s Portfolio',
+  title: 'About Me - Angel Ortega-Melton\'s Portfolio',
   description: 'Learn more about Angel Ortega-Melton, my background, skills, and projects.',
 };
 

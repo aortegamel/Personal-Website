@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { category: string 
   const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
   
   return {
-    title: `${categoryTitle} Articles - Angleito's Portfolio`,
+    title: `${categoryTitle} Articles - Angel Ortega-Melton's Portfolio`,
     description: `Browse all articles related to ${category} including the latest insights and analysis.`,
   };
 }

@@ -1,5 +1,5 @@
 # Robots.txt - Optimized for Both SEO and AI/LLM Crawlers
-# Portfolio Website: Angleito.github.io
+# Portfolio Website: Angel Ortega-Melton - Angleito.github.io
 # Last Updated: 2025-06-30
 
 # ==========================================

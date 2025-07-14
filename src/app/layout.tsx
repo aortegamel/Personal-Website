@@ -45,7 +45,7 @@ export default function RootLayout({
                 <div className="flex justify-between items-center">
                   <Link href="/" className="group">
                     <h1 className="text-2xl font-bold font-montserrat">
-                      <span className="abyss-gradient-text">Angleito</span>
+                      <span className="abyss-gradient-text">Angel Ortega-Melton</span>
                       <span className="text-white">&apos;s Portfolio</span>
                     </h1>
                   </Link>
@@ -148,7 +148,7 @@ export default function RootLayout({
                 <div className="flex flex-col md:flex-row justify-between items-center">
                   <div className="mb-4 md:mb-0">
                     <h2 className="text-xl font-bold mb-2 font-montserrat">
-                      <span className="abyss-gradient-text">Angleito</span>
+                      <span className="abyss-gradient-text">Angel Ortega-Melton</span>
                     </h2>
                     <p className="text-abyss-100">Exploring the depths of technology</p>
                   </div>
@@ -168,7 +168,7 @@ export default function RootLayout({
                   </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-abyss-700/50 text-center text-abyss-300">
-                  <p>&copy; {new Date().getFullYear()} Angleito. All rights reserved.</p>
+                  <p>&copy; {new Date().getFullYear()} Angel Ortega-Melton. All rights reserved.</p>
                 </div>
               </div>
             </footer>

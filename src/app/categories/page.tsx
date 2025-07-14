@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getAllCategories } from '@/lib/mdx';
 
 export const metadata = {
-  title: 'Categories - Angleito\'s Portfolio',
+  title: 'Categories - Angel Ortega-Melton\'s Portfolio',
   description: 'Browse articles by category including economics, crypto, personal, AI, and development.',
 };
 
