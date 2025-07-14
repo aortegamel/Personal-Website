@@ -1,4 +1,4 @@
-# Angleito's Portfolio
+# Angel Ortega-Melton's Portfolio
 
 This is my personal portfolio website, showcasing my projects and technical articles.
 
@@ -44,4 +44,4 @@ Deployment is handled automatically through GitHub Actions. Pushing to the `dev`
 
 ## License
 
-Content is copyright © 2023 Angleito. Code is licensed under MIT.
+Content is copyright © 2023 Angel Ortega-Melton. Code is licensed under MIT.

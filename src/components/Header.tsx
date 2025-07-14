@@ -44,7 +44,7 @@ const Header = () => {
           <div className="flex w-full justify-between items-center">
             <h1 className="text-2xl font-bold">
               <Link href="/" className="hover:text-blue-200">
-                Angleito&apos;s Portfolio
+                Angel Ortega-Melton&apos;s Portfolio
               </Link>
             </h1>
 

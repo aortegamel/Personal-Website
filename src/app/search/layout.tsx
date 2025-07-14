@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Search - Angleito\'s Portfolio',
+  title: 'Search - Angel Ortega-Melton\'s Portfolio',
 };
 
 export default function SearchLayout({ 
