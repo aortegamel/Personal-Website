@@ -35,6 +35,43 @@
   --accent-cyan-light: #66f7ff;
 
   /* =========================
+     CYBERPUNK COLOR PALETTE
+     ========================= */
+
+  /* Cyberpunk Base Colors */
+  --cyber-black: #0D0D1A;
+  --cyber-dark: #1A1A2E;
+  --cyber-darker: #16213E;
+  --cyber-ui-border: #2A4D56;
+
+  /* Cyberpunk Neon Colors */
+  --cyber-neon-cyan: #00FFFF;
+  --cyber-neon-cyan-hover: #00E6E6;
+  --cyber-neon-cyan-active: #00CCCC;
+  --cyber-neon-cyan-light: #66FFFF;
+
+  --cyber-neon-magenta: #FF00FF;
+  --cyber-neon-magenta-hover: #E600E6;
+  --cyber-neon-magenta-active: #CC00CC;
+  --cyber-neon-magenta-light: #FF66FF;
+
+  --cyber-neon-green: #00FF41;
+  --cyber-neon-green-hover: #00E63A;
+  --cyber-neon-green-active: #00CC33;
+  --cyber-neon-green-light: #66FF7A;
+
+  --cyber-neon-orange: #FF6600;
+  --cyber-neon-orange-hover: #E55A00;
+  --cyber-neon-orange-active: #CC5000;
+  --cyber-neon-orange-light: #FF8A33;
+
+  /* Cyberpunk Text Colors */
+  --cyber-text-primary: #E0E0E0;
+  --cyber-text-secondary: #B0B0B0;
+  --cyber-text-tertiary: #808080;
+  --cyber-text-muted: #606060;
+
+  /* =========================
      SURFACE COLORS WITH OPACITY
      ========================= */
 
@@ -174,6 +211,48 @@
     var(--bitcoin-primary-light) 100%
   );
 
+  /* Cyberpunk Gradients */
+  --gradient-cyber-primary: linear-gradient(
+    135deg,
+    var(--cyber-neon-cyan) 0%,
+    var(--cyber-neon-magenta) 100%
+  );
+  --gradient-cyber-secondary: linear-gradient(
+    135deg,
+    var(--cyber-neon-magenta) 0%,
+    var(--cyber-neon-orange) 100%
+  );
+  --gradient-cyber-tertiary: linear-gradient(
+    135deg,
+    var(--cyber-neon-green) 0%,
+    var(--cyber-neon-cyan) 100%
+  );
+
+  /* Cyberpunk Background Gradients */
+  --gradient-cyber-bg: linear-gradient(
+    135deg,
+    var(--cyber-black) 0%,
+    var(--cyber-dark) 50%,
+    var(--cyber-darker) 100%
+  );
+  --gradient-cyber-panel: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.03) 0%,
+    rgba(255, 0, 255, 0.03) 100%
+  );
+
+  /* Cyberpunk Text Gradients */
+  --gradient-cyber-text: linear-gradient(
+    135deg,
+    var(--cyber-neon-cyan-light) 0%,
+    var(--cyber-neon-magenta-light) 100%
+  );
+  --gradient-cyber-text-alt: linear-gradient(
+    135deg,
+    var(--cyber-neon-green-light) 0%,
+    var(--cyber-neon-cyan-light) 100%
+  );
+
   /* =========================
      SHADOW DEFINITIONS
      ========================= */
@@ -196,6 +275,32 @@
   --glow-primary: 0 0 20px rgba(0, 115, 230, 0.3);
   --glow-secondary: 0 0 20px rgba(255, 195, 0, 0.3);
   --glow-tertiary: 0 0 20px rgba(0, 245, 255, 0.3);
+
+  /* Cyberpunk Glow Effects */
+  --glow-cyber-cyan: 0 0 20px rgba(0, 255, 255, 0.4);
+  --glow-cyber-cyan-intense: 0 0 30px rgba(0, 255, 255, 0.6);
+  --glow-cyber-magenta: 0 0 20px rgba(255, 0, 255, 0.4);
+  --glow-cyber-magenta-intense: 0 0 30px rgba(255, 0, 255, 0.6);
+  --glow-cyber-green: 0 0 20px rgba(0, 255, 65, 0.4);
+  --glow-cyber-orange: 0 0 20px rgba(255, 102, 0, 0.4);
+
+  /* Cyberpunk Multi-layer Glows */
+  --glow-cyber-multi: 
+    0 0 5px rgba(0, 255, 255, 0.8),
+    0 0 10px rgba(0, 255, 255, 0.6),
+    0 0 20px rgba(0, 255, 255, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2);
+
+  /* Cyberpunk Border Glows */
+  --glow-cyber-border: 
+    inset 0 0 5px rgba(0, 255, 255, 0.3),
+    0 0 10px rgba(0, 255, 255, 0.2);
+
+  /* Cyberpunk Text Shadows */
+  --text-shadow-cyber: 
+    0 0 5px rgba(0, 255, 255, 0.8),
+    0 0 10px rgba(0, 255, 255, 0.6),
+    0 0 15px rgba(0, 255, 255, 0.4);
 
   /* =========================
      SPACING SCALE
@@ -261,6 +366,11 @@
   --font-primary: 'Inter', ui-sans-serif, system-ui;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular';
   --font-display: 'Poppins', 'Inter', ui-sans-serif;
+
+  /* Cyberpunk Fonts */
+  --font-cyber-heading: 'Orbitron', 'JetBrains Mono', ui-monospace, monospace;
+  --font-cyber-body: 'Roboto Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --font-cyber-display: 'Orbitron', 'Inter', ui-sans-serif, system-ui;
 
   /* =========================
      FONT WEIGHTS
@@ -362,4 +472,107 @@ body {
 
 .glow-tertiary {
   box-shadow: var(--glow-tertiary);
+}
+
+/* =========================
+   CYBERPUNK UTILITY CLASSES
+   ========================= */
+
+/* Cyberpunk Text Styles */
+.text-cyber-primary {
+  color: var(--cyber-text-primary);
+}
+
+.text-cyber-secondary {
+  color: var(--cyber-text-secondary);
+}
+
+.text-cyber-neon-cyan {
+  color: var(--cyber-neon-cyan);
+  text-shadow: var(--text-shadow-cyber);
+}
+
+.text-cyber-neon-magenta {
+  color: var(--cyber-neon-magenta);
+  text-shadow: 
+    0 0 5px rgba(255, 0, 255, 0.8),
+    0 0 10px rgba(255, 0, 255, 0.6),
+    0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+.text-cyber-gradient {
+  background: var(--gradient-cyber-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cyberpunk Fonts */
+.font-cyber-heading {
+  font-family: var(--font-cyber-heading);
+}
+
+.font-cyber-body {
+  font-family: var(--font-cyber-body);
+}
+
+.font-cyber-display {
+  font-family: var(--font-cyber-display);
+}
+
+/* Cyberpunk Backgrounds */
+.bg-cyber-black {
+  background-color: var(--cyber-black);
+}
+
+.bg-cyber-panel {
+  background: var(--gradient-cyber-panel);
+  backdrop-filter: blur(10px);
+}
+
+.bg-cyber-gradient {
+  background: var(--gradient-cyber-bg);
+}
+
+/* Cyberpunk Borders */
+.border-cyber-cyan {
+  border-color: var(--cyber-neon-cyan);
+}
+
+.border-cyber-magenta {
+  border-color: var(--cyber-neon-magenta);
+}
+
+.border-cyber-ui {
+  border-color: var(--cyber-ui-border);
+}
+
+/* Cyberpunk Glows */
+.glow-cyber-cyan {
+  box-shadow: var(--glow-cyber-cyan);
+}
+
+.glow-cyber-magenta {
+  box-shadow: var(--glow-cyber-magenta);
+}
+
+.glow-cyber-multi {
+  box-shadow: var(--glow-cyber-multi);
+}
+
+.glow-cyber-border {
+  box-shadow: var(--glow-cyber-border);
+}
+
+/* Cyberpunk Hover Effects */
+.cyber-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-cyber-cyan-intense);
+  border-color: var(--cyber-neon-cyan);
+  transition: all var(--duration-normal) ease;
+}
+
+.cyber-glow-hover:hover {
+  box-shadow: var(--glow-cyber-multi);
+  transition: box-shadow var(--duration-normal) ease;
 }
