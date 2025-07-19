@@ -5,6 +5,7 @@ import { Inter, Montserrat, Orbitron, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { CyberThemeProvider, CyberThemeToggle, CyberpunkEffects, CyberToggleButton } from "@/components/ui";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { Analytics } from "@vercel/analytics/next";
@@ -41,39 +42,50 @@ export default function RootLayout({
         data-mobile-menu-open={mobileMenuOpen ? 'true' : 'false'}
       >
         <ThemeProvider>
-          <div className="min-h-screen flex flex-col">
-            <header className="bg-deepSea-surface/80 backdrop-blur-md border-b border-abyss-400/20 text-white py-6 sticky top-0 z-50 transition-all duration-300">
-              <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center">
-                  <Link href="/" className="group">
-                    <h1 className="text-2xl font-bold font-montserrat">
-                      <span className="abyss-gradient-text">Angleito</span>
-                      <span className="text-white">&apos;s Portfolio</span>
-                    </h1>
-                  </Link>
-                  <nav className="hidden md:block">
-                    <ul className="flex space-x-6">
-                      {navLinks.map((link) => (
-                        <li key={link.href} className="relative">
-                          <Link 
-                            href={link.href} 
-                            className={`
-                              relative py-2 transition-all duration-300
-                              ${isActive(link.href) 
-                                ? 'text-bitcoin-400 font-medium' 
-                                : 'text-abyss-200 hover:text-bitcoin-300'
-                              }
-                            `}
-                          >
-                            {link.label}
-                            {isActive(link.href) && (
-                              <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-bitcoin-500 to-bitcoin-400 rounded-full animate-fade-in" />
-                            )}
-                          </Link>
+          <CyberThemeProvider initialTheme={{ enabled: false, theme: 'cyan', intensity: 3 }}>
+            <CyberpunkEffects />
+            {/* Floating Cyberpunk Toggle Button */}
+            <CyberToggleButton 
+              position="bottom-right" 
+              floating={true}
+              showLabel={true}
+            />
+            <div className="min-h-screen flex flex-col">
+              <header className="bg-deepSea-surface/80 backdrop-blur-md border-b border-abyss-400/20 text-white py-6 sticky top-0 z-50 transition-all duration-300">
+                <div className="container mx-auto px-4">
+                  <div className="flex justify-between items-center">
+                    <Link href="/" className="group">
+                      <h1 className="text-2xl font-bold font-montserrat">
+                        <span className="abyss-gradient-text">Angleito</span>
+                        <span className="text-white">&apos;s Portfolio</span>
+                      </h1>
+                    </Link>
+                    <nav className="hidden md:block">
+                      <ul className="flex space-x-6 items-center">
+                        {navLinks.map((link) => (
+                          <li key={link.href} className="relative">
+                            <Link 
+                              href={link.href} 
+                              className={`
+                                relative py-2 transition-all duration-300
+                                ${isActive(link.href) 
+                                  ? 'text-bitcoin-400 font-medium' 
+                                  : 'text-abyss-200 hover:text-bitcoin-300'
+                                }
+                              `}
+                            >
+                              {link.label}
+                              {isActive(link.href) && (
+                                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-bitcoin-500 to-bitcoin-400 rounded-full animate-fade-in" />
+                              )}
+                            </Link>
+                          </li>
+                        ))}
+                        <li className="ml-4">
+                          <CyberThemeToggle showLabel={false} className="px-3 py-1.5 text-sm" />
                         </li>
-                      ))}
-                    </ul>
-                  </nav>
+                      </ul>
+                    </nav>
                   <div className="md:hidden">
                     <button 
                       onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -135,6 +147,19 @@ export default function RootLayout({
                           </Link>
                         </li>
                       ))}
+                      <li 
+                        className="transform transition-all duration-300 pt-4 border-t border-abyss-700/50"
+                        style={{
+                          transitionDelay: mobileMenuOpen ? `${navLinks.length * 50}ms` : '0ms',
+                          transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-20px)',
+                          opacity: mobileMenuOpen ? 1 : 0,
+                        }}
+                      >
+                        <div className="px-4">
+                          <p className="text-sm text-abyss-300 mb-2">Theme Mode</p>
+                          <CyberThemeToggle showLabel={true} className="w-full justify-center" />
+                        </div>
+                      </li>
                     </ul>
                   </nav>
                 </div>
@@ -174,7 +199,8 @@ export default function RootLayout({
                 </div>
               </div>
             </footer>
-          </div>
+            </div>
+          </CyberThemeProvider>
         </ThemeProvider>
         <Analytics />
       </body>
