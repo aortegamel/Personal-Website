@@ -30,6 +30,7 @@ export {
   useCyberClasses,
   withCyberTheme 
 } from './CyberThemeProvider';
+export { CyberToggleButton, CyberToggleCompact } from './CyberToggleButton';
 
 // Cyberpunk Text Animations
 export {
