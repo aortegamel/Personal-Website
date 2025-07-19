@@ -800,13 +800,5 @@ export const CyberTextAnimations: React.FC<CyberTextAnimationProps> = ({
   }
 };
 
-// Export individual components for direct use
-export {
-  TypingAnimation,
-  MatrixText,
-  CorruptionText,
-  TerminalText,
-  HolographicText
-};
-
+// Components are already exported individually above
 export default CyberTextAnimations;
