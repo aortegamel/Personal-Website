@@ -1,7 +1,7 @@
 'use client';
 
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat, Orbitron, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -11,6 +11,8 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron" });
+const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-roboto-mono" });
 
 export default function RootLayout({
   children,
@@ -35,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body 
-        className={`${inter.variable} ${montserrat.variable} font-sans`}
+        className={`${inter.variable} ${montserrat.variable} ${orbitron.variable} ${robotoMono.variable} font-sans`}
         data-mobile-menu-open={mobileMenuOpen ? 'true' : 'false'}
       >
         <ThemeProvider>

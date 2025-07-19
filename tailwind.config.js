@@ -64,6 +64,23 @@ module.exports = {
           blue: '#0073e6',
           emerald: '#10b981',
         },
+        // Cyberpunk color palette
+        cyber: {
+          black: '#0D0D1A',
+          dark: '#1A1A2E',
+          darker: '#16213E',
+          ui: '#2A4D56',
+          cyan: '#00FFFF',
+          magenta: '#FF00FF',
+          green: '#00FF41',
+          orange: '#FF6600',
+          text: {
+            primary: '#E0E0E0',
+            secondary: '#B0B0B0',
+            tertiary: '#808080',
+            muted: '#606060',
+          },
+        },
       },
       // Custom spacing
       spacing: {
@@ -77,6 +94,10 @@ module.exports = {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular'],
         display: ['Poppins', 'Inter', 'ui-sans-serif'],
+        // Cyberpunk fonts
+        'cyber-heading': ['var(--font-orbitron)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+        'cyber-body': ['var(--font-roboto-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+        'cyber-display': ['var(--font-orbitron)', 'Inter', 'ui-sans-serif', 'system-ui'],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
@@ -100,6 +121,12 @@ module.exports = {
         'slide-in-down': 'slideInDown 0.5s ease-out',
         'slide-in-left': 'slideInLeft 0.5s ease-out',
         'slide-in-right': 'slideInRight 0.5s ease-out',
+        // Cyberpunk animations
+        'cyber-glow': 'cyberGlow 2s ease-in-out infinite alternate',
+        'cyber-flicker': 'cyberFlicker 0.15s infinite linear',
+        'cyber-scan': 'cyberScan 2s linear infinite',
+        'cyber-glitch': 'cyberGlitch 0.3s ease-in-out infinite',
+        'cyber-pulse': 'cyberPulse 1.5s ease-in-out infinite',
       },
       keyframes: {
         'gradient-x': {
@@ -163,6 +190,47 @@ module.exports = {
         slideInRight: {
           '0%': { transform: 'translateX(100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        // Cyberpunk keyframes
+        cyberGlow: {
+          '0%': { 
+            textShadow: '0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF',
+            boxShadow: '0 0 5px #00FFFF'
+          },
+          '100%': { 
+            textShadow: '0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF',
+            boxShadow: '0 0 20px #00FFFF'
+          },
+        },
+        cyberFlicker: {
+          '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
+            opacity: '1',
+          },
+          '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
+            opacity: '0.4',
+          },
+        },
+        cyberScan: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        cyberGlitch: {
+          '0%': { transform: 'translate(0)' },
+          '20%': { transform: 'translate(-2px, 2px)' },
+          '40%': { transform: 'translate(-2px, -2px)' },
+          '60%': { transform: 'translate(2px, 2px)' },
+          '80%': { transform: 'translate(2px, -2px)' },
+          '100%': { transform: 'translate(0)' },
+        },
+        cyberPulse: {
+          '0%, 100%': { 
+            opacity: '1',
+            transform: 'scale(1)' 
+          },
+          '50%': { 
+            opacity: '0.7',
+            transform: 'scale(1.05)' 
+          },
         },
       },
       backgroundImage: {
@@ -254,6 +322,32 @@ module.exports = {
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
           'background-clip': 'text',
+        },
+        // Cyberpunk gradient text utilities
+        '.text-gradient-cyber': {
+          background: 'linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+        },
+        '.text-gradient-cyber-alt': {
+          background: 'linear-gradient(135deg, #00FF41 0%, #00FFFF 100%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+        },
+        // Cyberpunk glow utilities
+        '.glow-cyber-cyan': {
+          'box-shadow': '0 0 20px rgba(0, 255, 255, 0.4)',
+          'text-shadow': '0 0 5px rgba(0, 255, 255, 0.8), 0 0 10px rgba(0, 255, 255, 0.6)',
+        },
+        '.glow-cyber-magenta': {
+          'box-shadow': '0 0 20px rgba(255, 0, 255, 0.4)',
+          'text-shadow': '0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6)',
+        },
+        '.glow-cyber-green': {
+          'box-shadow': '0 0 20px rgba(0, 255, 65, 0.4)',
+          'text-shadow': '0 0 5px rgba(0, 255, 65, 0.8), 0 0 10px rgba(0, 255, 65, 0.6)',
         },
         // Glass morphism utilities
         '.glass': {
