@@ -1,6 +1,7 @@
 {
   "name": "angleito-portfolio",
   "version": "1.0.0",
+  "_lastUpdated": "2025-07-26T00:00:00Z",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
