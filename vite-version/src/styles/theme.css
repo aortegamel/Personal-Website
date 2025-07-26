@@ -1,0 +1,365 @@
+/**
+ * Abyss Theme System
+ * Deep ocean inspired color palette with Bitcoin accents
+ * Adapted from NYXUSD styling patterns
+ */
+
+:root {
+  /* =========================
+     ABYSS/OCEAN COLOR PALETTE
+     ========================= */
+
+  /* Core Abyss Colors */
+  --abyss-black: #000000;
+  --abyss-deep: #000b17;
+  --abyss-dark: #00162e;
+  --abyss-blue: #002d5c;
+  --abyss-ocean: #0a2342;
+
+  /* Primary Ocean Colors */
+  --ocean-primary: #0073e6;
+  --ocean-primary-hover: #005bb8;
+  --ocean-primary-active: #00448a;
+  --ocean-primary-light: #338fff;
+
+  /* Bitcoin Accent Colors */
+  --bitcoin-primary: #fbbf24;
+  --bitcoin-primary-hover: #f59e0b;
+  --bitcoin-primary-active: #d97706;
+  --bitcoin-primary-light: #fcd34d;
+
+  /* Tertiary Accent Colors */
+  --accent-cyan: #00f5ff;
+  --accent-cyan-hover: #00d4e6;
+  --accent-cyan-active: #00b3cc;
+  --accent-cyan-light: #66f7ff;
+
+  /* =========================
+     SURFACE COLORS WITH OPACITY
+     ========================= */
+
+  /* Base Surfaces */
+  --surface-0: var(--abyss-black);
+  --surface-1: var(--abyss-deep);
+  --surface-2: var(--abyss-dark);
+  --surface-3: var(--abyss-blue);
+  --surface-4: var(--abyss-ocean);
+
+  /* Surface Overlays (with opacity) */
+  --surface-overlay-5: rgba(0, 115, 230, 0.05);
+  --surface-overlay-8: rgba(0, 115, 230, 0.08);
+  --surface-overlay-12: rgba(51, 143, 255, 0.12);
+  --surface-overlay-16: rgba(51, 143, 255, 0.16);
+
+  /* Interactive Surface States */
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --surface-active: rgba(255, 255, 255, 0.12);
+  --surface-selected: rgba(0, 115, 230, 0.16);
+  --surface-focus: rgba(0, 115, 230, 0.12);
+
+  /* =========================
+     TEXT COLOR HIERARCHY
+     ========================= */
+
+  /* Primary Text (WCAG AA compliant) */
+  --text-primary: #ffffff;
+  --text-primary-muted: rgba(255, 255, 255, 0.87);
+
+  /* Secondary Text */
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-secondary-muted: rgba(255, 255, 255, 0.6);
+
+  /* Tertiary Text */
+  --text-tertiary: rgba(255, 255, 255, 0.54);
+  --text-disabled: rgba(255, 255, 255, 0.38);
+
+  /* Accent Text Colors */
+  --text-accent-primary: var(--ocean-primary-light);
+  --text-accent-secondary: var(--bitcoin-primary-light);
+  --text-accent-tertiary: var(--accent-cyan-light);
+
+  /* Status Text Colors */
+  --text-success: #10b981;
+  --text-warning: #f59e0b;
+  --text-error: #ef4444;
+  --text-info: var(--accent-cyan);
+
+  /* Function Display Colors */
+  --function-primary: #00f5ff;
+  --function-keyword: #338fff;
+  --function-string: #10b981;
+  --function-comment: rgba(255, 255, 255, 0.54);
+
+  /* =========================
+     BORDER COLORS
+     ========================= */
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-emphasis: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.3);
+
+  --border-accent: var(--ocean-primary);
+  --border-bitcoin: var(--bitcoin-primary);
+  --border-success: #10b981;
+  --border-warning: #f59e0b;
+  --border-error: #ef4444;
+
+  /* =========================
+     GRADIENT DEFINITIONS
+     ========================= */
+
+  /* Background Gradients */
+  --gradient-bg-primary: linear-gradient(
+    135deg,
+    var(--abyss-black) 0%,
+    var(--abyss-deep) 50%,
+    var(--abyss-dark) 100%
+  );
+  --gradient-bg-secondary: linear-gradient(
+    135deg,
+    var(--abyss-deep) 0%,
+    var(--abyss-ocean) 100%
+  );
+  --gradient-bg-accent: linear-gradient(
+    135deg,
+    var(--ocean-primary) 0%,
+    var(--bitcoin-primary) 100%
+  );
+
+  /* Button Gradients */
+  --gradient-btn-primary: linear-gradient(
+    135deg,
+    var(--ocean-primary) 0%,
+    var(--ocean-primary-hover) 100%
+  );
+  --gradient-btn-secondary: linear-gradient(
+    135deg,
+    var(--bitcoin-primary) 0%,
+    var(--bitcoin-primary-hover) 100%
+  );
+  --gradient-btn-tertiary: linear-gradient(
+    135deg,
+    var(--accent-cyan) 0%,
+    var(--accent-cyan-hover) 100%
+  );
+
+  /* Hover Gradients */
+  --gradient-btn-primary-hover: linear-gradient(
+    135deg,
+    var(--ocean-primary-hover) 0%,
+    var(--ocean-primary-active) 100%
+  );
+  --gradient-btn-secondary-hover: linear-gradient(
+    135deg,
+    var(--bitcoin-primary-hover) 0%,
+    var(--bitcoin-primary-active) 100%
+  );
+  --gradient-btn-tertiary-hover: linear-gradient(
+    135deg,
+    var(--accent-cyan-hover) 0%,
+    var(--accent-cyan-active) 100%
+  );
+
+  /* Accent Gradients */
+  --gradient-accent-glow: linear-gradient(
+    135deg,
+    var(--ocean-primary) 0%,
+    var(--bitcoin-primary) 50%,
+    var(--accent-cyan) 100%
+  );
+  --gradient-text-accent: linear-gradient(
+    135deg,
+    var(--ocean-primary-light) 0%,
+    var(--bitcoin-primary-light) 100%
+  );
+
+  /* =========================
+     SHADOW DEFINITIONS
+     ========================= */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-default:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  --shadow-md:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.25);
+  --shadow-lg:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.25);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+
+  /* Accent Shadows */
+  --shadow-accent-sm: 0 4px 8px rgba(0, 115, 230, 0.15);
+  --shadow-accent-md: 0 8px 16px rgba(0, 115, 230, 0.2);
+  --shadow-accent-lg: 0 16px 32px rgba(0, 115, 230, 0.25);
+
+  /* Glow Effects */
+  --glow-primary: 0 0 20px rgba(0, 115, 230, 0.3);
+  --glow-secondary: 0 0 20px rgba(255, 195, 0, 0.3);
+  --glow-tertiary: 0 0 20px rgba(0, 245, 255, 0.3);
+
+  /* =========================
+     SPACING SCALE
+     ========================= */
+
+  --space-0: 0rem;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+  --space-32: 8rem; /* 128px */
+
+  /* =========================
+     BORDER RADIUS
+     ========================= */
+
+  --radius-none: 0;
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-default: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* =========================
+     ANIMATION DURATIONS
+     ========================= */
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* =========================
+     Z-INDEX SCALE
+     ========================= */
+
+  --z-hide: -1;
+  --z-base: 0;
+  --z-docked: 10;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-banner: 1030;
+  --z-overlay: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+
+  /* =========================
+     FONT FAMILIES
+     ========================= */
+
+  --font-primary: 'Inter', ui-sans-serif, system-ui;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular';
+  --font-display: 'Poppins', 'Inter', ui-sans-serif;
+
+  /* =========================
+     FONT WEIGHTS
+     ========================= */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* =========================
+     FONT SIZES
+     ========================= */
+
+  --text-2xs: 0.625rem; /* 10px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.953rem; /* 31px */
+  --text-4xl: 2.441rem; /* 39px */
+  --text-5xl: 3.052rem; /* 49px */
+}
+
+/* =========================
+   DARK THEME ENFORCEMENTS
+   ========================= */
+
+* {
+  color-scheme: dark;
+}
+
+html {
+  background-color: var(--surface-0);
+}
+
+body {
+  background: var(--gradient-bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* =========================
+   UTILITY CLASSES
+   ========================= */
+
+.theme-abyss {
+  background-color: var(--abyss-black);
+}
+
+.theme-deep {
+  background-color: var(--abyss-deep);
+}
+
+.theme-dark {
+  background-color: var(--abyss-dark);
+}
+
+.theme-ocean {
+  background-color: var(--abyss-ocean);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-accent {
+  background: var(--gradient-text-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.surface-hover:hover {
+  background-color: var(--surface-hover);
+}
+
+.surface-active:active {
+  background-color: var(--surface-active);
+}
+
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+
+.glow-secondary {
+  box-shadow: var(--glow-secondary);
+}
+
+.glow-tertiary {
+  box-shadow: var(--glow-tertiary);
+}

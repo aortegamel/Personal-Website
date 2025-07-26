@@ -1,0 +1,709 @@
+/**
+ * Animations Library
+ * Advanced animations inspired by NYXUSD design system
+ */
+
+/* =========================
+   HOVER ANIMATIONS
+   ========================= */
+
+/* Float on hover */
+.card-hover-float {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-float:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Glow on hover */
+.card-hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.card-hover-glow:hover {
+  box-shadow: var(--glow-primary);
+}
+
+/* Scale on hover */
+.card-hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.card-hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Button press effect */
+.btn-press {
+  transition: transform 0.1s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   TRANSITION UTILITIES
+   ========================= */
+
+.transition-all-normal {
+  transition: all var(--duration-normal) ease;
+}
+
+.transition-all-fast {
+  transition: all var(--duration-fast) ease;
+}
+
+.transition-all-slow {
+  transition: all var(--duration-slow) ease;
+}
+
+/* =========================
+   GLASS MORPHISM EFFECTS
+   ========================= */
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 31, 63, 0.3);
+  border: 1px solid rgba(0, 115, 230, 0.2);
+}
+
+.glass-effect-light {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 115, 230, 0.08);
+  border: 1px solid rgba(0, 115, 230, 0.15);
+}
+
+.glass-effect-strong {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 31, 63, 0.5);
+  border: 1px solid rgba(0, 115, 230, 0.3);
+}
+
+/* =========================
+   GRADIENT ANIMATIONS
+   ========================= */
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Advanced gradient animations */
+.gradient-flow {
+  background: linear-gradient(
+    135deg,
+    var(--tw-colors-abyss-600) 0%,
+    var(--tw-colors-bitcoin-500) 25%,
+    var(--tw-colors-abyss-500) 50%,
+    var(--tw-colors-bitcoin-600) 75%,
+    var(--tw-colors-abyss-600) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-flow 8s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Morphing gradient */
+.gradient-morph {
+  background: radial-gradient(
+    circle at var(--gradient-x, 50%) var(--gradient-y, 50%),
+    var(--tw-colors-bitcoin-400) 0%,
+    var(--tw-colors-abyss-500) 25%,
+    var(--tw-colors-abyss-700) 50%,
+    var(--tw-colors-deepSea-abyss) 100%
+  );
+  animation: gradient-morph 15s ease infinite;
+}
+
+@keyframes gradient-morph {
+  0%, 100% {
+    --gradient-x: 20%;
+    --gradient-y: 20%;
+  }
+  25% {
+    --gradient-x: 80%;
+    --gradient-y: 20%;
+  }
+  50% {
+    --gradient-x: 80%;
+    --gradient-y: 80%;
+  }
+  75% {
+    --gradient-x: 20%;
+    --gradient-y: 80%;
+  }
+}
+
+/* Chromatic aberration effect */
+.chromatic-text {
+  position: relative;
+  animation: chromatic 8s ease-in-out infinite;
+}
+
+.chromatic-text::before,
+.chromatic-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chromatic-text::before {
+  color: var(--tw-colors-bitcoin-500);
+  animation: chromatic-before 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+.chromatic-text::after {
+  color: var(--tw-colors-abyss-400);
+  animation: chromatic-after 8s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes chromatic {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 20px rgba(255, 195, 0, 0.5); }
+}
+
+@keyframes chromatic-before {
+  0%, 100% { transform: translate(0); }
+  50% { transform: translate(2px, -1px); }
+}
+
+@keyframes chromatic-after {
+  0%, 100% { transform: translate(0); }
+  50% { transform: translate(-2px, 1px); }
+}
+
+/* Ocean wave effect */
+.ocean-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.ocean-wave::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--ocean-primary) 0%, transparent 70%);
+  opacity: 0.1;
+  animation: ocean-wave 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ocean-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bitcoin glow pulse */
+.bitcoin-pulse {
+  animation: bitcoin-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bitcoin-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 195, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 195, 0, 0.8);
+  }
+}
+
+/* Dynamic color breathing */
+.color-breathe {
+  animation: color-breathe 4s ease-in-out infinite;
+}
+
+@keyframes color-breathe {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
+
+/* Hue rotation effect */
+.hue-rotate-slow {
+  animation: hue-rotate-slow 20s linear infinite;
+}
+
+@keyframes hue-rotate-slow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Multi-layer glow */
+.glow-multi {
+  position: relative;
+}
+
+.glow-multi::before,
+.glow-multi::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glow-multi::before {
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-bitcoin-400) 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: glow-pulse-1 3s ease-in-out infinite;
+}
+
+.glow-multi::after {
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-abyss-400) 0%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  animation: glow-pulse-2 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.glow-multi:hover::before,
+.glow-multi:hover::after {
+  opacity: 0.7;
+}
+
+@keyframes glow-pulse-1 {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes glow-pulse-2 {
+  0%, 100% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+}
+
+/* =========================
+   SCROLL ANIMATIONS
+   ========================= */
+
+/* Fade in on scroll */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-fade-in.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in up animation */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from left */
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-slide-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide in from right */
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-slide-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale in */
+.scroll-scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-scale-in.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =========================
+   LOADING ANIMATIONS
+   ========================= */
+
+/* Ocean ripple loader */
+.loader-ocean {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.loader-ocean div {
+  position: absolute;
+  border: 4px solid var(--ocean-primary);
+  opacity: 1;
+  border-radius: 50%;
+  animation: loader-ocean 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loader-ocean div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes loader-ocean {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+/* Bitcoin spin loader */
+.loader-bitcoin {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 195, 0, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--bitcoin-primary);
+  animation: loader-bitcoin 1s ease-in-out infinite;
+}
+
+@keyframes loader-bitcoin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   TEXT ANIMATIONS
+   ========================= */
+
+/* Typing effect */
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid var(--bitcoin-primary);
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--bitcoin-primary);
+  }
+}
+
+/* Text shimmer */
+.text-shimmer {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3s infinite;
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* =========================
+   SPECIAL EFFECTS
+   ========================= */
+
+/* Underwater effect */
+.underwater {
+  position: relative;
+}
+
+.underwater::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 115, 230, 0.03) 50%,
+    rgba(0, 31, 63, 0.08) 100%
+  );
+  pointer-events: none;
+  animation: underwater 4s ease-in-out infinite;
+}
+
+@keyframes underwater {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Bitcoin shine */
+.bitcoin-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.bitcoin-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 195, 0, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg) translateY(-100%);
+  animation: bitcoin-shine 3s ease-in-out infinite;
+}
+
+@keyframes bitcoin-shine {
+  0% {
+    transform: rotate(45deg) translateY(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateY(100%);
+  }
+}
+
+/* =========================
+   DYNAMIC COLOR EFFECTS
+   ========================= */
+
+/* Aurora effect */
+.aurora {
+  position: relative;
+  overflow: hidden;
+}
+
+.aurora::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    var(--tw-colors-abyss-600) 0%,
+    var(--tw-colors-bitcoin-500) 20%,
+    var(--tw-colors-abyss-500) 40%,
+    var(--tw-colors-bitcoin-400) 60%,
+    var(--tw-colors-abyss-400) 80%,
+    var(--tw-colors-bitcoin-600) 100%
+  );
+  opacity: 0.3;
+  animation: aurora 15s linear infinite;
+  filter: blur(100px);
+}
+
+@keyframes aurora {
+  0% {
+    transform: rotate(0deg) translateY(0%);
+  }
+  100% {
+    transform: rotate(360deg) translateY(50%);
+  }
+}
+
+/* Liquid gradient */
+.liquid-gradient {
+  position: relative;
+  background: var(--tw-colors-deepSea-surface);
+  overflow: hidden;
+}
+
+.liquid-gradient::before,
+.liquid-gradient::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  border-radius: 45% 55% 60% 40% / 60% 30% 70% 40%;
+}
+
+.liquid-gradient::before {
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-bitcoin-500) 0%,
+    transparent 70%
+  );
+  animation: liquid-1 20s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+.liquid-gradient::after {
+  bottom: -50%;
+  right: -50%;
+  background: radial-gradient(
+    circle at center,
+    var(--tw-colors-abyss-400) 0%,
+    transparent 70%
+  );
+  animation: liquid-2 20s ease-in-out infinite;
+  animation-delay: -5s;
+  opacity: 0.3;
+}
+
+@keyframes liquid-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
+  }
+}
+
+@keyframes liquid-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(-30px, 30px) rotate(-120deg) scale(1.2);
+  }
+  66% {
+    transform: translate(40px, -20px) rotate(-240deg) scale(0.8);
+  }
+}
+
+/* Color wave */
+.color-wave {
+  background: linear-gradient(
+    90deg,
+    var(--tw-colors-abyss-700) 0%,
+    var(--tw-colors-abyss-600) 16.66%,
+    var(--tw-colors-bitcoin-700) 33.33%,
+    var(--tw-colors-bitcoin-600) 50%,
+    var(--tw-colors-bitcoin-700) 66.66%,
+    var(--tw-colors-abyss-600) 83.33%,
+    var(--tw-colors-abyss-700) 100%
+  );
+  background-size: 200% 100%;
+  animation: color-wave 10s linear infinite;
+}
+
+@keyframes color-wave {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}

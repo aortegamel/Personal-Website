@@ -1,0 +1,15 @@
+# Walrus Sites configuration for mainnet deployment
+# This is required for SuiNS integration
+
+# Network configuration
+rpc_url: "https://sui-mainnet-rpc.nodeinfra.com"
+network: "mainnet"
+
+# Walrus configuration
+walrus_config: ~/.walrus/config/walrus-mainnet.yaml
+
+# Site builder settings
+gas_budget: 500000000  # 0.5 SUI
+
+# Package details - mainnet addresses
+package: "0x87422537de02dc337b4d60c817f70e6f9a151515ad80db62c01b38cc4c7ec73e"
