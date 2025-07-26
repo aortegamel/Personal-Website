@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
-import { loadPosts } from '@/lib/content-loader';
+import { getAllPosts } from '@/lib/mdx';
 
 export default function PostsPage() {
-  const posts = loadPosts();
+  const posts = getAllPosts();
 
   return (
     <div className="min-h-screen relative">

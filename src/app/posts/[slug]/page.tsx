@@ -1,6 +1,7 @@
 import { getAllPosts, getPostBySlug } from '@/lib/mdx';
 import { notFound } from 'next/navigation';
 import { format, parseISO } from 'date-fns';
+import ReactMarkdown from 'react-markdown';
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -37,8 +38,8 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </header>
 
-        <div className="prose prose-lg max-w-none">
-          <p>{post.excerpt}</p>
+        <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-em:text-gray-700 prose-blockquote:border-l-blue-500 prose-blockquote:text-gray-600 prose-code:text-pink-600 prose-code:bg-gray-100 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-a:text-blue-600 hover:prose-a:text-blue-800">
+          <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
       </article>
     </div>

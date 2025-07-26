@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { ProjectCard } from '@/components/common/ProjectCard';
-import { loadProjects } from '@/lib/content-loader';
+import { getAllProjects } from '@/lib/mdx';
 import ParticleButton from '@/components/ParticleButton';
 import { ParticleCTA } from '@/components/ui/particle-cta';
 
 export default function Home() {
-  const projects = loadProjects();
+  const projects = getAllProjects();
 
   return (
     <main className="container mx-auto px-4 py-8">
