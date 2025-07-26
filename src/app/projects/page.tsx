@@ -1,8 +1,8 @@
-import { loadProjects } from '@/lib/content-loader';
+import { getAllProjects } from '@/lib/mdx';
 import { ProjectCard } from '@/components/common/ProjectCard';
 
 export default function ProjectsPage() {
-  const projects = loadProjects();
+  const projects = getAllProjects();
   
   // Define featured projects
   const featuredSlugs = ['nyxusd', 'singleagenttrader', 'qwensuicoder'];

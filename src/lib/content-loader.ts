@@ -8,8 +8,8 @@ import {
   getAllCategories
 } from './mdx';
 
-// Re-export types from mdx.ts
-export type { Post, Project } from './mdx';
+// Re-export types from types.ts
+export type { Post, Project } from './types';
 
 // Type for content filters
 type ContentFilter<T> = (item: T) => boolean;
@@ -26,27 +26,27 @@ const withContentOperation = <T, R>(
 const bySlug = <T extends { slug: string }>(slug: string): ContentFilter<T> =>
   (item) => item.slug === slug;
 
-const byCategory = (category: string): ContentFilter<import('./mdx').Post> =>
+const byCategory = (category: string): ContentFilter<import('./types').Post> =>
   (post) => post.categories.includes(category);
 
-const byTechStack = (tech: string): ContentFilter<import('./mdx').Project> =>
+const byTechStack = (tech: string): ContentFilter<import('./types').Project> =>
   (project) => project.techStack.includes(tech);
 
 // Composable sort functions
-const byDate = (order: 'asc' | 'desc' = 'desc'): ContentSorter<import('./mdx').Post> =>
+const byDate = (order: 'asc' | 'desc' = 'desc'): ContentSorter<import('./types').Post> =>
   (a, b) => {
     const comparison = new Date(b.date).getTime() - new Date(a.date).getTime();
     return order === 'desc' ? comparison : -comparison;
   };
 
-const byName: ContentSorter<import('./mdx').Project> = (a, b) =>
+const byName: ContentSorter<import('./types').Project> = (a, b) =>
   a.name.localeCompare(b.name);
 
 // Pure data transformation functions
-const extractCategories = (posts: import('./mdx').Post[]): string[] =>
+const extractCategories = (posts: import('./types').Post[]): string[] =>
   Array.from(new Set(posts.flatMap(post => post.categories)));
 
-const extractTechStack = (projects: import('./mdx').Project[]): string[] =>
+const extractTechStack = (projects: import('./types').Project[]): string[] =>
   Array.from(new Set(projects.flatMap(project => project.techStack)));
 
 // Compose filters
@@ -70,7 +70,7 @@ export const loadCategories = getAllCategories;
 
 export const loadPostsByCategory = getPostsByCategory;
 
-export const loadProjectsByTech = (tech: string): import('./mdx').Project[] =>
+export const loadProjectsByTech = (tech: string): import('./types').Project[] =>
   withContentOperation(
     loadProjects(),
     projects => projects.filter(byTechStack(tech)).sort(byName)
@@ -78,18 +78,18 @@ export const loadProjectsByTech = (tech: string): import('./mdx').Project[] =>
 
 // Advanced query functions using composition
 export const queryPosts = (
-  filters: ContentFilter<import('./mdx').Post>[] = [],
-  sorter: ContentSorter<import('./mdx').Post> = byDate()
-): import('./mdx').Post[] =>
+  filters: ContentFilter<import('./types').Post>[] = [],
+  sorter: ContentSorter<import('./types').Post> = byDate()
+): import('./types').Post[] =>
   withContentOperation(
     loadPosts(),
     posts => posts.filter(composeFilters(...filters)).sort(sorter)
   );
 
 export const queryProjects = (
-  filters: ContentFilter<import('./mdx').Project>[] = [],
-  sorter: ContentSorter<import('./mdx').Project> = byName
-): import('./mdx').Project[] =>
+  filters: ContentFilter<import('./types').Project>[] = [],
+  sorter: ContentSorter<import('./types').Project> = byName
+): import('./types').Project[] =>
   withContentOperation(
     loadProjects(),
     projects => projects.filter(composeFilters(...filters)).sort(sorter)
