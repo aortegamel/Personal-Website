@@ -1,5 +1,5 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -24,8 +24,6 @@ const components = {
   // Add more custom components as needed
 };
 
-export function MDXContent({ code }: { code: string }) {
-  const Component = useMDXComponent(code);
-
-  return <Component components={components} />;
+export function MDXContent({ content }: { content: string }) {
+  return <ReactMarkdown components={components}>{content}</ReactMarkdown>;
 }
