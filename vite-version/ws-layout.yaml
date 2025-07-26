@@ -1,0 +1,51 @@
+routes:
+  # Homepage - handled by React SPA
+  - path: /
+    headers:
+      Cache-Control: "public, max-age=3600"
+  
+  # Static pre-rendered pages
+  - path: /posts
+    headers:
+      Cache-Control: "public, max-age=3600"
+      
+  - path: /projects
+    headers:
+      Cache-Control: "public, max-age=3600"
+      
+  - path: /posts/*
+    headers:
+      Cache-Control: "public, max-age=86400"
+      
+  - path: /projects/*
+    headers:
+      Cache-Control: "public, max-age=86400"
+  
+  # Content API endpoints
+  - path: /content/*
+    headers:
+      Cache-Control: "public, max-age=31536000, immutable"
+      Content-Type: "text/html; charset=utf-8"
+  
+  # Assets
+  - path: /assets/*.js
+    headers:
+      Cache-Control: "public, max-age=31536000, immutable"
+      Content-Type: "application/javascript"
+      
+  - path: /assets/*.css
+    headers:
+      Cache-Control: "public, max-age=31536000, immutable"
+      Content-Type: "text/css"
+      
+  - path: /favicon.ico
+    headers:
+      Cache-Control: "public, max-age=86400"
+      Content-Type: "image/x-icon"
+
+# Default headers for all routes
+headers:
+  X-Content-Type-Options: "nosniff"
+  X-Frame-Options: "DENY"
+  X-XSS-Protection: "1; mode=block"
+  Referrer-Policy: "strict-origin-when-cross-origin"

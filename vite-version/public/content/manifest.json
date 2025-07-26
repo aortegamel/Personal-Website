@@ -1,0 +1,216 @@
+{
+  "posts": {
+    "": {
+      "slug": "",
+      "title": ": A Deep Dive into Political Economics",
+      "description": "Analyzing the intersection of politics and economic policy through the lens of recent developments.",
+      "date": "2024-03-29",
+      "htmlPath": "/content/posts/.html",
+      "frontMatter": {
+        "layout": "post",
+        "title": ", A Perspective From A Fellow Las Vegan",
+        "date": "2024-03-29T00:00:00.000Z",
+        "categories": [
+          "economics",
+          "politics"
+        ],
+        "author": "Angleito"
+      }
+    },
+    "": {
+      "slug": "",
+      "title": "Sui: The  of Blockchain Infrastructure",
+      "description": "Exploring Sui blockchain technology and its potential to revolutionize decentralized applications.",
+      "date": "2025-03-29",
+      "htmlPath": "/content/posts/.html",
+      "frontMatter": {
+        "layout": "post",
+        "title": "",
+        "date": "2025-03-29T00:00:00.000Z",
+        "categories": [
+          "crypto",
+          "development"
+        ],
+        "author": "Angleito"
+      }
+    },
+    "-project-journal-day-1": {
+      "slug": "-project-journal-day-1",
+      "title": " Project Journal - Day 1",
+      "description": "Initial insights into building a  trading bot",
+      "date": "2025-03-31",
+      "htmlPath": "/content/posts/-project-journal-day-1.html",
+      "frontMatter": {
+        "layout": "post",
+        "title": " Project Journal - Day 1",
+        "date": "2025-03-31T00:00:00.000Z",
+        "categories": [
+          "crypto",
+          "development"
+        ],
+        "author": "Angleito",
+        "excerpt": "Initial insights into building a  trading bot"
+      }
+    },
+    "-project-journal-day-2": {
+      "slug": "-project-journal-day-2",
+      "title": " Project Journal - Day 2",
+      "description": "Diving deeper into  trading bot architecture",
+      "date": "2025-04-01",
+      "htmlPath": "/content/posts/-project-journal-day-2.html",
+      "frontMatter": {
+        "layout": "post",
+        "title": " Project Journal - Day 2",
+        "date": "2025-04-01T00:00:00.000Z",
+        "categories": [
+          "crypto",
+          "development"
+        ],
+        "author": "Angleito",
+        "excerpt": "Diving deeper into  trading bot architecture"
+      }
+    }
+  },
+  "projects": {
+    "nyxusd": {
+      "slug": "nyxusd",
+      "title": "NyxUSD Protocol",
+      "description": "A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.",
+      "date": "2024-11-20",
+      "htmlPath": "/content/projects/nyxusd.html",
+      "frontMatter": {
+        "name": "NyxUSD: Decentralized Stablecoin Protocol",
+        "description": "A next-generation decentralized stablecoin protocol built on cutting-edge blockchain technology, offering algorithmic stability mechanisms and capital-efficient collateralization for the DeFi ecosystem.",
+        "tech_stack": [
+          "Compact (Midnight Protocol)",
+          "Move",
+          "TypeScript",
+          "Zero-Knowledge Proofs",
+          "Midnight Protocol",
+          "Oracle Networks",
+          "Layer 2 Solutions",
+          "IPFS",
+          "TheGraph",
+          "Web3.js/Ethers.js"
+        ],
+        "webpage": "https://nyxusd.com",
+        "demo": "https://nyxusd.com",
+        "features": [
+          "Multi-Collateral Debt Positions (CDPs)",
+          "Algorithmic Interest Rate Discovery",
+          "Decentralized Governance (veNYX)",
+          "Cross-Chain Bridge Support",
+          "Flash Mint Capabilities",
+          "Liquidation Protection Mechanisms",
+          "Price Oracle Aggregation",
+          "Emergency Shutdown Module",
+          "Yield Farming Integration",
+          "Automated Market Operations (AMO)",
+          "Real-Time Risk Analytics Dashboard"
+        ]
+      }
+    },
+    "singleagenttrader": {
+      "slug": "singleagenttrader",
+      "title": "Single Agent Trader",
+      "description": "An advanced AI-powered trading platform that leverages machine learning algorithms to analyze cryptocurrency markets in real-time. Features include automated trade execution, risk management protocols, sentiment analysis, and predictive modeling for optimal trading strategies across multiple exchanges.",
+      "date": "2024-09-05",
+      "htmlPath": "/content/projects/singleagenttrader.html",
+      "frontMatter": {
+        "name": "Single Agent Trader: AI-Powered Cryptocurrency Trading Platform",
+        "description": "Sophisticated, containerized crypto trading system using AI (Claude) for chart analysis and automated trading on Bluefin.",
+        "tech_stack": [
+          "Python",
+          "Docker",
+          "Microservices",
+          "Claude AI",
+          "TradingView",
+          "Bluefin API",
+          "Sui",
+          "Headless Chrome/Puppeteer",
+          "LangChain"
+        ],
+        "github": "https://github.com/Angleito/Single-Agent-Trader",
+        "private_full_version": true,
+        "has_demo": true,
+        "contact": "arainey555@gmail.com",
+        "features": [
+          "AI Chart Analysis (Claude + Screenshot Service)",
+          "Microservices Architecture (Dockerized)",
+          "Bluefin Exchange API Integration",
+          "TradingView Webhook Integration",
+          "Automated Position Monitoring & Analysis Triggering",
+          "Browser Automation for Chart Interaction",
+          "Advanced Risk Management (Sizing, Stops, Concurrent Limits)",
+          "Configurable Confidence Thresholds for Trades",
+          "Multi-Timeframe Analysis Capability",
+          "Centralized Configuration (.env)",
+          "Comprehensive Logging & Error Handling"
+        ]
+      }
+    },
+    "bot": {
+      "slug": "bot",
+      "title": " Bot",
+      "description": "A sophisticated DeFi trading bot that capitalizes on arbitrage opportunities using flash loan technology. The bot monitors multiple decentralized exchanges simultaneously, executes complex multi-step transactions within a single block, and implements gas-optimized strategies for maximum profitability.",
+      "date": "2024-12-15",
+      "htmlPath": "/content/projects/bot.html",
+      "frontMatter": {
+        "name": "bot - Automated DeFi Trading on Sui",
+        "description": "Automated trading bot for Sui leveraging DEX aggregation and potentially flash loans for DeFi opportunities.",
+        "tech_stack": [
+          "Move",
+          "TypeScript",
+          "Sui",
+          "Node.js",
+          "@mysten/sui.js",
+          "@7kprotocol/sdk-ts",
+          "DEX Aggregation",
+          "DeFi",
+          "Automation"
+        ],
+        "github": "https://github.com/Angleito/SuiFlashBotTemplate",
+        "private_full_version": true,
+        "contact": "arainey555@gmail.com",
+        "features": [
+          "Sui Blockchain Interaction (@mysten/sui.js)",
+          "DEX Aggregation (7k Protocol)",
+          "Optimal Swap Execution Engine",
+          "Secure Key Management (env vars, multiple formats)",
+          "Resilient Sui Client Connection",
+          "Fallback Pricing Mechanism",
+          "Arbitrage/ Orchestration Layer (Conceptual)",
+          "Configuration via .env"
+        ]
+      }
+    },
+    "qwensuicoder": {
+      "slug": "qwensuicoder",
+      "title": "QwenSui Coder Assistant",
+      "description": "AI-powered coding assistant specialized for Sui blockchain development.",
+      "date": "2024-10-10",
+      "htmlPath": "/content/projects/qwensuicoder.html",
+      "frontMatter": {
+        "name": "QwenSuiCoder",
+        "description": "End-to-end LLM Benchmarking & Training Framework for Sui blockchain development",
+        "tech_stack": [
+          "Python",
+          "DeepSpeed",
+          "Qwen 2.5",
+          "MLOps",
+          "PyTorch"
+        ],
+        "github": "https://github.com/Angleito/qwensuicoder",
+        "private_full_version": false,
+        "contact": "arainey555@gmail.com",
+        "features": [
+          "Hardware-aware model selection",
+          "Automated benchmarking (0.5B to 14B parameters)",
+          "Smart parameter selection",
+          "DeepSpeed-optimized training with ZeRO optimization",
+          "Progressive quantization testing"
+        ]
+      }
+    }
+  }
+}
