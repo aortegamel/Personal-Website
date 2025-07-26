@@ -1,105 +1,120 @@
-export interface Post {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-  categories: string[];
-  author: string;
-  url: string;
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import type { Post, Project } from './types';
+
+// Re-export types for backward compatibility
+export type { Post, Project } from './types';
+
+const postsDirectory = path.join(process.cwd(), 'src/content/posts');
+const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
+
+function loadProjectFromFile(filename: string): Project | null {
+  try {
+    const fullPath = path.join(projectsDirectory, filename);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+    
+    // Extract slug from filename (remove .md extension)
+    const slug = filename.replace(/\.md$/, '');
+    
+    return {
+      slug,
+      name: data.name || 'Untitled Project',
+      description: data.description || '',
+      techStack: data.tech_stack || data.techStack || [],
+      github: data.github,
+      demo: data.demo,
+      webpage: data.webpage,
+      features: data.features || [],
+      url: `/projects/${slug}`,
+      content
+    };
+  } catch (error) {
+    console.error(`Error loading project ${filename}:`, error);
+    return null;
+  }
 }
 
-export interface Project {
-  slug: string;
-  name: string;
-  description: string;
-  techStack: string[];
-  github?: string;
-  demo?: string;
-  url: string;
+function loadPostFromFile(filename: string): Post | null {
+  try {
+    const fullPath = path.join(postsDirectory, filename);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+    
+    // Extract slug from filename (remove date prefix and .md extension)
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    
+    // Generate excerpt from content (first 200 characters)
+    const excerpt = content.replace(/^#{1,6}\s+.*$/gm, '').trim().substring(0, 200) + '...';
+    
+    return {
+      slug,
+      title: data.title || 'Untitled',
+      date: data.date ? new Date(data.date).toISOString().split('T')[0] : '1970-01-01',
+      excerpt: excerpt,
+      categories: data.categories || [],
+      author: data.author || 'Unknown',
+      url: `/posts/${slug}`,
+      content
+    };
+  } catch (error) {
+    console.error(`Error loading post ${filename}:`, error);
+    return null;
+  }
 }
-
-const POSTS: Post[] = [
-  {
-    slug: '',
-    title: 'Trump\'s ',
-    date: '2024-03-29',
-    excerpt: 'An analysis of recent political developments in Las Vegas',
-    categories: ['politics', 'economics'],
-    author: 'Angel Ortega-Melton',
-    url: '/posts/'
-  },
-  {
-    slug: '',
-    title: 'Sui ',
-    date: '2025-03-29',
-    excerpt: 'Exploring blockchain technology and its potential applications',
-    categories: ['crypto', 'technology'],
-    author: 'Angel Ortega-Melton',
-    url: '/posts/'
-  }
-];
-
-const PROJECTS: Project[] = [
-  {
-    slug: 'nyxusd',
-    name: 'NyxUSD Protocol',
-    description: 'A revolutionary DeFi stablecoin protocol built on cutting-edge blockchain technology. NyxUSD provides decentralized, collateralized stablecoins with advanced yield farming capabilities, automated market making, and cross-chain compatibility for seamless integration across multiple blockchain ecosystems.',
-    techStack: ['Compact (Midnight Protocol)', 'TypeScript', 'Zero-Knowledge Proofs', 'Web3.js', 'React', 'Smart Contracts'],
-    github: 'https://github.com/angleito/nyxusd-protocol',
-    demo: 'https://nyxusd.com',
-    url: '/projects/nyxusd'
-  },
-  {
-    slug: 'singleagenttrader',
-    name: 'Single Agent Trader',
-    description: 'An advanced AI-powered trading platform that leverages machine learning algorithms to analyze cryptocurrency markets in real-time. Features include automated trade execution, risk management protocols, sentiment analysis, and predictive modeling for optimal trading strategies across multiple exchanges.',
-    techStack: ['Python', 'Machine Learning', 'TensorFlow', 'Blockchain', 'API Integration'],
-    github: 'https://github.com/Angleito/Single-Agent-Trader',
-    url: '/projects/singleagenttrader'
-  },
-  {
-    slug: 'bot',
-    name: ' Bot',
-    description: 'A sophisticated DeFi trading bot that capitalizes on arbitrage opportunities using flash loan technology. The bot monitors multiple decentralized exchanges simultaneously, executes complex multi-step transactions within a single block, and implements gas-optimized strategies for maximum profitability.',
-    techStack: ['Move', 'Sui', 'TypeScript', 'Node.js', 'DeFi Protocols'],
-    github: 'https://github.com/angleito/bot',
-    url: '/projects/bot'
-  },
-  {
-    slug: 'qwensuicoder',
-    name: 'QwenSuiCoder',
-    description: 'End-to-end LLM Benchmarking & Training Framework for Sui blockchain development. Features automated benchmarking of models from 0.5B to 14B parameters, hardware-aware model selection, smart parameter selection, and DeepSpeed-optimized training with ZeRO optimization.',
-    techStack: ['Python', 'DeepSpeed', 'Qwen 2.5', 'MLOps', 'PyTorch'],
-    github: 'https://github.com/Angleito/qwensuicoder',
-    url: '/projects/qwensuicoder'
-  }
-];
 
 export function getAllPosts(): Post[] {
-  return POSTS.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  try {
+    const filenames = fs.readdirSync(postsDirectory);
+    const posts = filenames
+      .filter(name => name.endsWith('.md'))
+      .map(loadPostFromFile)
+      .filter((post): post is Post => post !== null);
+    
+    return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch (error) {
+    console.error('Error reading posts directory:', error);
+    return [];
+  }
 }
 
 export function getAllProjects(): Project[] {
-  return PROJECTS;
+  try {
+    const filenames = fs.readdirSync(projectsDirectory);
+    const projects = filenames
+      .filter(name => name.endsWith('.md'))
+      .map(loadProjectFromFile)
+      .filter((project): project is Project => project !== null);
+    
+    return projects.sort((a, b) => a.name.localeCompare(b.name));
+  } catch (error) {
+    console.error('Error reading projects directory:', error);
+    return [];
+  }
 }
 
 export function getPostsByCategory(category: string): Post[] {
-  return POSTS.filter(post => 
+  const allPosts = getAllPosts();
+  return allPosts.filter(post => 
     post.categories.some(cat => cat.toLowerCase() === category.toLowerCase())
   ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getPostBySlug(slug: string): Post | undefined {
-  return POSTS.find(post => post.slug === slug);
+  const allPosts = getAllPosts();
+  return allPosts.find(post => post.slug === slug);
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return PROJECTS.find(project => project.slug === slug);
+  const allProjects = getAllProjects();
+  return allProjects.find(project => project.slug === slug);
 }
 
 export function getAllCategories(): string[] {
+  const allPosts = getAllPosts();
   const allCategories = new Set<string>();
-  POSTS.forEach(post => {
+  allPosts.forEach(post => {
     post.categories.forEach(category => {
       allCategories.add(category.toLowerCase());
     });
