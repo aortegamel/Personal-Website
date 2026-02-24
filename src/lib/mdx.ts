@@ -1,13 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { Post, Project } from './types';
+import type { Post, Project, Design } from './types';
 
 // Re-export types for backward compatibility
-export type { Post, Project } from './types';
+export type { Post, Project, Design } from './types';
 
 const postsDirectory = path.join(process.cwd(), 'src/content/posts');
 const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
+const designsDirectory = path.join(process.cwd(), 'src/content/designs');
 
 function loadProjectFromFile(filename: string): Project | null {
   try {
@@ -109,6 +110,52 @@ export function getPostBySlug(slug: string): Post | undefined {
 export function getProjectBySlug(slug: string): Project | undefined {
   const allProjects = getAllProjects();
   return allProjects.find(project => project.slug === slug);
+}
+
+function loadDesignFromFile(filename: string): Design | null {
+  try {
+    const fullPath = path.join(designsDirectory, filename);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+    const slug = filename.replace(/\.md$/, '');
+
+    return {
+      slug,
+      name: data.name || 'Untitled Design',
+      description: data.description || '',
+      role: data.role || '',
+      projectUrl: data.project_url || data.projectUrl,
+      github: data.github,
+      designStack: data.design_stack || data.designStack || [],
+      colorPalette: data.color_palette || data.colorPalette || [],
+      designElements: data.design_elements || data.designElements || [],
+      highlights: data.highlights || [],
+      url: `/designs/${slug}`,
+      content
+    };
+  } catch (error) {
+    console.error(`Error loading design ${filename}:`, error);
+    return null;
+  }
+}
+
+export function getAllDesigns(): Design[] {
+  try {
+    const filenames = fs.readdirSync(designsDirectory);
+    return filenames
+      .filter(name => name.endsWith('.md'))
+      .map(loadDesignFromFile)
+      .filter((design): design is Design => design !== null)
+      .sort((a, b) => a.name.localeCompare(b.name));
+  } catch (error) {
+    console.error('Error reading designs directory:', error);
+    return [];
+  }
+}
+
+export function getDesignBySlug(slug: string): Design | undefined {
+  const allDesigns = getAllDesigns();
+  return allDesigns.find(design => design.slug === slug);
 }
 
 export function getAllCategories(): string[] {
