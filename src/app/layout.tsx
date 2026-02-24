@@ -24,6 +24,7 @@ export default function RootLayout({
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
+    { href: "/designs", label: "Designs" },
     { href: "/posts", label: "Articles" },
     { href: "/search", label: "Search" },
   ];
