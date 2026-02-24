@@ -8,6 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Sonar Protocol design tokens
+        sonar: {
+          abyss: '#0A172A',
+          deep: '#092E4D',
+          blue: '#0E4B6F',
+          signal: '#1AA4D9',
+          highlight: '#74E4FF',
+          'highlight-bright': '#B8F0FF',
+          coral: '#FF6B4A',
+        },
         // Deep blue abyss sea colors
         abyss: {
           50: '#e6f1ff',
@@ -83,6 +93,9 @@ module.exports = {
         '3xl': ['1.953rem', { lineHeight: '2.25rem' }],
         '4xl': ['2.441rem', { lineHeight: '2.75rem' }],
         '5xl': ['3.052rem', { lineHeight: '3.25rem' }],
+      },
+      letterSpacing: {
+        radar: '0.2em',
       },
       // Custom animations
       animation: {
@@ -177,10 +190,13 @@ module.exports = {
       // Enhanced backdrop blur
       backdropBlur: {
         xs: '2px',
+        sonar: '24px',
         '3xl': '64px',
         '4xl': '128px',
       },
       boxShadow: {
+        sonar: '0 0 30px rgba(26, 164, 217, 0.35)',
+        'sonar-lg': '0 0 60px rgba(26, 164, 217, 0.5)',
         'bitcoin': '0 0 15px rgba(255, 195, 0, 0.5)',
         'bitcoin-lg': '0 0 25px rgba(255, 195, 0, 0.7)',
         abyss: '0 4px 6px -1px rgba(0, 31, 63, 0.3), 0 2px 4px -1px rgba(0, 31, 63, 0.2)',
@@ -192,6 +208,7 @@ module.exports = {
       },
       // Border radius variations
       borderRadius: {
+        sonar: '18px',
         '4xl': '2rem',
         '5xl': '2.5rem',
       },
