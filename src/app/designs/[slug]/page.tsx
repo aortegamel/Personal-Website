@@ -3,6 +3,11 @@ import { notFound } from 'next/navigation';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import dynamic from 'next/dynamic';
+
+const ComponentShowcase = dynamic(() => import('@/components/sonar/ComponentShowcase'), {
+  ssr: false,
+});
 
 export default function DesignPage({ params }: { params: { slug: string } }) {
   const design = getDesignBySlug(params.slug);
@@ -100,6 +105,9 @@ export default function DesignPage({ params }: { params: { slug: string } }) {
               </div>
             </div>
           </div>
+
+          {/* Component Showcase (Sonar only) */}
+          {design.slug === 'sonar' && <ComponentShowcase />}
 
           {/* Markdown Content */}
           <div className="bg-deepSea-deep/50 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-abyss-400/20 shadow-2xl animate-fade-in">
