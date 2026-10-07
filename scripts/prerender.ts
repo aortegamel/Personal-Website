@@ -5,6 +5,7 @@
 import matter from 'gray-matter'
 import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+import { site } from '../src/site'
 
 const SITE_URL = process.env.SITE_URL ?? ''
 if (!SITE_URL) throw new Error('SITE_URL is required: copy .env.example to .env and set your domain')
@@ -104,7 +105,7 @@ function shell(route: Route, assets: { js: string; css: string }): string {
     description: route.description,
     url,
     ...(route.date ? { datePublished: route.date } : {}),
-    author: { '@type': 'Person', name: 'Angel Ortega-Melton' },
+    author: { '@type': 'Person', name: site.name },
   }
   return `<!DOCTYPE html>
 <html lang="en">
@@ -116,7 +117,7 @@ function shell(route: Route, assets: { js: string; css: string }): string {
 <link rel="canonical" href="${url}">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a2342">
-<meta property="og:site_name" content="Angel Ortega-Melton — Portfolio">
+<meta property="og:site_name" content="${esc(`${site.name} — Portfolio`)}">
 <meta property="og:title" content="${esc(route.title)}">
 <meta property="og:description" content="${esc(route.description)}">
 <meta property="og:type" content="${route.type}">
@@ -158,15 +159,15 @@ async function buildRoutes(): Promise<Route[]> {
     {
       path: '/',
       file: 'index.html',
-      title: 'Angel Ortega-Melton — Portfolio',
-      description: 'Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.',
+      title: `${site.name} — Portfolio`,
+      description: site.description,
       type: 'website',
-      body: `<h1>Angel Ortega-Melton</h1><p>Exploring technology and showcasing projects in DeFi, AI, and blockchain.</p><nav><a href="/projects">Projects</a> <a href="/about">About</a></nav>`,
+      body: `<h1>${esc(site.name)}</h1><p>Exploring technology and showcasing projects in ${esc(site.tagline)}.</p><nav><a href="/projects">Projects</a> <a href="/about">About</a></nav>`,
     },
     {
       path: '/about',
       file: 'about/index.html',
-      title: 'About — Angel Ortega-Melton',
+      title: `About — ${site.name}`,
       description:
         'Software engineer focused on blockchain, DeFi protocols, and full-stack web applications.',
       type: 'website',
@@ -175,8 +176,8 @@ async function buildRoutes(): Promise<Route[]> {
     {
       path: '/projects',
       file: 'projects/index.html',
-      title: 'Projects — Angel Ortega-Melton',
-      description: 'DeFi, AI, and blockchain projects by Angel Ortega-Melton.',
+      title: `Projects — ${site.name}`,
+      description: `${site.tagline} by ${site.name}.`,
       type: 'website',
       body: `<h1>Projects</h1>${projects
         .map((p) => {
@@ -197,7 +198,7 @@ async function buildRoutes(): Promise<Route[]> {
     routes.push({
       path: `/projects/${slug}`,
       file: `projects/${slug}/index.html`,
-      title: `${title} — Angel Ortega-Melton`,
+      title: `${title} — ${site.name}`,
       description,
       type: 'article',
       body: `<nav><a href="/projects">← Projects</a></nav><article><h1>${esc(title)}</h1><p>${esc(description)}</p>${mdToHtml(p.content)}</article>`,
