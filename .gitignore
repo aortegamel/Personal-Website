@@ -2,78 +2,29 @@
 node_modules
 .pnp
 .pnp.js
-node_modules/
 
-# Testing
-/coverage
-/test-results
-/playwright-report
-/blob-report
-/playwright/.cache
-/mcp-screenshots
-/mcp-reports
-/browser-logs
-
-# Next.js
-/.next/
-/out/
-.contentlayer
-.next
-.next/
-out/
-
-# Contentlayer
-.contentlayer/
+# Vite build output
+/dist/
 
 # Logs
 *.log
-.server-output.log
 
-# Production
-/build
-
-# Misc
-.DS_Store
-*.pem
+# Env
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Misc
+.DS_Store
+*.pem
 
 # IDE
 .idea
 .vscode
 
-# Jekyll (old)
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-
-# Vercel
-.vercel
-
-# Build cache
+# Caches
 .cache/
-
-# Performance/Testing Reports
-.lighthouseci/
-
-# AI Tool Configuration
-CLAUDE.md
-.aider*
-.aider.conf.yml
-.aider/
-.cursor/
-.github/copilot
-.github/copilot-instructions.md
-.vscode/copilot
-*claude-config.json
-current-changes.patch
+*.tsbuildinfo
+.eslintcache

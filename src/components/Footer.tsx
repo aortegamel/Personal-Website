@@ -1,33 +1,45 @@
-import Link from 'next/link';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
+export function Footer() {
   return (
-    <footer className="bg-gray-100 py-8 mt-12 border-t border-gray-200">
-      <div className="container mx-auto px-4">
-        <p className="text-center text-gray-600">
-          &copy; {currentYear} Angel Ortega-Melton. All rights reserved.
-        </p>
-        <div className="flex justify-center mt-4">
-          <Link 
-            href="https://github.com/Angleito" 
-            target="_blank" 
-            className="text-blue-600 hover:text-blue-800 mx-2"
-          >
-            GitHub
-          </Link>
-          <span className="text-gray-400">|</span>
-          <Link 
-            href="mailto:arainey555@gmail.com" 
-            className="text-blue-600 hover:text-blue-800 mx-2"
-          >
-            Email
-          </Link>
+    <footer className="border-t border-gray-800/50 bg-deepSea-surface/50 backdrop-blur-sm mt-20">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-sm text-gray-400 mb-4 md:mb-0">
+            © 2025 Angleito. All rights reserved.
+          </div>
+          
+          <div className="flex space-x-4">
+            <a
+              href="https://github.com/angleito"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-bitcoin-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <FaGithub className="h-5 w-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/angelortegamelton"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-bitcoin-primary transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://twitter.com/angleito5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-bitcoin-primary transition-colors"
+              aria-label="Twitter"
+            >
+              <FaTwitter className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}

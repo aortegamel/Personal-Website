@@ -1,25 +1,26 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { 
-  renderTechStack, 
-  createVariantRenderer, 
+import {
+  renderTechStack,
+  createVariantRenderer,
   truncateList,
-  renderBadges 
-} from '@/lib/ui-utils';
+  renderBadges
+} from '../../lib/ui-utils';
 
 interface Project {
   slug: string;
-  name: string;
+  name?: string;
+  title?: string;
   description: string;
   techStack?: string[];
+  technologies?: string[];
   features?: string[];
   github?: string;
   demo?: string;
-  url: string;
+  url?: string;
 }
 
 interface ProjectCardProps {
@@ -35,10 +36,10 @@ const GitHubIcon = () => (
 );
 
 // Pure function for project header
-const ProjectHeader = ({ name, url }: { name: string; url: string }) => (
-  <CardTitle>
-    <Link href={url} className="abyss-link">
-      {name}
+const ProjectHeader = ({ name, url, title }: { name?: string; url: string; title?: string }) => (
+  <CardTitle className="break-words">
+    <Link to={url} className="abyss-link hover:text-bitcoin-400 transition-colors">
+      {name || title}
     </Link>
   </CardTitle>
 );
@@ -46,7 +47,7 @@ const ProjectHeader = ({ name, url }: { name: string; url: string }) => (
 // Pure function for project features
 const ProjectFeatures = ({ features, url }: { features: string[]; url: string }) => {
   const { displayed, moreText } = truncateList(features, 3, (count) => `+${count} more features`);
-  
+
   return (
     <div className="mb-4">
       <h4 className="text-sm font-semibold text-abyss-200 mb-2">Key Features:</h4>
@@ -56,7 +57,7 @@ const ProjectFeatures = ({ features, url }: { features: string[]; url: string })
         ))}
         {moreText && (
           <li className="text-bitcoin-400">
-            <Link href={url}>{moreText}</Link>
+            <Link to={url}>{moreText}</Link>
           </li>
         )}
       </ul>
@@ -65,18 +66,18 @@ const ProjectFeatures = ({ features, url }: { features: string[]; url: string })
 };
 
 // Pure function for project actions
-const ProjectActions = ({ 
-  github, 
-  demo, 
-  url, 
-  size = 'sm' 
-}: { 
-  github?: string; 
-  demo?: string; 
-  url: string; 
+const ProjectActions = ({
+  github,
+  demo,
+  url,
+  size = 'sm'
+}: {
+  github?: string;
+  demo?: string;
+  url: string;
   size?: 'sm' | 'default' | 'lg';
 }) => (
-  <>
+  <div className="flex flex-wrap gap-2">
     {github && (
       <Button variant="outline" size={size} href={github} external>
         <GitHubIcon />
@@ -91,79 +92,98 @@ const ProjectActions = ({
     <Button variant="default" size={size} href={url}>
       Details
     </Button>
-  </>
+  </div>
 );
 
 // Variant renderers as pure functions
-const CompactProjectCard = ({ project }: { project: Project }) => (
-  <article className="border-b border-abyss-700/30 pb-4 mb-4 last:border-0 last:mb-0 last:pb-0">
-    <h3 className="text-lg font-bold mb-1 font-montserrat">
-      <Link href={project.url} className="abyss-link">
-        {project.name}
-      </Link>
-    </h3>
-    <p className="text-abyss-100 text-sm mb-2">{project.description}</p>
-    {project.techStack && project.techStack.length > 0 && (
-      <div className="flex flex-wrap gap-1">
-        {renderBadges(project.techStack, 'default', 3, 'text-xs')}
-      </div>
-    )}
-  </article>
-);
+const CompactProjectCard = ({ project }: { project: Project }) => {
+  const projectUrl = project.url || `/projects/${project.slug}`;
+  const techStack = project.techStack || project.technologies || [];
 
-const FeaturedProjectCard = ({ project }: { project: Project }) => (
-  <Card hover="glow" variant="highlight" className="h-full">
-    <CardHeader>
-      <ProjectHeader name={project.name} url={project.url} />
-    </CardHeader>
-    <CardContent>
-      <p className="text-abyss-100 mb-4">{project.description}</p>
-      
-      {project.techStack && project.techStack.length > 0 && (
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-abyss-200 mb-2">Technologies:</h4>
-          {renderTechStack(project.techStack)}
+  return (
+    <article className="border-b border-abyss-700/30 pb-4 mb-4 last:border-0 last:mb-0 last:pb-0">
+      <h3 className="text-lg font-bold mb-1 font-montserrat break-words">
+        <Link to={projectUrl} className="abyss-link hover:text-bitcoin-400 transition-colors">
+          {project.name || project.title}
+        </Link>
+      </h3>
+      <p className="text-abyss-100 text-sm mb-2 line-clamp-2">{project.description}</p>
+      {techStack.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {renderBadges(techStack, 'default', 3, 'text-xs')}
         </div>
       )}
-      
-      {project.features && project.features.length > 0 && (
-        <ProjectFeatures features={project.features} url={project.url} />
-      )}
-    </CardContent>
-    <CardFooter className="flex flex-wrap gap-2">
-      <ProjectActions 
-        github={project.github} 
-        demo={project.demo} 
-        url={project.url} 
-      />
-    </CardFooter>
-  </Card>
-);
+    </article>
+  );
+};
 
-const DefaultProjectCard = ({ project }: { project: Project }) => (
-  <Card hover="border" className="h-full">
-    <CardHeader>
-      <ProjectHeader name={project.name} url={project.url} />
-    </CardHeader>
-    <CardContent>
-      <p className="text-abyss-100 mb-4">{project.description}</p>
-      
-      {project.techStack && project.techStack.length > 0 && (
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-abyss-200 mb-2">Technologies:</h4>
-          {renderTechStack(project.techStack)}
-        </div>
-      )}
-    </CardContent>
-    <CardFooter className="flex flex-wrap gap-2">
-      <ProjectActions 
-        github={project.github} 
-        demo={project.demo} 
-        url={project.url} 
-      />
-    </CardFooter>
-  </Card>
-);
+const FeaturedProjectCard = ({ project }: { project: Project }) => {
+  const projectUrl = project.url || `/projects/${project.slug}`;
+  const techStack = project.techStack || project.technologies || [];
+
+  return (
+    <Card hover="glow" variant="highlight" className="h-full flex flex-col">
+      <CardHeader className="pb-4">
+        <ProjectHeader name={project.name} title={project.title} url={projectUrl} />
+      </CardHeader>
+      <CardContent className="flex-1 pb-6">
+        <p className="text-abyss-100 mb-6 leading-relaxed">{project.description}</p>
+
+        {techStack.length > 0 && (
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold text-abyss-200 mb-3">Technologies:</h4>
+            <div className="flex flex-wrap gap-2">
+              {renderTechStack(techStack)}
+            </div>
+          </div>
+        )}
+
+        {project.features && project.features.length > 0 && (
+          <ProjectFeatures features={project.features} url={projectUrl} />
+        )}
+      </CardContent>
+      <CardFooter className="pt-0 pb-6 mt-auto">
+        <ProjectActions
+          github={project.github}
+          demo={project.demo}
+          url={projectUrl}
+        />
+      </CardFooter>
+    </Card>
+  );
+};
+
+const DefaultProjectCard = ({ project }: { project: Project }) => {
+  const projectUrl = project.url || `/projects/${project.slug}`;
+  const techStack = project.techStack || project.technologies || [];
+
+  return (
+    <Card hover="border" className="h-full flex flex-col">
+      <CardHeader className="pb-4">
+        <ProjectHeader name={project.name} title={project.title} url={projectUrl} />
+      </CardHeader>
+      <CardContent className="flex-1 pb-6">
+        <p className="text-abyss-100 mb-4 leading-relaxed">{project.description}</p>
+
+        {techStack.length > 0 && (
+          <div>
+            <h4 className="text-sm font-semibold text-abyss-200 mb-3">Technologies:</h4>
+            <div className="flex flex-wrap gap-2">
+              {renderTechStack(techStack)}
+            </div>
+          </div>
+        )}
+      </CardContent>
+      <CardFooter className="pt-0 pb-6 mt-auto">
+        <ProjectActions
+          github={project.github}
+          demo={project.demo}
+          url={projectUrl}
+        />
+      </CardFooter>
+    </Card>
+  );
+};
 
 // Create the variant renderer
 const renderProjectCard = createVariantRenderer<{ project: Project }, 'default' | 'compact' | 'featured'>({

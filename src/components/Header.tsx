@@ -1,102 +1,63 @@
-'use client';
+import { Link, useLocation } from 'react-router-dom'
+import { cn } from '../lib/utils'
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Articles', href: '/posts' },
+  { name: 'Search', href: '/search' },
+]
 
-const Header = () => {
-  const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Use CSS to handle body scroll locking through data attribute
-  useEffect(() => {
-    document.documentElement.setAttribute('data-mobile-menu-open', String(isMobileMenuOpen));
-    return () => {
-      document.documentElement.removeAttribute('data-mobile-menu-open');
-    };
-  }, [isMobileMenuOpen]);
-
-  const isActive = (path: string) => {
-    return pathname === path ? 'bg-blue-700' : '';
-  };
-
-  const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(prev => !prev);
-  }, []);
-
-  const closeMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(false);
-  }, []);
-
-  const navLinks = useMemo(() => [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/posts', label: 'Articles' },
-    { href: '/categories', label: 'Categories' },
-    { href: '/search', label: 'Search' }
-  ], []);
+export function Header() {
+  const location = useLocation()
 
   return (
-    <header className="bg-blue-600 text-white py-4">
+    <header className="sticky top-0 z-50 w-full bg-[#0a2342]/80 backdrop-blur-lg border-b border-gray-800/50">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex w-full justify-between items-center">
-            <h1 className="text-2xl font-bold">
-              <Link href="/" className="hover:text-blue-200">
-                Angel Ortega-Melton&apos;s Portfolio
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="font-bold text-xl text-bitcoin-primary">
+            Angleito's Portfolio
+          </Link>
+          
+          <nav className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={cn(
+                  "text-sm font-medium transition-colors relative",
+                  location.pathname === item.href
+                    ? "text-bitcoin-primary"
+                    : "text-gray-300 hover:text-white"
+                )}
+              >
+                {item.name}
+                {location.pathname === item.href && (
+                  <span className="absolute -bottom-[1.25rem] left-0 right-0 h-[2px] bg-bitcoin-primary" />
+                )}
               </Link>
-            </h1>
-
-            {/* Hamburger Menu Button */}
-            <button
-              aria-label="Menu"
-              className="md:hidden z-50 relative"
-              onClick={toggleMobileMenu}
-            >
-              <div className="space-y-2">
-                <div className={`w-6 h-0.5 bg-white transition transform ${isMobileMenuOpen ? 'rotate-45 translate-y-2.5' : ''}`}></div>
-                <div className={`w-6 h-0.5 bg-white transition ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`w-6 h-0.5 bg-white transition transform ${isMobileMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></div>
-              </div>
-            </button>
-          </div>
-
-          <nav
-            className={`
-              ${isMobileMenuOpen ? 'block' : 'hidden'}
-              md:block
-              fixed md:static
-              top-0 left-0 w-full md:w-auto
-              bg-blue-600 md:bg-transparent
-              h-full md:h-auto
-              pt-20 md:pt-0
-              z-40 md:z-auto
-            `}
-          >
-            <ul className="flex flex-col md:flex-row gap-4 items-center">
-              {navLinks.map((link) => (
-                <li key={link.href} className="w-full md:w-auto text-center">
-                  <Link
-                    href={link.href}
-                    className={`
-                      block md:inline-block
-                      px-3 py-2 rounded
-                      hover:bg-blue-700 transition
-                      ${isActive(link.href)}
-                    `}
-                    onClick={closeMobileMenu}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            ))}
           </nav>
+
+          {/* Mobile menu button */}
+          <button className="md:hidden p-2 text-gray-300 hover:text-white">
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
-  );
-};
-
-export default Header;
+  )
+}

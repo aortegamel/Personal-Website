@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bitcoin-500 disabled:opacity-50 disabled:pointer-events-none',
@@ -39,16 +39,26 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, href, external, children, ...props }, ref) => {
+    const classes = cn(buttonVariants({ variant, size, className }));
+    
     if (href) {
-      const linkProps = external
-        ? { target: '_blank', rel: 'noopener noreferrer' }
-        : {};
+      if (external || href.startsWith('http')) {
+        return (
+          <a
+            href={href}
+            className={classes}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {children}
+          </a>
+        );
+      }
       
       return (
         <Link
-          href={href}
-          className={cn(buttonVariants({ variant, size, className }))}
-          {...linkProps}
+          to={href}
+          className={classes}
         >
           {children}
         </Link>
@@ -57,7 +67,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     
     return (
       <button
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={classes}
         ref={ref}
         {...props}
       >

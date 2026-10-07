@@ -1,7 +1,4 @@
-'use client';
-
 import React, { useRef, useEffect } from 'react';
-import { cn } from '@/lib/utils';
 
 interface ParticleField {
   canvas: HTMLCanvasElement;
@@ -38,7 +35,7 @@ export function ParticleCTA({
   particleCount = 50,
   connectionDistance = 150,
   mouseRadius = 100,
-  particleColors = ['#ffc300', '#ffdb66', '#0073e6', '#338fff']
+  particleColors = ['#fbbf24', '#fcd34d', '#0073e6', '#338fff']
 }: ParticleCTAProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const fieldRef = useRef<ParticleField | null>(null);
@@ -219,7 +216,7 @@ export function ParticleCTA({
   }, [particleCount, connectionDistance, mouseRadius, particleColors]);
 
   return (
-    <div ref={containerRef} className={cn('relative', className)}>
+    <div ref={containerRef} className={`relative ${className || ''}`}>
       <div className="relative z-10">
         {children}
       </div>
