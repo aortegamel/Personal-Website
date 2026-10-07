@@ -1,13 +1,13 @@
-// Prerender: reads real markdown from src/content, emits one SEO-complete
-// static HTML file per route into dist/. Runs AFTER `vite build` and injects
-// the hashed bundle so crawlers get content and visitors get the SPA.
+// Prerender: reads real project markdown from src/content, emits one
+// SEO-complete static HTML file per route into dist/. Runs AFTER
+// `vite build` and injects the hashed bundle so crawlers get content
+// and visitors get the SPA.
 import matter from 'gray-matter'
 import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 const SITE_URL = process.env.SITE_URL ?? 'https://angleito.github.io'
 const DIST = path.join(process.cwd(), 'dist')
-const POSTS_DIR = path.join(process.cwd(), 'src', 'content', 'posts')
 const PROJECTS_DIR = path.join(process.cwd(), 'src', 'content', 'projects')
 
 interface Route {
@@ -44,10 +44,8 @@ function mdToHtml(md: string): string {
   const out: string[] = []
   const lines = md.replace(/^---\n[\s\S]*?\n---\n/, '').split('\n')
   let i = 0
-  let inList = false
   let inCode = false
   let codeBuf: string[] = []
-  const closeList = (): string => (inList ? ((inList = false), '</ul>') : '')
   while (i < lines.length) {
     const line = lines[i]
     if (/^```/.test(line)) {
@@ -56,7 +54,6 @@ function mdToHtml(md: string): string {
         codeBuf = []
         inCode = false
       } else {
-        out.push(closeList())
         inCode = true
       }
       i++
@@ -69,7 +66,7 @@ function mdToHtml(md: string): string {
     }
     const heading = line.match(/^(#{1,6})\s+(.*)/)
     if (heading) {
-      out.push(closeList() + `<h${heading[1].length}>${mdInline(heading[2])}</h${heading[1].length}>`)
+      out.push(`<h${heading[1].length}>${mdInline(heading[2])}</h${heading[1].length}>`)
       i++
       continue
     }
@@ -79,33 +76,22 @@ function mdToHtml(md: string): string {
         items.push(`<li>${mdInline(lines[i].replace(/^\s*[-*]\s+/, ''))}</li>`)
         i++
       }
-      out.push(`${inList ? '' : '<ul>'}${items.join('')}${inList ? '' : '</ul>'}`)
-      inList = false
+      out.push(`<ul>${items.join('')}</ul>`)
       continue
     }
     if (/^\s*$/.test(line)) {
-      out.push(closeList())
       i++
       continue
     }
     if (/^>/.test(line)) {
-      out.push(closeList() + `<blockquote><p>${mdInline(line.replace(/^>\s?/, ''))}</p></blockquote>`)
+      out.push(`<blockquote><p>${mdInline(line.replace(/^>\s?/, ''))}</p></blockquote>`)
       i++
       continue
     }
-    out.push(closeList() + `<p>${mdInline(line)}</p>`)
+    out.push(`<p>${mdInline(line)}</p>`)
     i++
   }
-  out.push(closeList())
   return out.filter(Boolean).join('\n')
-}
-
-function mdToText(md: string): string {
-  return md
-    .replace(/^#{1,6}\s+.*$/gm, '')
-    .replace(/[*_`>|[\]()!-]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
 }
 
 function shell(route: Route, assets: { js: string; css: string }): string {
@@ -148,28 +134,13 @@ ${assets.css ? `<link rel="stylesheet" href="${assets.css}">` : ''}
 </html>`
 }
 
-function excerptOf(data: Record<string, unknown>, content: string): string {
-  if (typeof data.excerpt === 'string') return data.excerpt
-  if (typeof data.description === 'string') return data.description
-  return mdToText(content).slice(0, 160)
+function card(title: string, description: string, href: string): string {
+  return `<article><h2><a href="${href}">${esc(title)}</a></h2><p>${esc(description)}</p></article>`
 }
 
-function isoDate(value: unknown): string | undefined {
-  if (!value) return undefined
-  const d = new Date(value as string)
-  return Number.isNaN(+d) ? undefined : d.toISOString().split('T')[0]
-}
-
-function card(title: string, description: string, href: string, meta: string): string {
-  return `<article><h2><a href="${href}">${esc(title)}</a></h2><p>${esc(description)}</p><p>${esc(meta)}</p></article>`
-}
-
-function postSlug(filename: string): string {
-  const base = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '')
-  return base === '-project-journal' ? `${base}-${filename.slice(0, 10)}` : base
-}
-
-async function readMd(dir: string): Promise<{ file: string; data: Record<string, unknown>; content: string }[]> {
+async function readMd(
+  dir: string,
+): Promise<{ file: string; data: Record<string, unknown>; content: string }[]> {
   const files = (await readdir(dir)).filter((f: string) => f.endsWith('.md')).sort()
   return Promise.all(
     files.map(async (file: string) => {
@@ -181,16 +152,15 @@ async function readMd(dir: string): Promise<{ file: string; data: Record<string,
 }
 
 async function buildRoutes(): Promise<Route[]> {
-  const [posts, projects] = await Promise.all([readMd(POSTS_DIR), readMd(PROJECTS_DIR)])
+  const projects = await readMd(PROJECTS_DIR)
   const routes: Route[] = [
     {
       path: '/',
       file: 'index.html',
       title: 'Angel Ortega-Melton — Portfolio',
-      description:
-        'Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects plus technical articles.',
+      description: 'Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.',
       type: 'website',
-      body: `<h1>Angel Ortega-Melton</h1><p>Exploring technology, sharing insights, and showcasing projects in DeFi, AI, and blockchain.</p><nav><a href="/projects">Projects</a> <a href="/posts">Articles</a> <a href="/about">About</a></nav>`,
+      body: `<h1>Angel Ortega-Melton</h1><p>Exploring technology and showcasing projects in DeFi, AI, and blockchain.</p><nav><a href="/projects">Projects</a> <a href="/about">About</a></nav>`,
     },
     {
       path: '/about',
@@ -200,24 +170,6 @@ async function buildRoutes(): Promise<Route[]> {
         'Software engineer focused on blockchain, DeFi protocols, and full-stack web applications.',
       type: 'website',
       body: `<h1>About</h1><p>Software engineer passionate about blockchain technology, DeFi protocols, and building innovative web applications.</p>`,
-    },
-    {
-      path: '/posts',
-      file: 'posts/index.html',
-      title: 'Articles — Angel Ortega-Melton',
-      description: 'Technical articles on crypto, economics, AI, and development.',
-      type: 'website',
-      body: `<h1>Articles</h1>${posts
-        .map((p) => {
-          const slug = postSlug(p.file)
-          return card(
-            String(p.data.title ?? slug),
-            excerptOf(p.data, p.content),
-            `/posts/${slug}`,
-            isoDate(p.data.date) ?? '',
-          )
-        })
-        .join('')}`,
     },
     {
       path: '/projects',
@@ -232,26 +184,11 @@ async function buildRoutes(): Promise<Route[]> {
             String(p.data.name ?? p.data.title ?? slug),
             String(p.data.description ?? ''),
             `/projects/${slug}`,
-            '',
           )
         })
         .join('')}`,
     },
   ]
-  for (const p of posts) {
-    const slug = postSlug(p.file)
-    const title = String(p.data.title ?? slug)
-    const description = excerptOf(p.data, p.content)
-    routes.push({
-      path: `/posts/${slug}`,
-      file: `posts/${slug}/index.html`,
-      title: `${title} — Angel Ortega-Melton`,
-      description,
-      type: 'article',
-      date: isoDate(p.data.date),
-      body: `<nav><a href="/posts">← Articles</a></nav><article><h1>${esc(title)}</h1><p>${esc(description)}</p>${mdToHtml(p.content)}</article>`,
-    })
-  }
   for (const p of projects) {
     const slug = p.file.replace(/\.md$/, '')
     const title = String(p.data.name ?? p.data.title ?? slug)

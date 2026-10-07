@@ -5,8 +5,6 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Projects', href: '/projects' },
-  { name: 'Articles', href: '/posts' },
-  { name: 'Search', href: '/search' },
 ]
 
 export function Header() {
@@ -19,7 +17,7 @@ export function Header() {
           <Link to="/" className="font-bold text-xl text-bitcoin-primary">
             Angleito's Portfolio
           </Link>
-          
+
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
