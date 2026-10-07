@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '../lib/utils'
+import { site } from '../site'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -15,7 +16,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="font-bold text-xl text-bitcoin-primary">
-            Angleito's Portfolio
+            {site.shortName}'s Portfolio
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">

@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { site } from '../site'
 
 export function Footer() {
   return (
@@ -6,12 +7,12 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-gray-400 mb-4 md:mb-0">
-            © 2025 Angleito. All rights reserved.
+            © {new Date().getFullYear()} {site.shortName}. All rights reserved.
           </div>
-          
+
           <div className="flex space-x-4">
             <a
-              href="https://github.com/angleito"
+              href={site.social.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-bitcoin-primary transition-colors"
@@ -20,7 +21,7 @@ export function Footer() {
               <FaGithub className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/angelortegamelton"
+              href={site.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-bitcoin-primary transition-colors"
@@ -29,7 +30,7 @@ export function Footer() {
               <FaLinkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com/angleito5"
+              href={site.social.twitter}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-bitcoin-primary transition-colors"
