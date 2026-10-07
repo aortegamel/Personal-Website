@@ -23,10 +23,10 @@
   --ocean-primary-light: #338fff;
 
   /* Bitcoin Accent Colors */
-  --bitcoin-primary: #ffc300;
-  --bitcoin-primary-hover: #cc9c00;
-  --bitcoin-primary-active: #997500;
-  --bitcoin-primary-light: #ffdb66;
+  --bitcoin-primary: #fbbf24;
+  --bitcoin-primary-hover: #f59e0b;
+  --bitcoin-primary-active: #d97706;
+  --bitcoin-primary-light: #fcd34d;
 
   /* Tertiary Accent Colors */
   --accent-cyan: #00f5ff;

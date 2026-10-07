@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -251,7 +251,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    function ({ addUtilities, addComponents, theme }) {
+    function({ addUtilities, addComponents, theme }) {
       const newUtilities = {
         // Gradient text utilities
         '.text-gradient-abyss': {
