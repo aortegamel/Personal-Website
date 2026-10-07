@@ -6,7 +6,8 @@ import matter from 'gray-matter'
 import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
-const SITE_URL = process.env.SITE_URL ?? 'https://angleito.github.io'
+const SITE_URL = process.env.SITE_URL ?? ''
+if (!SITE_URL) throw new Error('SITE_URL is required: copy .env.example to .env and set your domain')
 const DIST = path.join(process.cwd(), 'dist')
 const PROJECTS_DIR = path.join(process.cwd(), 'src', 'content', 'projects')
 
