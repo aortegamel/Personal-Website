@@ -1,5 +1,4 @@
-/* Cloudflare Pages SPA fallback: prerendered /posts/* and /projects/*
-paths serve their own index.html first; everything else boots the SPA. */
-/posts/* /posts/index.html 200
-/projects/* /projects/index.html 200
+/* Cloudflare Pages SPA fallback. Prerendered paths (/posts/*,
+/projects/*, /about) serve their own index.html files directly;
+only unknown routes boot the SPA shell. */
 /* /index.html 200
