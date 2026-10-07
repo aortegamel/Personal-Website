@@ -6,7 +6,7 @@ import matter from 'gray-matter'
 import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
-const SITE_URL = process.env.SITE_URL ?? 'https://aortegamel.github.io/Personal-Website'
+const SITE_URL = process.env.SITE_URL ?? 'https://angleito.github.io'
 const DIST = path.join(process.cwd(), 'dist')
 const PROJECTS_DIR = path.join(process.cwd(), 'src', 'content', 'projects')
 
