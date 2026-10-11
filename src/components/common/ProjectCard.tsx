@@ -102,7 +102,7 @@ const CompactProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <article className="border-b border-abyss-700/30 pb-4 mb-4 last:border-0 last:mb-0 last:pb-0">
-      <h3 className="text-lg font-bold mb-1 font-montserrat break-words">
+      <h3 className="text-lg font-bold mb-1 font-display break-words">
         <Link to={projectUrl} className="abyss-link hover:text-bitcoin-400 transition-colors">
           {project.name || project.title}
         </Link>

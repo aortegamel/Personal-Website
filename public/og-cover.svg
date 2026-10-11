@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a2342"/>
+      <stop offset="100%" stop-color="#001f3f"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="38%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#fff9e6"/>
+      <stop offset="35%" stop-color="#ffc300"/>
+      <stop offset="70%" stop-color="#05668d"/>
+      <stop offset="100%" stop-color="#001f3f"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="960" cy="315" r="190" fill="url(#orb)" opacity="0.9"/>
+  <text x="80" y="290" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Angel Ortega-Melton</text>
+  <text x="80" y="360" font-family="Inter, system-ui, sans-serif" font-size="36" fill="#ffc300">DeFi, AI, and blockchain projects</text>
+</svg>

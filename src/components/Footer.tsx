@@ -15,7 +15,7 @@ export function Footer() {
               href={site.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-bitcoin-primary transition-colors"
+              className="text-gray-400 hover:text-bitcoin-500 transition-colors"
               aria-label="GitHub"
             >
               <FaGithub className="h-5 w-5" />
@@ -24,7 +24,7 @@ export function Footer() {
               href={site.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-bitcoin-primary transition-colors"
+              className="text-gray-400 hover:text-bitcoin-500 transition-colors"
               aria-label="LinkedIn"
             >
               <FaLinkedin className="h-5 w-5" />
@@ -33,7 +33,7 @@ export function Footer() {
               href={site.social.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-bitcoin-primary transition-colors"
+              className="text-gray-400 hover:text-bitcoin-500 transition-colors"
               aria-label="Twitter"
             >
               <FaTwitter className="h-5 w-5" />

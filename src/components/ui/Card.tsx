@@ -30,7 +30,7 @@ const cardVariants = cva(
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardVariants> {}
+  VariantProps<typeof cardVariants> { }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, hover, ...props }, ref) => {
@@ -65,7 +65,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn('text-xl font-bold font-montserrat tracking-tight', className)}
+    className={cn('text-xl font-bold font-display tracking-tight', className)}
     {...props}
   />
 ));

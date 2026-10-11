@@ -4,6 +4,7 @@
 export const site = {
   name: 'Angel Ortega-Melton',
   shortName: 'Angel Ortega-Melton',
+  url: 'https://angelortegamelton.github.io',
   tagline: 'DeFi, AI, and blockchain projects',
   description:
     'Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.',

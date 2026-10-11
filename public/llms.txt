@@ -1,0 +1,18 @@
+# Angel Ortega-Melton — Portfolio
+
+> Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.
+
+## Pages
+
+- [Angel Ortega-Melton — Portfolio](https://angelortegamelton.github.io/): Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.
+- [About — Angel Ortega-Melton](https://angelortegamelton.github.io/about): Software engineer focused on blockchain, DeFi protocols, and full-stack web applications.
+- [Projects — Angel Ortega-Melton](https://angelortegamelton.github.io/projects): All DeFi, AI, and blockchain projects by Angel Ortega-Melton.
+- [Single Agent Trader: AI-Powered Cryptocurrency Trading Platform](https://angelortegamelton.github.io/projects/singleagenttrader): AI crypto trading system using Claude for chart analysis and automated trading on Bluefin.
+- [NyxUSD: Decentralized Stablecoin Protocol](https://angelortegamelton.github.io/projects/nyxusd): Next-generation decentralized stablecoin protocol with algorithmic stability and capital-efficient collateralization.
+- [QwenSuiCoder](https://angelortegamelton.github.io/projects/qwensuicoder): End-to-end LLM benchmarking and training framework for Sui blockchain development.
+
+## Contact
+
+- Email: contact@angelortegamelton.dev
+- GitHub: https://github.com/angelortegamelton
+- LinkedIn: https://linkedin.com/in/angelortegamelton
