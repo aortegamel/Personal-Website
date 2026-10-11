@@ -27,18 +27,20 @@ interface Route {
 const esc = (s: string): string =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
-async function builtAssets(): Promise<{ js: string; css: string }> {
+async function builtAssets(): Promise<{ js: string; css: string; fonts: string }> {
   // Read the entry from Vite's own index.html (emitted before prerender
   // overwrites it). Picking the largest .js would grab a lazy chunk
   // instead of the app entry and break hydration.
   const html = await readFile(path.join(DIST, 'index.html'), 'utf8')
   const js = html.match(/<script type="module"[^>]*src="([^"]+)"/)?.[1]
-  const css = html.match(/<link rel="stylesheet"[^>]*href="([^"]+)"/)?.[1] ?? ''
+  const styles = [...html.matchAll(/<link rel="stylesheet"[^>]*href="([^"]+)"/g)].map(m => m[1])
+  const css = styles.find(href => href.includes('/assets/')) ?? ''
+  const fonts = styles.find(href => !href.includes('/assets/')) ?? ''
   if (!js) throw new Error('no entry script in dist/index.html')
-  return { js, css }
+  if (!css) throw new Error('no app css in dist/index.html')
+  return { js, css, fonts }
 }
-
-function shell(route: Route, assets: { js: string; css: string }): string {
+function shell(route: Route, assets: { js: string; css: string; fonts: string }): string {
   const url = `${SITE_URL}${route.path}`
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -75,6 +77,7 @@ ${route.keywords?.length ? `<meta name="keywords" content="${esc(route.keywords.
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 ${assets.css ? `<link rel="stylesheet" href="${assets.css}">` : ''}
+${assets.fonts ? `<link rel="stylesheet" href="${assets.fonts}">` : ''}
 </head>
 <body>
 <div id="root"><main>${route.body}</main></div>
