@@ -38,6 +38,28 @@ html[data-mobile-menu-open="true"] body {
   }
 }
 
+/* Hancore-style highlight: gold-on-abyss selection, static focus glow, and gold-on-abyss styling for
+   the single word under a mouse/pen pointer (Range registered as `hovered-word` in Layout.tsx). No motion, no layout shift. */
+::selection {
+  color: var(--bitcoin-primary-light);
+  background-color: var(--abyss-blue);
+  text-shadow: 0 0 6px rgb(251 191 36 / 0.45);
+}
+
+/* Explicit color + text-fill keep the word legible on bg-clip-text gradient headings and gold-filled buttons. */
+::highlight(hovered-word) {
+  color: var(--bitcoin-primary-light);
+  -webkit-text-fill-color: var(--bitcoin-primary-light);
+  background-color: var(--abyss-blue);
+  text-shadow: 0 0 6px rgb(251 191 36 / 0.45);
+}
+
+:is(a, button):focus-visible {
+  outline: 2px solid var(--bitcoin-primary);
+  outline-offset: 3px;
+  text-shadow: 0 0 8px currentColor;
+}
+
 /* Custom component classes */
 @layer components {
   /* Card Components - Enhanced with modern glass morphism */

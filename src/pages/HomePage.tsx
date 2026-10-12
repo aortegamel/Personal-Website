@@ -4,7 +4,7 @@ import { ProjectCard } from '../components/common/ProjectCard';
 import { getAllProjects } from '../lib/content';
 import type { ContentMeta } from '../types/content';
 import ParticleButton from '../components/ParticleButton';
-import { CompassOrb } from '../components/CompassOrb';
+import { AbyssOrb } from '../components/AbyssOrb';
 import { ParticleCTA } from '../components/ui/particle-cta';
 import { Seo } from '../components/Seo';
 import { site } from '../site';
@@ -53,9 +53,9 @@ export function HomePage() {
       />
       <section className="mb-16">
         <ParticleCTA className="rounded-2xl overflow-hidden">
-          <CompassOrb className="right-6 top-6 hidden h-28 w-28 md:block lg:h-36 lg:w-36" />
+          <AbyssOrb className="right-6 top-4 hidden h-[88px] w-[150px] md:block lg:h-[106px] lg:w-[180px]" />
           <div className="p-8 md:p-12">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-8 abyss-gradient-text">{site.name}</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-8 abyss-gradient-text md:pr-40 lg:pr-48 xl:pr-0">{site.name}</h1>
             <p className="text-xl text-abyss-200 max-w-3xl mb-6">
               Exploring {site.tagline} — technology, insights, and projects that push the boundaries of innovation.
             </p>
