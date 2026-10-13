@@ -220,7 +220,7 @@ export function AboutPage() {
                     <ul className="space-y-2 text-abyss-300">
                       <li>• Best Technical Implementation, Walrus Haulout Hackathon 2025, one of three winners from hundreds of entries across 27 countries</li>
                       <li>• Sole creator of S.O.N.A.R., a privacy-focused audio marketplace on Sui</li>
-                      <li>• Shipped open-source Stockbot and GameIntel with verifiable, provenance-backed data</li>
+                      <li>• Shipped open-source Stockbot with verifiable, provenance-backed data</li>
                       <li>• Built inventory-routing workflows at Amazon that cut errors</li>
                     </ul>
                   </div>

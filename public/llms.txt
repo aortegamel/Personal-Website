@@ -9,7 +9,7 @@
 - [Projects | Angel Ortega-Melton](https://angelortegamelton.github.io/projects): AI-integrated applications, agent tooling, and data pipelines by Angel Ortega-Melton.
 - [Project S.O.N.A.R.: privacy-focused audio marketplace on Sui](https://angelortegamelton.github.io/projects/sonar): Privacy-focused audio marketplace on Sui (Walrus, Seal, Nautilus) with quality-verified files and secure access after purchase.
 - [Stockbot: local-first AI investment research](https://angelortegamelton.github.io/projects/stockbot): Local-first AI investment research giving individual investors hedge-fund-style infrastructure: kernel-scheduled agent loop, 224 deterministic equity calculations, scheduled market watches, Vite trading terminal, SEC EDGAR, FINRA, 13F, point-in-time known_at handling, provenance, and DuckDB over Parquet.
-- [GameIntel: evidence-aware source intelligence](https://angelortegamelton.github.io/projects/gameintel): Evidence-aware source intelligence with claims provenance, policy gates, and human review; TypeScript/Bun monorepo with PostgreSQL, Hono APIs, Dockerized workers, and versioned JSON artifacts.
+- [JunkFortress: physics-driven browser game](https://angelortegamelton.github.io/projects/junkfortress): Physics-driven browser game built with TypeScript, Phaser 3, Matter.js, and Vite. Build a junk fortress with supports and chains, then defend its core against armed zombies; wood absorbs bullets and metal ricochets turn zombie fire back on the horde.
 
 ## Contact
 
