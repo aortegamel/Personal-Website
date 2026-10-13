@@ -7,7 +7,7 @@ import { Seo } from '../components/Seo'
 import { site } from '../site'
 import { ParticleCTA } from '../components/ui/particle-cta'
 
-const TITLE = `Projects — ${site.name}`
+const TITLE = `Projects | ${site.name}`
 const DESCRIPTION = `All ${site.tagline} by ${site.name}.`
 
 export function ProjectsPage() {
@@ -23,8 +23,14 @@ export function ProjectsPage() {
   useEffect(() => {
     getAllProjects()
       .then((allProjects) => {
-        setProjects(allProjects)
-        setFilteredProjects(allProjects)
+        // Stockbot first, then other featured, then the rest (matches home)
+        const ordered = [...allProjects].sort(
+          (a, b) =>
+            (a.slug === 'stockbot' ? 0 : a.featured ? 1 : 2) -
+            (b.slug === 'stockbot' ? 0 : b.featured ? 1 : 2)
+        );
+        setProjects(ordered)
+        setFilteredProjects(ordered)
       })
       .finally(() => setLoading(false))
   }, [])
@@ -88,7 +94,7 @@ export function ProjectsPage() {
               All Projects
             </h1>
             <p className="text-xl text-abyss-200 max-w-3xl mx-auto">
-              A collection of my work in blockchain, DeFi, and web development
+              AI-integrated applications, agent tooling, and data pipelines
             </p>
           </div>
 
@@ -193,7 +199,27 @@ export function ProjectsPage() {
                         </div>
                       )}
 
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="abyss-button"
+                          >
+                            View Code
+                          </a>
+                        )}
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="abyss-button"
+                          >
+                            {project.demoLabel || 'Live Demo'}
+                          </a>
+                        )}
                         <Link
                           to={`/projects/${project.slug}`}
                           className="abyss-button"
@@ -203,11 +229,18 @@ export function ProjectsPage() {
                       </div>
                     </div>
 
-                    {project.featured && (
-                      <div className="mt-4">
-                        <span className="badge badge-ocean">
-                          Featured Project
-                        </span>
+                    {(project.featured || project.award) && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {project.featured && (
+                          <span className="badge badge-ocean">
+                            Featured Project
+                          </span>
+                        )}
+                        {project.award && (
+                          <span className="badge badge-bitcoin">
+                            {project.award}
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>

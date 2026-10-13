@@ -9,7 +9,7 @@ export function NotFoundPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <Seo
-        title={`Page Not Found — ${site.name}`}
+        title={`Page Not Found | ${site.name}`}
         description="The requested page does not exist."
         path={location.pathname}
         noindex

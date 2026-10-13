@@ -12,7 +12,7 @@ import { site } from '../site';
 const HOME_JSONLD = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: `${site.name} — Portfolio`,
+  name: `${site.name} | Portfolio`,
   description: site.description,
   author: { '@type': 'Person', name: site.name },
 };
@@ -24,10 +24,10 @@ export function HomePage() {
   useEffect(() => {
     getAllProjects()
       .then(allProjects => {
-        // Show featured projects first, then others
-        const featured = allProjects.filter(p => p.featured);
-        const nonFeatured = allProjects.filter(p => !p.featured);
-        setProjects([...featured, ...nonFeatured]);
+        // Stockbot first, then other featured, then the rest
+        const byPriority = (p: ContentMeta) =>
+          p.slug === 'stockbot' ? 0 : p.featured ? 1 : 2;
+        setProjects([...allProjects].sort((a, b) => byPriority(a) - byPriority(b)));
       })
       .finally(() => setLoading(false));
   }, []);
@@ -46,7 +46,7 @@ export function HomePage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <Seo
-        title={`${site.name} — Portfolio`}
+        title={`${site.name} | Portfolio`}
         description={site.description}
         path="/"
         jsonLd={HOME_JSONLD}
@@ -57,10 +57,10 @@ export function HomePage() {
           <div className="p-8 md:p-12">
             <h1 className="text-4xl sm:text-5xl font-bold mb-8 abyss-gradient-text md:pr-40 lg:pr-48 xl:pr-0">{site.name}</h1>
             <p className="text-xl text-abyss-200 max-w-3xl mb-6">
-              Exploring {site.tagline} — technology, insights, and projects that push the boundaries of innovation.
+              Exploring {site.tagline}: technology, insights, and projects that push the boundaries of innovation.
             </p>
             <p className="text-lg text-abyss-300 max-w-4xl mb-8">
-              I am a finance major and self-taught programmer who has mastered AI agentic coding tools like Claude Code, Aider, GitHub Copilot, and Cursor. These powerful AI assistants have accelerated my learning journey and development capabilities, allowing me to build sophisticated projects efficiently. With experience in Python, JavaScript, and web development, I leverage AI to create innovative solutions with modern technologies. My background in finance combined with my self-taught technical skills enables me to tackle complex problems and deliver impactful software. I'm passionate about pushing the boundaries of what's possible when human creativity meets AI collaboration.
+              I&apos;m a software engineer building AI-integrated applications, agent tooling, and data pipelines. Winner of Best Technical Implementation at the Walrus Haulout Hackathon 2025, I ship full-stack fast and ground AI output in verifiable data.
             </p>
             <div className="flex gap-4 flex-wrap">
               <ParticleButton className="bitcoin-button-magnetic">
@@ -84,12 +84,12 @@ export function HomePage() {
                 Featured Projects
               </h2>
               <p className="text-xl text-abyss-200 max-w-3xl mx-auto leading-relaxed">
-                Innovative solutions leveraging cutting-edge technologies in DeFi, AI, and blockchain development.
+                Innovative solutions in AI-integrated applications, agent tooling, and data pipelines.
               </p>
             </div>
 
             <div className="space-y-12">
-              {/* Featured project - Single Agent Trader */}
+              {/* Featured project */}
               {projects.length > 0 && (
                 <div className="transform transition-all duration-500 hover:scale-[1.02] animate-fade-in-up">
                   <ProjectCard
@@ -104,7 +104,7 @@ export function HomePage() {
                 </div>
               )}
 
-              {/* Grid for remaining projects with NyxUSD prominently displayed */}
+              {/* Grid for remaining projects */}
               <div className="grid md:grid-cols-2 gap-8">
                 {projects.slice(1, 4).map((project, index) => (
                   <div

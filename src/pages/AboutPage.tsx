@@ -15,14 +15,14 @@ export function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <Seo
-        title={`About — ${site.name}`}
-        description="Software engineer focused on blockchain, DeFi protocols, and full-stack web applications."
+        title={`About | ${site.name}`}
+        description="Software engineer building AI-integrated applications, agent tooling, and data pipelines."
         path="/about"
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'AboutPage',
-          headline: `About — ${site.name}`,
-          description: 'Software engineer focused on blockchain, DeFi protocols, and full-stack web applications.',
+          headline: `About | ${site.name}`,
+          description: 'Software engineer building AI-integrated applications, agent tooling, and data pipelines.',
           author: { '@type': 'Person', name: site.name },
         }}
       />
@@ -35,7 +35,7 @@ export function AboutPage() {
                 About {site.shortName}
               </h1>
               <p className="text-xl text-abyss-200 max-w-2xl mx-auto">
-                Software Engineer passionate about blockchain technology, DeFi protocols, and building innovative web applications.
+                Software engineer building AI-integrated applications, agent tooling, and data pipelines.
               </p>
             </div>
 
@@ -65,49 +65,101 @@ export function AboutPage() {
                   <div className="prose prose-lg prose-invert max-w-none">
                     <h2 className="text-3xl font-bold mb-6 text-bitcoin-400">Who I Am</h2>
                     <p className="text-lg leading-relaxed mb-6 text-abyss-200">
-                      I'm a software engineer with a deep passion for blockchain technology and decentralized finance.
-                      My journey in tech began with traditional web development, but I quickly became fascinated by the
-                      potential of blockchain to revolutionize how we think about money, ownership, and trust.
+                      I originally went to UNR to study mechanical engineering after discovering how much I
+                      enjoyed my AP physics class in high school. I loved every second of my engineering
+                      classes: problem solving, the math (which I used to hate), and the process of
+                      understanding how complex systems worked and how to apply them to real life.
                     </p>
 
                     <p className="text-lg leading-relaxed mb-6 text-abyss-200">
-                      Currently, I focus on building DeFi protocols, smart contracts, and full-stack applications that
-                      bridge the gap between traditional finance and the decentralized future. I believe in creating
-                      technology that not only solves real problems but also empowers users to have more control over
-                      their financial lives.
+                      Then the pandemic hit. I felt lost and alone, and spiraled out of college.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      For a while, software engineering remained something I wanted to pursue but kept putting
+                      off. I had always been interested in programming, but I knew people who had been coding
+                      since they were kids, and I convinced myself I was already too far behind.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      In 2024, I finally decided that didn&apos;t matter. I started from the beginning: HTML,
+                      then Python, TypeScript, APIs, databases, and the fundamentals of building software. At
+                      first, progress felt slow. I knew I could understand technical concepts, but I hadn&apos;t
+                      found a way of learning that matched how I naturally think.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      Then I heard about AI. I started using AI as a learning tool. That changed everything.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      For me, it felt like being able to talk to a future version of myself, someone who could
+                      explain a concept from five different angles, answer every follow-up question, and
+                      immediately help me apply what I had learned.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      Not long after, I discovered AI-native development tools like Cursor and began working
+                      with AI directly inside my development environment. That was the point where software
+                      really clicked for me. Suddenly, I could take an idea and turn it into something real.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      Instead of learning concepts in isolation, I could learn by building. Just like in the
+                      engineering classes I fell in love with, I could take these abstract things and see them
+                      work in realtime. I could discover an API and immediately integrate it. When I encountered
+                      an unfamiliar architecture or engineering concept, I could understand it in the context of
+                      a system I was actively working on.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      That feedback loop became addictive.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      Since then, I&apos;ve spent most of my time building, experimenting, breaking things,
+                      rebuilding them, and continually pushing toward more ambitious projects. My interests have
+                      increasingly moved toward AI engineering, agentic systems, structured data, developer
+                      tooling, and designing systems that make LLMs more reliable and useful.
+                    </p>
+
+                    <p className="text-lg leading-relaxed mb-6 text-abyss-200">
+                      What started as learning how to write code became an interest in a much bigger question:
+                      How can we use AI to make individuals capable of building things that previously required
+                      entire teams? That&apos;s the problem space I want to keep exploring.
                     </p>
 
                     <h3 className="text-2xl font-semibold mb-4 text-bitcoin-400">What I Do</h3>
                     <div className="grid md:grid-cols-2 gap-6 mb-8">
                       <div className="abyss-card">
-                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">Blockchain Development</h4>
+                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">AI-Integrated Applications</h4>
                         <p className="text-abyss-300">
-                          Smart contracts, DeFi protocols, and blockchain infrastructure using Solidity,
-                          Rust, and various blockchain platforms including Ethereum and Sui.
+                          Full-stack apps with AI at the core, from privacy-focused marketplaces on Sui to
+                          investment research tools. Every AI claim carries provenance and quality checks.
                         </p>
                       </div>
 
                       <div className="abyss-card">
-                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">Full-Stack Development</h4>
+                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">Agent Tooling</h4>
                         <p className="text-abyss-300">
-                          Modern web applications using React, TypeScript, Node.js, and various databases.
-                          I create seamless user experiences for complex financial applications.
+                          Tool-using agents with structured outputs and prompt pipelines, built on the OpenAI API
+                          and LangChain. Policy gates and human review keep autonomous behavior trustworthy.
                         </p>
                       </div>
 
                       <div className="abyss-card">
-                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">AI Integration</h4>
+                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">Data Pipelines</h4>
                         <p className="text-abyss-300">
-                          Incorporating machine learning and AI into financial applications, from trading
-                          algorithms to intelligent user interfaces that adapt to user behavior.
+                          Point-in-time datasets from SEC EDGAR and FINRA sources, versioned as JSON artifacts
+                          and served through DuckDB over Parquet. Offline pytest suites with pyrefly and ruff gates.
                         </p>
                       </div>
 
                       <div className="abyss-card">
-                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">Technical Writing</h4>
+                        <h4 className="text-xl font-semibold mb-3 text-bitcoin-300">Full-Stack Web</h4>
                         <p className="text-abyss-300">
-                          Sharing knowledge through technical blog posts, documentation, and educational
-                          content about blockchain technology and software development.
+                          TypeScript and React front ends with Hono APIs, PostgreSQL, and Dockerized workers.
+                          PWAs and Astro or Vite sites that ship fast and stay maintainable.
                         </p>
                       </div>
                     </div>
@@ -115,9 +167,10 @@ export function AboutPage() {
                     <h3 className="text-2xl font-semibold mb-4 text-bitcoin-400">Technologies I Work With</h3>
                     <div className="flex flex-wrap gap-3">
                       {[
-                        'Solidity', 'Rust', 'TypeScript', 'React', 'Node.js', 'Python',
-                        'Ethereum', 'Sui', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS',
-                        'Next.js', 'Tailwind CSS', 'GraphQL', 'Web3.js', 'Ethers.js'
+                        'Python', 'TypeScript', 'JavaScript', 'Rust', 'Sui Move', 'React',
+                        'Vite', 'Tailwind CSS', 'Hono', 'Astro', 'OpenAI API', 'LangChain',
+                        'DuckDB', 'Parquet', 'pytest', 'Docker', 'Bun', 'Sui',
+                        'Walrus', 'Seal', 'Nautilus'
                       ].map((tech) => (
                         <span
                           key={tech}
@@ -139,39 +192,25 @@ export function AboutPage() {
                   <div className="space-y-8">
                     <div className="border-l-4 border-bitcoin-500 pl-6">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                        <h3 className="text-xl font-semibold text-bitcoin-300">Senior Blockchain Developer</h3>
-                        <span className="text-abyss-400">2023 - Present</span>
+                        <h3 className="text-xl font-semibold text-bitcoin-300">Lead Software Engineer (Freelance)</h3>
+                        <span className="text-abyss-400">Apr 2025 - Feb 2026</span>
                       </div>
-                      <p className="text-abyss-300 mb-3">DeFi Protocol Development</p>
+                      <p className="text-abyss-300 mb-3">Dreamlit Apps LLC, Remote</p>
                       <p className="leading-relaxed text-abyss-200">
-                        Leading the development of next-generation DeFi protocols with focus on yield optimization,
-                        cross-chain functionality, and user experience. Built several successful protocols that
-                        manage millions in total value locked (TVL).
+                        Built a full-stack dApp environment with TypeScript, React, Sui Move, Walrus storage,
+                        and AI integration. Shipped the S.O.N.A.R. audio marketplace end to end as sole creator.
                       </p>
                     </div>
 
                     <div className="border-l-4 border-abyss-500 pl-6">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                        <h3 className="text-xl font-semibold text-bitcoin-300">Full-Stack Developer</h3>
-                        <span className="text-abyss-400">2021 - 2023</span>
+                        <h3 className="text-xl font-semibold text-bitcoin-300">Warehouse 3rd Shift Supervisor</h3>
+                        <span className="text-abyss-400">Mar 2020 - Dec 2023</span>
                       </div>
-                      <p className="text-abyss-300 mb-3">Fintech Startup</p>
+                      <p className="text-abyss-300 mb-3">Amazon, Reno, NV</p>
                       <p className="leading-relaxed text-abyss-200">
-                        Developed and maintained financial applications serving thousands of users.
-                        Specialized in building secure, scalable systems for payment processing and
-                        financial data analysis.
-                      </p>
-                    </div>
-
-                    <div className="border-l-4 border-abyss-500 pl-6">
-                      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                        <h3 className="text-xl font-semibold text-bitcoin-300">Software Engineer</h3>
-                        <span className="text-abyss-400">2019 - 2021</span>
-                      </div>
-                      <p className="text-abyss-300 mb-3">Tech Consulting</p>
-                      <p className="leading-relaxed text-abyss-200">
-                        Worked with various clients to build custom web applications and mobile apps.
-                        Gained experience across multiple industries and technology stacks.
+                        Coordinated overnight operations and built inventory-routing workflows that cut errors.
+                        Led shift crews through high-volume deadlines with clear handoffs and accountability.
                       </p>
                     </div>
                   </div>
@@ -179,11 +218,10 @@ export function AboutPage() {
                   <div className="abyss-card mt-8">
                     <h3 className="text-xl font-semibold mb-4 text-bitcoin-300">Key Achievements</h3>
                     <ul className="space-y-2 text-abyss-300">
-                      <li>• Built DeFi protocols managing $10M+ in total value locked</li>
-                      <li>• Created automated trading systems with 95%+ uptime</li>
-                      <li>• Open-sourced multiple blockchain tools used by 100+ developers</li>
-                      <li>• Published technical articles reaching 50K+ readers</li>
-                      <li>• Mentored junior developers in blockchain development</li>
+                      <li>• Best Technical Implementation, Walrus Haulout Hackathon 2025, one of three winners from hundreds of entries across 27 countries</li>
+                      <li>• Sole creator of S.O.N.A.R., a privacy-focused audio marketplace on Sui</li>
+                      <li>• Shipped open-source Stockbot and GameIntel with verifiable, provenance-backed data</li>
+                      <li>• Built inventory-routing workflows at Amazon that cut errors</li>
                     </ul>
                   </div>
                 </section>
@@ -197,8 +235,8 @@ export function AboutPage() {
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-6">
                       <p className="text-lg leading-relaxed text-abyss-200">
-                        I'm always interested in discussing new opportunities, innovative projects,
-                        or just chatting about the latest developments in blockchain and web3.
+                        I&apos;m always interested in discussing AI-integrated applications, agent tooling,
+                        data pipelines, and open-source collaboration.
                       </p>
 
                       <div className="space-y-4">
@@ -238,20 +276,6 @@ export function AboutPage() {
                             LinkedIn
                           </a>
                         </div>
-
-                        <div className="flex items-center space-x-3">
-                          <svg className="h-5 w-5 text-bitcoin-500" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                          </svg>
-                          <a
-                            href={site.social.twitter}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="abyss-link"
-                          >
-                            Twitter
-                          </a>
-                        </div>
                       </div>
                     </div>
 
@@ -261,11 +285,10 @@ export function AboutPage() {
                         I'm particularly interested in projects involving:
                       </p>
                       <ul className="space-y-2 text-abyss-300">
-                        <li>• DeFi protocol development</li>
-                        <li>• Cross-chain applications</li>
-                        <li>• AI-powered financial tools</li>
-                        <li>• Open-source blockchain projects</li>
-                        <li>• Educational content creation</li>
+                        <li>• AI-integrated applications</li>
+                        <li>• Agent tooling</li>
+                        <li>• Data pipelines</li>
+                        <li>• Open-source AI and developer tools</li>
                       </ul>
 
                       <div className="mt-6">
@@ -283,7 +306,7 @@ export function AboutPage() {
             </div>
           </div>
         </div>
-      </ParticleCTA>
-    </div>
+      </ParticleCTA >
+    </div >
   )
 }

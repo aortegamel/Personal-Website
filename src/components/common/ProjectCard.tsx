@@ -20,6 +20,8 @@ interface Project {
   features?: string[];
   github?: string;
   demo?: string;
+  demoLabel?: string;
+  award?: string;
   url?: string;
 }
 
@@ -69,11 +71,13 @@ const ProjectFeatures = ({ features, url }: { features: string[]; url: string })
 const ProjectActions = ({
   github,
   demo,
+  demoLabel,
   url,
   size = 'sm'
 }: {
   github?: string;
   demo?: string;
+  demoLabel?: string;
   url: string;
   size?: 'sm' | 'default' | 'lg';
 }) => (
@@ -86,7 +90,7 @@ const ProjectActions = ({
     )}
     {demo && (
       <Button variant="bitcoin" size={size} href={demo} external>
-        Live Demo
+        {demoLabel || 'Live Demo'}
       </Button>
     )}
     <Button variant="default" size={size} href={url}>
@@ -124,6 +128,9 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
   return (
     <Card hover="glow" variant="highlight" className="h-full flex flex-col">
       <CardHeader className="pb-4">
+        {project.award && (
+          <span className="badge badge-bitcoin mb-3 inline-block">{project.award}</span>
+        )}
         <ProjectHeader name={project.name} title={project.title} url={projectUrl} />
       </CardHeader>
       <CardContent className="flex-1 pb-6">
@@ -146,6 +153,7 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
         <ProjectActions
           github={project.github}
           demo={project.demo}
+          demoLabel={project.demoLabel}
           url={projectUrl}
         />
       </CardFooter>
@@ -160,6 +168,9 @@ const DefaultProjectCard = ({ project }: { project: Project }) => {
   return (
     <Card hover="border" className="h-full flex flex-col">
       <CardHeader className="pb-4">
+        {project.award && (
+          <span className="badge badge-bitcoin mb-3 inline-block">{project.award}</span>
+        )}
         <ProjectHeader name={project.name} title={project.title} url={projectUrl} />
       </CardHeader>
       <CardContent className="flex-1 pb-6">
@@ -178,6 +189,7 @@ const DefaultProjectCard = ({ project }: { project: Project }) => {
         <ProjectActions
           github={project.github}
           demo={project.demo}
+          demoLabel={project.demoLabel}
           url={projectUrl}
         />
       </CardFooter>

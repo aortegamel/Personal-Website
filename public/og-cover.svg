@@ -14,5 +14,5 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
   <circle cx="960" cy="315" r="190" fill="url(#orb)" opacity="0.9"/>
   <text x="80" y="290" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Angel Ortega-Melton</text>
-  <text x="80" y="360" font-family="Inter, system-ui, sans-serif" font-size="36" fill="#ffc300">DeFi, AI, and blockchain projects</text>
+  <text x="80" y="360" font-family="Inter, system-ui, sans-serif" font-size="36" fill="#ffc300">AI applications, agent tooling, data pipelines</text>
 </svg>

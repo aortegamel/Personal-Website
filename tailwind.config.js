@@ -54,7 +54,7 @@ module.exports = {
           deep: '#023e73',
           abyss: '#001f3f',
         },
-        // Surface colors with opacity (adapted from nyxusd)
+        // Surface colors with opacity
         surface: {
           50: '#0a2342',
           100: '#084887',

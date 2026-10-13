@@ -1,18 +1,18 @@
-# Angel Ortega-Melton — Portfolio
+# Angel Ortega-Melton | Portfolio
 
-> Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.
+> Portfolio of Angel Ortega-Melton: AI-integrated applications, agent tooling, and data pipelines.
 
 ## Pages
 
-- [Angel Ortega-Melton — Portfolio](https://angelortegamelton.github.io/): Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.
-- [About — Angel Ortega-Melton](https://angelortegamelton.github.io/about): Software engineer focused on blockchain, DeFi protocols, and full-stack web applications.
-- [Projects — Angel Ortega-Melton](https://angelortegamelton.github.io/projects): All DeFi, AI, and blockchain projects by Angel Ortega-Melton.
-- [Single Agent Trader: AI-Powered Cryptocurrency Trading Platform](https://angelortegamelton.github.io/projects/singleagenttrader): AI crypto trading system using Claude for chart analysis and automated trading on Bluefin.
-- [NyxUSD: Decentralized Stablecoin Protocol](https://angelortegamelton.github.io/projects/nyxusd): Next-generation decentralized stablecoin protocol with algorithmic stability and capital-efficient collateralization.
-- [QwenSuiCoder](https://angelortegamelton.github.io/projects/qwensuicoder): End-to-end LLM benchmarking and training framework for Sui blockchain development.
+- [Angel Ortega-Melton | Portfolio](https://angelortegamelton.github.io/): Portfolio of Angel Ortega-Melton: AI-integrated applications, agent tooling, and data pipelines.
+- [About | Angel Ortega-Melton](https://angelortegamelton.github.io/about): Software engineer building AI-integrated applications, agent tooling, and data pipelines.
+- [Projects | Angel Ortega-Melton](https://angelortegamelton.github.io/projects): AI-integrated applications, agent tooling, and data pipelines by Angel Ortega-Melton.
+- [Project S.O.N.A.R.: privacy-focused audio marketplace on Sui](https://angelortegamelton.github.io/projects/sonar): Privacy-focused audio marketplace on Sui (Walrus, Seal, Nautilus) with quality-verified files and secure access after purchase.
+- [Stockbot: local-first AI investment research](https://angelortegamelton.github.io/projects/stockbot): Local-first AI investment research giving individual investors hedge-fund-style infrastructure: kernel-scheduled agent loop, 224 deterministic equity calculations, scheduled market watches, Vite trading terminal, SEC EDGAR, FINRA, 13F, point-in-time known_at handling, provenance, and DuckDB over Parquet.
+- [GameIntel: evidence-aware source intelligence](https://angelortegamelton.github.io/projects/gameintel): Evidence-aware source intelligence with claims provenance, policy gates, and human review; TypeScript/Bun monorepo with PostgreSQL, Hono APIs, Dockerized workers, and versioned JSON artifacts.
 
 ## Contact
 
-- Email: contact@angelortegamelton.dev
-- GitHub: https://github.com/angelortegamelton
-- LinkedIn: https://linkedin.com/in/angelortegamelton
+- Email: aortegamelton@gmail.com
+- GitHub: https://github.com/aortegamel
+- LinkedIn: https://linkedin.com/in/angel-ortega-melton

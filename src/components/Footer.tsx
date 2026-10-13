@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { site } from '../site'
 
 export function Footer() {
@@ -28,15 +28,6 @@ export function Footer() {
               aria-label="LinkedIn"
             >
               <FaLinkedin className="h-5 w-5" />
-            </a>
-            <a
-              href={site.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-bitcoin-500 transition-colors"
-              aria-label="Twitter"
-            >
-              <FaTwitter className="h-5 w-5" />
             </a>
           </div>
         </div>

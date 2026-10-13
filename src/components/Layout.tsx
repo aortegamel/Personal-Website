@@ -62,7 +62,7 @@ export function Layout({ children }: LayoutProps) {
       if (
         !(node instanceof Text) || offset === undefined || !parent ||
         !parent.closest('header, main, footer') || parent.isContentEditable ||
-        parent.closest('input, textarea, select, script, style, [aria-hidden="true"]') ||
+        parent.closest('a, button, input, textarea, select, script, style, [aria-hidden="true"], [role="button"]') ||
         !(event.target instanceof Element) || !event.target.contains(node)
       ) {
         clear()

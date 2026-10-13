@@ -18,6 +18,8 @@ export interface Project {
   content: string
   github?: string
   demo?: string
+  demoLabel?: string
+  award?: string
   featured?: boolean
 }
 
@@ -29,4 +31,8 @@ export interface ContentMeta {
   category?: string
   tags: string[]
   featured?: boolean
+  github?: string
+  demo?: string
+  demoLabel?: string
+  award?: string
 }

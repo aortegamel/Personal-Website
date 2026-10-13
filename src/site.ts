@@ -5,13 +5,12 @@ export const site = {
   name: 'Angel Ortega-Melton',
   shortName: 'Angel Ortega-Melton',
   url: 'https://angelortegamelton.github.io',
-  tagline: 'DeFi, AI, and blockchain projects',
+  tagline: 'AI-integrated applications, agent tooling, and data pipelines',
   description:
-    'Portfolio of Angel Ortega-Melton: DeFi, AI, and blockchain projects.',
-  email: 'contact@angelortegamelton.dev',
+    'Portfolio of Angel Ortega-Melton: AI-integrated applications, agent tooling, and data pipelines.',
+  email: 'aortegamelton@gmail.com',
   social: {
-    github: 'https://github.com/angelortegamelton',
-    linkedin: 'https://linkedin.com/in/angelortegamelton',
-    twitter: 'https://twitter.com/angelortegamelton5',
+    github: 'https://github.com/aortegamel',
+    linkedin: 'https://linkedin.com/in/angel-ortega-melton',
   },
 } as const

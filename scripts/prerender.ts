@@ -64,7 +64,7 @@ function shell(route: Route, assets: { js: string; css: string; fonts: string })
 <meta name="author" content="${esc(site.name)}">
 ${route.keywords?.length ? `<meta name="keywords" content="${esc(route.keywords.join(', '))}">` : ''}
 <meta name="theme-color" content="#0a2342">
-<meta property="og:site_name" content="${esc(`${site.name} — Portfolio`)}">
+<meta property="og:site_name" content="${esc(`${site.name} | Portfolio`)}">
 <meta property="og:title" content="${esc(route.title)}">
 <meta property="og:description" content="${esc(route.description)}">
 <meta property="og:type" content="${route.type}">
@@ -119,11 +119,11 @@ async function buildRoutes(): Promise<Route[]> {
     {
       path: '/',
       file: 'index.html',
-      title: `${site.name} — Portfolio`,
+      title: `${site.name} | Portfolio`,
       description: site.description,
       type: 'website',
-      keywords: ['DeFi', 'AI', 'blockchain', 'portfolio', site.name],
-      body: `<h1>${esc(site.name)}</h1><p>Exploring ${esc(site.tagline)} — technology, insights, and projects that push the boundaries of innovation.</p><h2>Featured Projects</h2>${projects
+      keywords: ['AI-integrated applications', 'agent tooling', 'data pipelines', 'portfolio', site.name],
+      body: `<h1>${esc(site.name)}</h1><p>Exploring ${esc(site.tagline)}: technology, insights, and projects that push the boundaries of innovation.</p><h2>Featured Projects</h2>${projects
         .map((p) => {
           const slug = p.file.replace(/\.md$/, '')
           return card(
@@ -137,21 +137,21 @@ async function buildRoutes(): Promise<Route[]> {
     {
       path: '/about',
       file: 'about/index.html',
-      title: `About — ${site.name}`,
+      title: `About | ${site.name}`,
       description:
-        'Software engineer focused on blockchain, DeFi protocols, and full-stack web applications.',
+        'Software engineer building AI-integrated applications, agent tooling, and data pipelines.',
       type: 'website',
-      keywords: ['blockchain', 'DeFi protocols', 'full-stack', 'Solidity', 'React', 'TypeScript'],
-      body: `<h1>About</h1><p>Software engineer passionate about blockchain technology, DeFi protocols, and building innovative web applications.</p><h2>Who I Am</h2><p>I'm a software engineer with a deep passion for blockchain technology and decentralized finance. My journey in tech began with traditional web development, but I quickly became fascinated by the potential of blockchain to revolutionize how we think about money, ownership, and trust.</p><p>Currently, I focus on building DeFi protocols, smart contracts, and full-stack applications that bridge the gap between traditional finance and the decentralized future.</p><h2>What I Do</h2><ul><li>Blockchain Development: smart contracts, DeFi protocols, Solidity, Rust, Ethereum, Sui</li><li>Full-Stack Development: React, TypeScript, Node.js</li><li>AI Integration: trading algorithms, intelligent interfaces</li><li>Technical Writing: blockchain education and documentation</li></ul><h2>Technologies</h2><p>Solidity, Rust, TypeScript, React, Node.js, Python, Ethereum, Sui, PostgreSQL, MongoDB, Docker, AWS, Next.js, Tailwind CSS, GraphQL, Web3.js, Ethers.js</p><h2>Professional Journey</h2><h3>Senior Blockchain Developer — DeFi Protocol Development (2023 - Present)</h3><p>Leading the development of next-generation DeFi protocols with focus on yield optimization, cross-chain functionality, and user experience. Built several successful protocols that manage millions in total value locked (TVL).</p><h3>Full-Stack Developer — Fintech Startup (2021 - 2023)</h3><p>Developed and maintained financial applications serving thousands of users. Specialized in building secure, scalable systems for payment processing and financial data analysis.</p><h3>Software Engineer — Tech Consulting (2019 - 2021)</h3><p>Worked with various clients to build custom web applications and mobile apps. Gained experience across multiple industries and technology stacks.</p><h3>Key Achievements</h3><ul><li>Built DeFi protocols managing $10M+ in total value locked</li><li>Created automated trading systems with 95%+ uptime</li><li>Open-sourced multiple blockchain tools used by 100+ developers</li><li>Published technical articles reaching 50K+ readers</li><li>Mentored junior developers in blockchain development</li></ul><h2>Get In Touch</h2><p>I'm always interested in discussing new opportunities, innovative projects, or just chatting about the latest developments in blockchain and web3. Particularly interested in DeFi protocol development, cross-chain applications, AI-powered financial tools, open-source blockchain projects, and educational content creation.</p><p>Contact: <a href="mailto:${esc(site.email)}">${esc(site.email)}</a> · <a href="${esc(site.social.github)}">GitHub</a> · <a href="${esc(site.social.linkedin)}">LinkedIn</a></p>`,
+      keywords: ['AI-integrated applications', 'agent tooling', 'data pipelines', 'Python', 'TypeScript', 'React'],
+      body: `<h1>About</h1><p>Software engineer building AI-integrated applications, agent tooling, and data pipelines.</p><h2>Who I Am</h2><p>Software engineer building AI-integrated applications, agent tooling, and data pipelines. Winner of Best Technical Implementation at the Walrus Haulout Hackathon 2025 for Project S.O.N.A.R. Strengths include shipping full-stack features fast and grounding AI output in verifiable data.</p>`,
     },
     {
       path: '/projects',
       file: 'projects/index.html',
-      title: `Projects — ${site.name}`,
+      title: `Projects | ${site.name}`,
       description: `All ${site.tagline} by ${site.name}.`,
       type: 'website',
       keywords: [...new Set(projects.flatMap((p) => tagsOf(p.data)))],
-      body: `<h1>Projects</h1><p>A collection of work in blockchain, DeFi, and web development.</p>${projects
+      body: `<h1>Projects</h1><p>A collection of work in AI-integrated applications, agent tooling, and data pipelines.</p>${projects
         .map((p) => {
           const slug = p.file.replace(/\.md$/, '')
           return card(
@@ -170,7 +170,7 @@ async function buildRoutes(): Promise<Route[]> {
     routes.push({
       path: `/projects/${slug}`,
       file: `projects/${slug}/index.html`,
-      title: `${title} — ${site.name}`,
+      title: `${title} | ${site.name}`,
       description,
       type: 'article',
       date: dateOf(p.data),
@@ -203,7 +203,7 @@ async function main(): Promise<void> {
     `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: CCBot\nAllow: /\n\nUser-agent: anthropic-ai\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n`,
   )
   // llms.txt: plain-markdown index for LLM crawlers (GEO).
-  const llms = `# ${site.name} — Portfolio\n\n> ${site.description}\n\n## Pages\n\n${routes
+  const llms = `# ${site.name} | Portfolio\n\n> ${site.description}\n\n## Pages\n\n${routes
     .map((r) => `- [${r.title}](${SITE_URL}${r.path}): ${r.description}`)
     .join('\n')}\n\n## Contact\n\n- Email: ${site.email}\n- GitHub: ${site.social.github}\n- LinkedIn: ${site.social.linkedin}\n`
   await writeFile(path.join(DIST, 'llms.txt'), llms)

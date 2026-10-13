@@ -40,7 +40,7 @@ export function ProjectPage() {
     return <Navigate to="/404" replace />
   }
 
-  const title = `${project.title} — ${site.name}`
+  const title = `${project.title} | ${site.name}`
   const path = `/projects/${project.slug}`
 
   return (
@@ -84,6 +84,14 @@ export function ProjectPage() {
                     </span>
                   </>
                 )}
+                {project.award && (
+                  <>
+                    <span aria-hidden="true">•</span>
+                    <span className="badge badge-ocean">
+                      {project.award}
+                    </span>
+                  </>
+                )}
               </div>
 
               {project.description && (
@@ -124,7 +132,7 @@ export function ProjectPage() {
                     rel="noopener noreferrer"
                     className="abyss-button inline-flex items-center font-medium"
                   >
-                    Live Demo
+                    {project.demoLabel || 'Live Demo'}
                   </a>
                 )}
               </div>

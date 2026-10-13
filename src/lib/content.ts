@@ -76,6 +76,8 @@ function allProjects(): Project[] {
           content,
           github: data.github as string | undefined,
           demo: (data.demo as string) ?? (data.webpage as string) ?? undefined,
+          demoLabel: data.demo_label as string | undefined,
+          award: data.award as string | undefined,
           featured: (data.featured as boolean) ?? false,
         }
       })
@@ -92,6 +94,10 @@ export async function getAllProjects(): Promise<ContentMeta[]> {
     date: item.date,
     tags: item.tags,
     featured: item.featured,
+    github: item.github,
+    demo: item.demo,
+    demoLabel: item.demoLabel,
+    award: item.award,
     category: undefined,
   }))
 }
