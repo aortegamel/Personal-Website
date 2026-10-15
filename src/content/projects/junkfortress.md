@@ -11,6 +11,7 @@ tech_stack:
   - Vite
   - Vitest
 github: https://github.com/aortegamel/junkfortress
+demo: https://junkfortress.arainey555.workers.dev/
 featured: false
 ---
 
