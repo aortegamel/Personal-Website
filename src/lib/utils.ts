@@ -4,6 +4,8 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs)
 }
 
+// Dates are YYYY-MM-DD, which Date parses as UTC midnight. Formatting in
+// UTC keeps the same calendar day in every visitor and build timezone.
 export function formatDate(date: string): string {
   if (!date) return ''
   const d = new Date(date)
@@ -12,6 +14,7 @@ export function formatDate(date: string): string {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'UTC',
   })
 }
 

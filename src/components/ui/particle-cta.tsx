@@ -60,14 +60,18 @@ export function ParticleCTA({
     canvas.style.zIndex = '1';
     container.appendChild(canvas);
 
+    // The canvas fills the container's padding box at 1 bitmap px per CSS px.
+    // Assigning width/height clears the bitmap, so skip no-op resets.
     const resizeCanvas = () => {
-      const rect = container.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
+      const { clientWidth, clientHeight } = container;
+      if (canvas.width !== clientWidth) canvas.width = clientWidth;
+      if (canvas.height !== clientHeight) canvas.height = clientHeight;
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    // Container size changes (tab toggles, filters) never fire window resize.
+    const ro = new ResizeObserver(resizeCanvas);
+    ro.observe(container);
 
     // Density matches the hero: one dot per ~4500 px², so every section reads
     // as rich as the top of the homepage. Explicit prop overrides auto count.
@@ -249,7 +253,7 @@ export function ParticleCTA({
 
     return () => {
       io.disconnect();
-      window.removeEventListener('resize', resizeCanvas);
+      ro.disconnect();
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
       if (field.animationId) {

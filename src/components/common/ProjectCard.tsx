@@ -3,6 +3,7 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { routePath } from '../../site';
 import {
   renderTechStack,
   createVariantRenderer,
@@ -101,7 +102,7 @@ const ProjectActions = ({
 
 // Variant renderers as pure functions
 const CompactProjectCard = ({ project }: { project: Project }) => {
-  const projectUrl = project.url || `/projects/${project.slug}`;
+  const projectUrl = project.url || routePath(`/projects/${project.slug}`);
   const techStack = project.techStack || project.technologies || [];
 
   return (
@@ -122,7 +123,7 @@ const CompactProjectCard = ({ project }: { project: Project }) => {
 };
 
 const FeaturedProjectCard = ({ project }: { project: Project }) => {
-  const projectUrl = project.url || `/projects/${project.slug}`;
+  const projectUrl = project.url || routePath(`/projects/${project.slug}`);
   const techStack = project.techStack || project.technologies || [];
 
   return (
@@ -162,7 +163,7 @@ const FeaturedProjectCard = ({ project }: { project: Project }) => {
 };
 
 const DefaultProjectCard = ({ project }: { project: Project }) => {
-  const projectUrl = project.url || `/projects/${project.slug}`;
+  const projectUrl = project.url || routePath(`/projects/${project.slug}`);
   const techStack = project.techStack || project.technologies || [];
 
   return (

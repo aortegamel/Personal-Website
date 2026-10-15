@@ -35,7 +35,7 @@ export function NotFoundPage() {
             </div>
 
             {/* Navigation Options */}
-            <div className="grid gap-4 sm:grid-cols-3 mb-8">
+            <div className="grid gap-4 sm:grid-cols-4 mb-8">
               <Link
                 to="/"
                 className="bitcoin-button text-center font-medium"
@@ -43,16 +43,22 @@ export function NotFoundPage() {
                 Home
               </Link>
               <Link
-                to="/projects"
+                to="/projects/"
                 className="abyss-card text-center px-6 py-3 font-medium hover:border-bitcoin-500/50"
               >
                 Projects
               </Link>
               <Link
-                to="/about"
+                to="/about/"
                 className="abyss-card text-center px-6 py-3 font-medium hover:border-bitcoin-500/50"
               >
                 About
+              </Link>
+              <Link
+                to="/blog/"
+                className="abyss-card text-center px-6 py-3 font-medium hover:border-bitcoin-500/50"
+              >
+                Blog
               </Link>
             </div>
 
@@ -60,10 +66,10 @@ export function NotFoundPage() {
             <div className="abyss-section text-left">
               <h3 className="text-lg font-semibold mb-3">Looking for something specific?</h3>
               <p className="text-abyss-300 mb-4">
-                Try searching for projects using the navigation above, or contact me directly if you can't find what you're looking for.
+                Search and filter projects on the Projects page, browse the Blog, or contact me directly if you can't find what you're looking for.
               </p>
               <Link
-                to="/about"
+                to="/about/"
                 className="abyss-link"
               >
                 Get in touch →

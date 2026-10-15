@@ -3,19 +3,14 @@ import { useEffect, useState } from 'react';
 import { ProjectCard } from '../components/common/ProjectCard';
 import { getAllProjects } from '../lib/content';
 import type { ContentMeta } from '../types/content';
-import ParticleButton from '../components/ParticleButton';
 import { AbyssOrb } from '../components/AbyssOrb';
 import { ParticleCTA } from '../components/ui/particle-cta';
-import { Seo } from '../components/Seo';
+import { Seo, pageJsonLd } from '../components/Seo';
 import { site } from '../site';
 
-const HOME_JSONLD = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
+const HOME_JSONLD = pageJsonLd('WebSite', `${site.name} | Portfolio`, site.description, '/', {
   name: `${site.name} | Portfolio`,
-  description: site.description,
-  author: { '@type': 'Person', name: site.name },
-};
+});
 
 export function HomePage() {
   const [projects, setProjects] = useState<ContentMeta[]>([]);
@@ -63,12 +58,10 @@ export function HomePage() {
               I&apos;m a software engineer building AI-integrated applications, agent tooling, and data pipelines. Winner of Best Technical Implementation at the Walrus Haulout Hackathon 2025, I ship full-stack fast and ground AI output in verifiable data.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <ParticleButton className="bitcoin-button-magnetic">
-                <Link to="/projects">
-                  Explore All Projects
-                </Link>
-              </ParticleButton>
-              <Link to="/about" className="abyss-button inline-block">
+              <Link to="/projects/" className="bitcoin-button-magnetic inline-block">
+                Explore All Projects
+              </Link>
+              <Link to="/about/" className="abyss-button inline-block">
                 Learn More About Me
               </Link>
             </div>
@@ -97,7 +90,6 @@ export function HomePage() {
                       ...projects[0],
                       name: projects[0].title,
                       techStack: projects[0].tags,
-                      url: `/projects/${projects[0].slug}`
                     }}
                     variant="featured"
                   />
@@ -122,7 +114,6 @@ export function HomePage() {
                             ...project,
                             name: project.title,
                             techStack: project.tags,
-                            url: `/projects/${project.slug}`
                           }}
                         />
                       </div>
@@ -135,7 +126,7 @@ export function HomePage() {
             {projects.length > 4 && (
               <div className="text-center mt-12">
                 <Link
-                  to="/projects"
+                  to="/projects/"
                   className="bitcoin-button inline-flex items-center gap-2 text-lg"
                 >
                   <span>View All Projects</span>

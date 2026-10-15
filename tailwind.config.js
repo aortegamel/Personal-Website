@@ -235,15 +235,6 @@ module.exports = {
                 color: theme('colors.bitcoin.600'),
               },
             },
-            h1: {
-              color: theme('colors.abyss.800'),
-            },
-            h2: {
-              color: theme('colors.abyss.700'),
-            },
-            h3: {
-              color: theme('colors.abyss.600'),
-            },
           },
         },
       }),

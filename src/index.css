@@ -26,6 +26,11 @@ body {
   background-color: #0a2342;
 }
 
+/* Static and React content share wrapping without changing code-fence whitespace. */
+main {
+  overflow-wrap: anywhere;
+}
+
 /* Prevent body scrolling when mobile menu is open */
 html[data-mobile-menu-open="true"] body {
   overflow: hidden;
@@ -153,10 +158,6 @@ html[data-mobile-menu-open="true"] body {
     transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .bitcoin-button-magnetic a {
-    @apply relative z-20 text-deepSea-abyss no-underline;
-  }
-
   .abyss-button {
     @apply bg-deepSea-shallow hover:bg-deepSea-middle text-white font-medium px-4 py-2 rounded-lg transition-all duration-300;
     background: var(--gradient-btn-primary);
@@ -646,4 +647,15 @@ html[data-mobile-menu-open="true"] body {
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-size: 0.875rem;
+}
+
+/* Entry effects start hidden or offset. Show content at rest instead. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .stagger-in > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

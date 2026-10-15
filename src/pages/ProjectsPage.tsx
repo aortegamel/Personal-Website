@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import type { ContentMeta } from '../types/content'
 import { getAllProjects } from '../lib/content'
 import { formatDate } from '../lib/utils'
-import { Seo } from '../components/Seo'
-import { site } from '../site'
+import { Seo, pageJsonLd } from '../components/Seo'
+import { routePath, site } from '../site'
 import { ParticleCTA } from '../components/ui/particle-cta'
 
 const TITLE = `Projects | ${site.name}`
 const DESCRIPTION = `All ${site.tagline} by ${site.name}.`
+const JSONLD = pageJsonLd('CollectionPage', TITLE, DESCRIPTION, '/projects')
 
 export function ProjectsPage() {
   const [projects, setProjects] = useState<ContentMeta[]>([])
@@ -78,13 +79,7 @@ export function ProjectsPage() {
         title={TITLE}
         description={DESCRIPTION}
         path="/projects"
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'CollectionPage',
-          headline: TITLE,
-          description: DESCRIPTION,
-          author: { '@type': 'Person', name: site.name },
-        }}
+        jsonLd={JSONLD}
       />
       <ParticleCTA className="rounded-2xl">
         <div className="py-4">
@@ -125,6 +120,8 @@ export function ProjectsPage() {
                 {allTags.map((tag) => (
                   <button
                     key={tag}
+                    type="button"
+                    aria-pressed={selectedTag === tag}
                     onClick={() => setSelectedTag(selectedTag === tag ? '' : tag)}
                     className={`px-3 py-1 rounded-full text-sm transition-all duration-300 ${selectedTag === tag
                       ? 'bg-bitcoin-500 text-deepSea-abyss shadow-bitcoin'
@@ -166,7 +163,7 @@ export function ProjectsPage() {
                   <div className="abyss-card h-full">
                     <h2 className="text-2xl font-semibold mb-3">
                       <Link
-                        to={`/projects/${project.slug}`}
+                        to={routePath(`/projects/${project.slug}`)}
                         className="link-morph"
                       >
                         {project.title}
@@ -221,7 +218,7 @@ export function ProjectsPage() {
                           </a>
                         )}
                         <Link
-                          to={`/projects/${project.slug}`}
+                          to={routePath(`/projects/${project.slug}`)}
                           className="abyss-button"
                         >
                           View Details

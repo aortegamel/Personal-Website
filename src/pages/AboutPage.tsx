@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import { Seo } from '../components/Seo'
+import { Seo, pageJsonLd } from '../components/Seo'
 import { site } from '../site'
 import { ParticleCTA } from '../components/ui/particle-cta'
+
+const ABOUT_DESCRIPTION = 'Software engineer building AI-integrated applications, agent tooling, and data pipelines.'
+const ABOUT_JSONLD = pageJsonLd('AboutPage', `About | ${site.name}`, ABOUT_DESCRIPTION, '/about')
 
 export function AboutPage() {
   const [activeSection, setActiveSection] = useState('about')
@@ -16,15 +19,9 @@ export function AboutPage() {
     <div className="container mx-auto px-4 py-16">
       <Seo
         title={`About | ${site.name}`}
-        description="Software engineer building AI-integrated applications, agent tooling, and data pipelines."
+        description={ABOUT_DESCRIPTION}
         path="/about"
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'AboutPage',
-          headline: `About | ${site.name}`,
-          description: 'Software engineer building AI-integrated applications, agent tooling, and data pipelines.',
-          author: { '@type': 'Person', name: site.name },
-        }}
+        jsonLd={ABOUT_JSONLD}
       />
       <ParticleCTA className="rounded-2xl">
         <div className="py-4">
@@ -32,7 +29,7 @@ export function AboutPage() {
             {/* Header */}
             <div className="text-center mb-16">
               <h1 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-bitcoin-400 via-bitcoin-300 to-abyss-400 bg-clip-text text-transparent">
-                About {site.shortName}
+                About {site.name}
               </h1>
               <p className="text-xl text-abyss-200 max-w-2xl mx-auto">
                 Software engineer building AI-integrated applications, agent tooling, and data pipelines.
@@ -45,6 +42,8 @@ export function AboutPage() {
                 {Object.entries(sections).map(([key, label]) => (
                   <button
                     key={key}
+                    type="button"
+                    aria-pressed={activeSection === key}
                     onClick={() => setActiveSection(key)}
                     className={`px-6 py-2 rounded-md transition-all duration-300 ${activeSection === key
                       ? 'bg-bitcoin-500 text-deepSea-abyss shadow-bitcoin'

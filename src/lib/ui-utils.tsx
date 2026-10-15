@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // Badge component (simple implementation for now)
 const Badge = ({ children, variant = 'default', className = '' }: {
@@ -83,42 +82,6 @@ export const renderTechStack = (
       {showLabel && <span className="text-sm text-gray-600 dark:text-gray-400">Tech:</span>}
       {renderBadges(techStack, variant, limit, className)}
     </div>
-  );
-};
-
-// Pure function to render categories with links
-export const renderCategories = (
-  categories: string[],
-  options: {
-    limit?: number;
-    className?: string;
-    linkPrefix?: string;
-  } = {}
-) => {
-  const { limit, className, linkPrefix = '/categories' } = options;
-  const { displayed, moreText } = limit
-    ? truncateList(categories, limit)
-    : { displayed: categories, moreText: undefined };
-
-  return (
-    <>
-      {displayed.map((category) => (
-        <Link
-          key={category}
-          to={`${linkPrefix}/${category.toLowerCase()}`}
-          className="inline-block"
-        >
-          <Badge variant="category" className={className}>
-            {category}
-          </Badge>
-        </Link>
-      ))}
-      {moreText && (
-        <Badge variant="category" className={className}>
-          {moreText}
-        </Badge>
-      )}
-    </>
   );
 };
 

@@ -28,3 +28,6 @@ node_modules
 .cache/
 *.tsbuildinfo
 .eslintcache
+
+# Cloudflare local preview state
+.wrangler/

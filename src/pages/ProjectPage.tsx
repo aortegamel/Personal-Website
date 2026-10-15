@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getProject } from '../lib/content'
 import { formatDate } from '../lib/utils'
 import { mdToHtml } from '../lib/markdown'
 import type { Project } from '../types/content'
-import { Seo } from '../components/Seo'
+import { Seo, pageJsonLd } from '../components/Seo'
 import { site } from '../site'
 import { ParticleCTA } from '../components/ui/particle-cta'
+import { NotFoundPage } from './NotFoundPage'
 
 export function ProjectPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -14,6 +15,7 @@ export function ProjectPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    setLoading(true)
     getProject(slug ?? '').then((p) => {
       setProject(p)
       setLoading(false)
@@ -36,9 +38,9 @@ export function ProjectPage() {
     )
   }
 
-  if (!project) {
-    return <Navigate to="/404" replace />
-  }
+  // Unknown slugs render the 404 page in place, matching the static
+  // 404.html for this URL, instead of redirecting to /404/.
+  if (!project) return <NotFoundPage />
 
   const title = `${project.title} | ${site.name}`
   const path = `/projects/${project.slug}`
@@ -49,22 +51,17 @@ export function ProjectPage() {
         title={title}
         description={project.description}
         path={path}
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'CreativeWork',
-          headline: project.title,
-          description: project.description,
-          datePublished: project.date,
-          author: { '@type': 'Person', name: site.name },
-          keywords: project.tags.join(', '),
-        }}
+        jsonLd={pageJsonLd('CreativeWork', project.title, project.description, path, {
+          ...(project.date ? { datePublished: project.date } : {}),
+          ...(project.tags.length ? { keywords: project.tags.join(', ') } : {}),
+        })}
       />
       <ParticleCTA className="rounded-2xl">
         <div className="py-4">
           <div className="max-w-4xl mx-auto">
             <nav className="mb-8" aria-label="Breadcrumb">
               <Link
-                to="/projects"
+                to="/projects/"
                 className="abyss-link inline-flex items-center"
               >
                 ← Back to Projects
@@ -160,7 +157,7 @@ export function ProjectPage() {
                     </a>
                   )}
                   <Link
-                    to="/projects"
+                    to="/projects/"
                     className="abyss-link text-sm"
                   >
                     View all projects →

@@ -1,12 +1,14 @@
+// Published blog post. Frontmatter schema: see parsePost in lib/content-source.ts.
 export interface Post {
   slug: string
   title: string
   description: string
+  /** Publication date, YYYY-MM-DD. */
   date: string
-  category: string
+  /** Last update date, YYYY-MM-DD. */
+  updated?: string
   tags: string[]
   content: string
-  featured?: boolean
 }
 
 export interface Project {

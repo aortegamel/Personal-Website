@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, type ReactNode } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Header } from './Header'
 import { Footer } from './Footer'
@@ -9,7 +9,13 @@ interface LayoutProps {
 }
 
 export function Layout({ children }: LayoutProps) {
-  const { key } = useLocation()
+  const { key, pathname } = useLocation()
+
+  // A new page starts at the top. Layout effects run before paint, so the
+  // new page never flashes at the previous scroll offset.
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   useEffect(() => {
     if (
