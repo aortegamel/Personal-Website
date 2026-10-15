@@ -1,13 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
     extend: {
       colors: {
+        // Sonar Protocol design tokens
+        sonar: {
+          abyss: '#0A172A',
+          deep: '#092E4D',
+          blue: '#0E4B6F',
+          signal: '#1AA4D9',
+          highlight: '#74E4FF',
+          'highlight-bright': '#B8F0FF',
+          coral: '#FF6B4A',
+        },
         // Deep blue abyss sea colors
         abyss: {
           50: '#e6f1ff',
@@ -44,7 +54,7 @@ module.exports = {
           deep: '#023e73',
           abyss: '#001f3f',
         },
-        // Surface colors with opacity (adapted from nyxusd)
+        // Surface colors with opacity
         surface: {
           50: '#0a2342',
           100: '#084887',
@@ -64,23 +74,6 @@ module.exports = {
           blue: '#0073e6',
           emerald: '#10b981',
         },
-        // Cyberpunk color palette
-        cyber: {
-          black: '#0D0D1A',
-          dark: '#1A1A2E',
-          darker: '#16213E',
-          ui: '#2A4D56',
-          cyan: '#00FFFF',
-          magenta: '#FF00FF',
-          green: '#00FF41',
-          orange: '#FF6600',
-          text: {
-            primary: '#E0E0E0',
-            secondary: '#B0B0B0',
-            tertiary: '#808080',
-            muted: '#606060',
-          },
-        },
       },
       // Custom spacing
       spacing: {
@@ -94,16 +87,15 @@ module.exports = {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular'],
         display: ['Poppins', 'Inter', 'ui-sans-serif'],
-        // Cyberpunk fonts
-        'cyber-heading': ['var(--font-orbitron)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-        'cyber-body': ['var(--font-roboto-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-        'cyber-display': ['var(--font-orbitron)', 'Inter', 'ui-sans-serif', 'system-ui'],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
         '3xl': ['1.953rem', { lineHeight: '2.25rem' }],
         '4xl': ['2.441rem', { lineHeight: '2.75rem' }],
         '5xl': ['3.052rem', { lineHeight: '3.25rem' }],
+      },
+      letterSpacing: {
+        radar: '0.2em',
       },
       // Custom animations
       animation: {
@@ -121,12 +113,6 @@ module.exports = {
         'slide-in-down': 'slideInDown 0.5s ease-out',
         'slide-in-left': 'slideInLeft 0.5s ease-out',
         'slide-in-right': 'slideInRight 0.5s ease-out',
-        // Cyberpunk animations
-        'cyber-glow': 'cyberGlow 2s ease-in-out infinite alternate',
-        'cyber-flicker': 'cyberFlicker 0.15s infinite linear',
-        'cyber-scan': 'cyberScan 2s linear infinite',
-        'cyber-glitch': 'cyberGlitch 0.3s ease-in-out infinite',
-        'cyber-pulse': 'cyberPulse 1.5s ease-in-out infinite',
       },
       keyframes: {
         'gradient-x': {
@@ -191,47 +177,6 @@ module.exports = {
           '0%': { transform: 'translateX(100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
-        // Cyberpunk keyframes
-        cyberGlow: {
-          '0%': { 
-            textShadow: '0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF',
-            boxShadow: '0 0 5px #00FFFF'
-          },
-          '100%': { 
-            textShadow: '0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF',
-            boxShadow: '0 0 20px #00FFFF'
-          },
-        },
-        cyberFlicker: {
-          '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
-            opacity: '1',
-          },
-          '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
-            opacity: '0.4',
-          },
-        },
-        cyberScan: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(100vh)' },
-        },
-        cyberGlitch: {
-          '0%': { transform: 'translate(0)' },
-          '20%': { transform: 'translate(-2px, 2px)' },
-          '40%': { transform: 'translate(-2px, -2px)' },
-          '60%': { transform: 'translate(2px, 2px)' },
-          '80%': { transform: 'translate(2px, -2px)' },
-          '100%': { transform: 'translate(0)' },
-        },
-        cyberPulse: {
-          '0%, 100%': { 
-            opacity: '1',
-            transform: 'scale(1)' 
-          },
-          '50%': { 
-            opacity: '0.7',
-            transform: 'scale(1.05)' 
-          },
-        },
       },
       backgroundImage: {
         'abyss-gradient': 'linear-gradient(to bottom, var(--tw-colors-deepSea-surface), var(--tw-colors-deepSea-abyss))',
@@ -245,10 +190,13 @@ module.exports = {
       // Enhanced backdrop blur
       backdropBlur: {
         xs: '2px',
+        sonar: '24px',
         '3xl': '64px',
         '4xl': '128px',
       },
       boxShadow: {
+        sonar: '0 0 30px rgba(26, 164, 217, 0.35)',
+        'sonar-lg': '0 0 60px rgba(26, 164, 217, 0.5)',
         'bitcoin': '0 0 15px rgba(255, 195, 0, 0.5)',
         'bitcoin-lg': '0 0 25px rgba(255, 195, 0, 0.7)',
         abyss: '0 4px 6px -1px rgba(0, 31, 63, 0.3), 0 2px 4px -1px rgba(0, 31, 63, 0.2)',
@@ -260,6 +208,7 @@ module.exports = {
       },
       // Border radius variations
       borderRadius: {
+        sonar: '18px',
         '4xl': '2rem',
         '5xl': '2.5rem',
       },
@@ -286,15 +235,6 @@ module.exports = {
                 color: theme('colors.bitcoin.600'),
               },
             },
-            h1: {
-              color: theme('colors.abyss.800'),
-            },
-            h2: {
-              color: theme('colors.abyss.700'),
-            },
-            h3: {
-              color: theme('colors.abyss.600'),
-            },
           },
         },
       }),
@@ -302,7 +242,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    function ({ addUtilities, addComponents, theme }) {
+    function({ addUtilities, addComponents, theme }) {
       const newUtilities = {
         // Gradient text utilities
         '.text-gradient-abyss': {
@@ -322,32 +262,6 @@ module.exports = {
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
           'background-clip': 'text',
-        },
-        // Cyberpunk gradient text utilities
-        '.text-gradient-cyber': {
-          background: 'linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%)',
-          '-webkit-background-clip': 'text',
-          '-webkit-text-fill-color': 'transparent',
-          'background-clip': 'text',
-        },
-        '.text-gradient-cyber-alt': {
-          background: 'linear-gradient(135deg, #00FF41 0%, #00FFFF 100%)',
-          '-webkit-background-clip': 'text',
-          '-webkit-text-fill-color': 'transparent',
-          'background-clip': 'text',
-        },
-        // Cyberpunk glow utilities
-        '.glow-cyber-cyan': {
-          'box-shadow': '0 0 20px rgba(0, 255, 255, 0.4)',
-          'text-shadow': '0 0 5px rgba(0, 255, 255, 0.8), 0 0 10px rgba(0, 255, 255, 0.6)',
-        },
-        '.glow-cyber-magenta': {
-          'box-shadow': '0 0 20px rgba(255, 0, 255, 0.4)',
-          'text-shadow': '0 0 5px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.6)',
-        },
-        '.glow-cyber-green': {
-          'box-shadow': '0 0 20px rgba(0, 255, 65, 0.4)',
-          'text-shadow': '0 0 5px rgba(0, 255, 65, 0.8), 0 0 10px rgba(0, 255, 65, 0.6)',
         },
         // Glass morphism utilities
         '.glass': {

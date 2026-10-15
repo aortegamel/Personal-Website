@@ -1,46 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "ES2022.Intl", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client", "node"],
     "baseUrl": ".",
     "paths": {
-      "contentlayer/generated": [
-        "./.contentlayer/generated"
-      ],
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "strictNullChecks": true
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".contentlayer/generated"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "scripts", "vite.config.ts"]
 }

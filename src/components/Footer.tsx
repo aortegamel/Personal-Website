@@ -1,33 +1,37 @@
-import Link from 'next/link';
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { site } from '../site'
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
+export function Footer() {
   return (
-    <footer className="bg-gray-100 py-8 mt-12 border-t border-gray-200">
-      <div className="container mx-auto px-4">
-        <p className="text-center text-gray-600">
-          &copy; {currentYear} Angel Ortega-Melton. All rights reserved.
-        </p>
-        <div className="flex justify-center mt-4">
-          <Link 
-            href="https://github.com/Angel Ortega-Melton" 
-            target="_blank" 
-            className="text-blue-600 hover:text-blue-800 mx-2"
-          >
-            GitHub
-          </Link>
-          <span className="text-gray-400">|</span>
-          <Link 
-            href="mailto:arainey555@gmail.com" 
-            className="text-blue-600 hover:text-blue-800 mx-2"
-          >
-            Email
-          </Link>
+    <footer className="border-t border-gray-800/50 bg-deepSea-surface/50 backdrop-blur-sm mt-20">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-sm text-gray-400 mb-4 md:mb-0">
+            © {new Date().getFullYear()} {site.name}
+          </div>
+
+          <div className="flex space-x-4">
+            <a
+              href={site.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-bitcoin-500 transition-colors"
+              aria-label="GitHub"
+            >
+              <FaGithub className="h-5 w-5" />
+            </a>
+            <a
+              href={site.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-bitcoin-500 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
