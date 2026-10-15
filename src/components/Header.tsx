@@ -1,102 +1,112 @@
-'use client';
+import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { cn } from '../lib/utils'
+import { routePath, site } from '../site'
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Blog', href: '/blog' },
+]
 
-const Header = () => {
-  const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+export function Header() {
+  const location = useLocation()
+  // The menu belongs to the location where it opened. Any navigation
+  // (nav link, logo, Back, Forward) creates a new key and closes it.
+  const [openKey, setOpenKey] = useState<string | null>(null)
+  const open = openKey === location.key
+  const menuButton = useRef<HTMLButtonElement>(null)
 
-  // Use CSS to handle body scroll locking through data attribute
   useEffect(() => {
-    document.documentElement.setAttribute('data-mobile-menu-open', String(isMobileMenuOpen));
-    return () => {
-      document.documentElement.removeAttribute('data-mobile-menu-open');
-    };
-  }, [isMobileMenuOpen]);
+    if (!open) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      setOpenKey(null)
+      menuButton.current?.focus()
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [open])
 
-  const isActive = (path: string) => {
-    return pathname === path ? 'bg-blue-700' : '';
-  };
-
-  const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(prev => !prev);
-  }, []);
-
-  const closeMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(false);
-  }, []);
-
-  const navLinks = useMemo(() => [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/posts', label: 'Articles' },
-    { href: '/categories', label: 'Categories' },
-    { href: '/search', label: 'Search' }
-  ], []);
+  // Cloudflare redirects /about to /about/, so the pathname can carry a
+  // trailing slash. Strip it before comparing against the plain nav paths.
+  const pathname =
+    location.pathname !== '/' && location.pathname.endsWith('/')
+      ? location.pathname.slice(0, -1)
+      : location.pathname
+  // Exact match is the current page. A nested path (/blog/post) keeps its
+  // section highlighted and marks the section link aria-current="true".
+  const current = (href: string): 'page' | 'true' | undefined =>
+    pathname === href
+      ? 'page'
+      : href !== '/' && pathname.startsWith(`${href}/`)
+        ? 'true'
+        : undefined
 
   return (
-    <header className="bg-blue-600 text-white py-4">
+    <header className="sticky top-0 z-50 w-full bg-[#0a2342]/80 backdrop-blur-lg border-b border-gray-800/50">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex w-full justify-between items-center">
-            <h1 className="text-2xl font-bold">
-              <Link href="/" className="hover:text-blue-200">
-                Angel Ortega-Melton&apos;s Portfolio
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="font-bold text-xl text-bitcoin-500">
+            {site.name}
+          </Link>
+
+          <nav className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={routePath(item.href)}
+                aria-current={current(item.href)}
+                className={cn(
+                  "text-sm font-medium transition-colors relative",
+                  current(item.href)
+                    ? "text-bitcoin-500"
+                    : "text-gray-300 hover:text-white"
+                )}
+              >
+                {item.name}
+                {current(item.href) && (
+                  <span className="absolute -bottom-[1.25rem] left-0 right-0 h-[2px] bg-bitcoin-500" />
+                )}
               </Link>
-            </h1>
-
-            {/* Hamburger Menu Button */}
-            <button
-              aria-label="Menu"
-              className="md:hidden z-50 relative"
-              onClick={toggleMobileMenu}
-            >
-              <div className="space-y-2">
-                <div className={`w-6 h-0.5 bg-white transition transform ${isMobileMenuOpen ? 'rotate-45 translate-y-2.5' : ''}`}></div>
-                <div className={`w-6 h-0.5 bg-white transition ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`w-6 h-0.5 bg-white transition transform ${isMobileMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></div>
-              </div>
-            </button>
-          </div>
-
-          <nav
-            className={`
-              ${isMobileMenuOpen ? 'block' : 'hidden'}
-              md:block
-              fixed md:static
-              top-0 left-0 w-full md:w-auto
-              bg-blue-600 md:bg-transparent
-              h-full md:h-auto
-              pt-20 md:pt-0
-              z-40 md:z-auto
-            `}
-          >
-            <ul className="flex flex-col md:flex-row gap-4 items-center">
-              {navLinks.map((link) => (
-                <li key={link.href} className="w-full md:w-auto text-center">
-                  <Link
-                    href={link.href}
-                    className={`
-                      block md:inline-block
-                      px-3 py-2 rounded
-                      hover:bg-blue-700 transition
-                      ${isActive(link.href)}
-                    `}
-                    onClick={closeMobileMenu}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            ))}
           </nav>
+
+          <button ref={menuButton} type="button" className="md:hidden p-2 text-gray-300 hover:text-white" onClick={() => setOpenKey(open ? null : location.key)} aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Close menu' : 'Open menu'}>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+              />
+            </svg>
+          </button>
         </div>
+        <nav id="mobile-nav" className={cn("md:hidden border-t border-gray-800/50 py-4", open ? "flex flex-col space-y-1" : "hidden")}>
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              to={routePath(item.href)}
+              aria-current={current(item.href)}
+              className={cn(
+                "px-2 py-2 text-base font-medium rounded-md",
+                current(item.href)
+                  ? "text-bitcoin-500"
+                  : "text-gray-300 hover:text-white"
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
-  );
-};
-
-export default Header;
+  )
+}
